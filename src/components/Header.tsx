@@ -55,11 +55,15 @@ const Header = () => {
             <img 
               src="/manlogo.png" 
               alt="Maninfini Logo" 
-              className="h-12 w-auto mr-3"
+              className="h-10 sm:h-12 w-auto mr-2 sm:mr-3"
             />
-            <div>
-              <h1 className="text-2xl font-poppins font-bold text-primary">Maninfini</h1>
-              <p className="text-xs text-muted-foreground">Automation Solutions</p>
+            <div className="flex flex-col">
+              <h1 className="text-xl sm:text-2xl font-poppins font-bold text-primary">Maninfini</h1>
+              <div className="flex items-center">
+                <span className="text-xs text-orange-500 mr-1">⭐</span>
+                <p className="text-xs text-muted-foreground hidden sm:block">Trusted Automation Partner Since 2008</p>
+                <p className="text-xs text-muted-foreground sm:hidden">Since 2008</p>
+              </div>
             </div>
           </div>
 
