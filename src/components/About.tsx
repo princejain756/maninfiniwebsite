@@ -14,6 +14,7 @@ import miteshImage from '@/assets/Mitesh CEO.jpg';
 import princeImage from '@/assets/Prince Jain AIO CTO.png';
 import neeravImage from '@/assets/Neerav Deepak Jain COO.jpg';
 import dipakImage from '@/assets/Deepak Jain Mentor.jpg';
+import JaswantCA from '@/assets/JaswantCA.jpg';
 import rambhupalImage from '@/assets/Rambhupal M CFO Qualified CA with 25 years of experience.jpg';
 import vishakhaImage from '@/assets/Vishakha Sisodhiya Cybersecurity.jpg';
 
@@ -59,19 +60,19 @@ const About = () => {
       linkedin: '#'
     },
     {
+      name: 'Jaswanth Raj V Dhariwal',
+      role: 'Accounts & Finance',
+      experience: '20+ years',
+      background: 'F.C.A , DISA',
+      image: JaswantCA,
+      linkedin: '#'
+    },
+    {
       name: 'Rambhupal M',
       role: 'CFO',
       experience: '25+ years',
       background: 'Qualified CA with extensive Financial Management experience',
       image: rambhupalImage,
-      linkedin: '#'
-    },
-    {
-      name: 'Vishakha Sisodhiya',
-      role: 'Cybersecurity Lead',
-      experience: '2+ years',
-      background: 'Information Security & Cyber Risk Management',
-      image: vishakhaImage,
       linkedin: '#'
     }
   ];
