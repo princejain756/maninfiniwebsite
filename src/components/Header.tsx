@@ -52,11 +52,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="bg-gradient-accent text-accent-foreground p-3 rounded-xl shadow-glow mr-3">
-              <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">M</span>
-              </div>
-            </div>
+            <img 
+              src="/manlogo.png" 
+              alt="Maninfini Logo" 
+              className="h-12 w-auto mr-3"
+            />
             <div>
               <h1 className="text-2xl font-poppins font-bold text-primary">Maninfini</h1>
               <p className="text-xs text-muted-foreground">Automation Solutions</p>

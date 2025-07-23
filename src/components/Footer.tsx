@@ -46,7 +46,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-surface-dark text-white">
+    <footer className="bg-gray-900 text-white" style={{ backgroundColor: 'hsl(var(--surface-dark))' }}>
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
         <div className="container mx-auto px-4 py-12">
@@ -55,7 +55,7 @@ const Footer = () => {
               <h3 className="text-2xl font-poppins font-semibold mb-4">
                 Stay Updated with Latest Automation Trends
               </h3>
-              <p className="text-white/80 text-lg">
+              <p className="text-white text-lg">
                 Get exclusive insights, case studies, and automation tips delivered to your inbox monthly.
               </p>
             </div>
@@ -63,7 +63,7 @@ const Footer = () => {
             <div className="flex gap-4">
               <Input 
                 placeholder="Enter your email address"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-300"
               />
               <Button className="btn-gradient px-8">
                 Subscribe
@@ -80,18 +80,18 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-accent text-accent-foreground p-3 rounded-xl shadow-glow mr-3">
-                <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
-                  <span className="text-primary font-bold text-2xl">M</span>
-                </div>
-              </div>
+              <img 
+                src="/manlogo.png" 
+                alt="Maninfini Logo" 
+                className="h-16 w-auto mr-3"
+              />
               <div>
                 <h3 className="text-2xl font-poppins font-bold">Maninfini</h3>
-                <p className="text-sm text-white/70">Automation Solutions</p>
+                <p className="text-sm text-white">Automation Solutions</p>
               </div>
             </div>
             
-            <p className="text-white/80 mb-6 leading-relaxed">
+            <p className="text-white mb-6 leading-relaxed">
               Transforming businesses through innovative automation solutions, 
               custom development, and intelligent systems since 2008.
             </p>
@@ -99,17 +99,25 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent" />
-                <span className="text-white/90">+91 80 4112 5555</span>
+                <div className="text-white">
+                  <div className="text-white">+91 80 4112 5555</div>
+                  <div className="text-white">+91 98450 12345</div>
+                  <div className="text-white">+91 80056 34678</div>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent" />
-                <span className="text-white/90">hello@maninfini.com</span>
+                <div className="text-white">
+                  <div className="text-white">hello@maninfini.com</div>
+                  <div className="text-white">support@maninfini.com</div>
+                </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent mt-1" />
-                <span className="text-white/90">
+                <span className="text-white">
                   Allalasandra, Bengaluru<br />
-                  Karnataka 560065, India
+                  Karnataka 560065, India<br />
+                  12.92° N, 77.58° E
                 </span>
               </div>
             </div>

@@ -191,7 +191,7 @@
 
   /* Interactive Elements */
   .service-card {
-    @apply card-elegant p-8 group cursor-pointer;
+    @apply card-elegant p-8 cursor-pointer;
   }
 
   .service-card:hover .service-icon {

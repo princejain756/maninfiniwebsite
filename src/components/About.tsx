@@ -10,6 +10,12 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import teamImage from '@/assets/team-collaboration.jpg';
+import miteshImage from '@/assets/Mitesh CEO.jpg';
+import princeImage from '@/assets/Prince Jain AIO CTO.png';
+import neeravImage from '@/assets/Neerav Deepak Jain COO.jpg';
+import dipakImage from '@/assets/Deepak Jain Mentor.jpg';
+import rambhupalImage from '@/assets/Rambhupal M CFO Qualified CA with 25 years of experience.jpg';
+import vishakhaImage from '@/assets/Vishakha Sisodhiya Cybersecurity.jpg';
 
 const About = () => {
   const companyStats = [
@@ -21,27 +27,51 @@ const About = () => {
 
   const leadership = [
     {
-      name: 'Mitesh Jain',
-      role: 'Founder & Technical Lead',
+      name: 'Mitesh Narendra Jain',
+      role: 'CEO',
       experience: '16+ years',
       background: 'Ex-Ola Cabs, Full-stack Architecture Expert',
-      image: '/api/placeholder/150/150',
+      image: miteshImage,
       linkedin: '#'
     },
     {
-      name: 'Narendra Mitesh Kumar',
-      role: 'Director of Operations',
-      experience: '12+ years',
+      name: 'Prince Jain',
+      role: 'AIO and CTO',
+      experience: '5+ years',
+      background: 'AI Operations & Technology Leadership',
+      image: princeImage,
+      linkedin: '#'
+    },
+    {
+      name: 'Neerav Deepak Jain',
+      role: 'COO',
+      experience: '3+ years',
       background: 'Business Operations & Strategy',
-      image: '/api/placeholder/150/150',
+      image: neeravImage,
       linkedin: '#'
     },
     {
-      name: 'Santosh Jain Lalchand',
-      role: 'Director of Growth',
-      experience: '14+ years',
-      background: 'Business Development & Client Relations',
-      image: '/api/placeholder/150/150',
+      name: 'Dipak Jain',
+      role: 'Mentor',
+      experience: '20+ years',
+      background: 'Strategic Business Guidance & Industry Expertise',
+      image: dipakImage,
+      linkedin: '#'
+    },
+    {
+      name: 'Rambhupal M',
+      role: 'CFO',
+      experience: '25+ years',
+      background: 'Qualified CA with extensive Financial Management experience',
+      image: rambhupalImage,
+      linkedin: '#'
+    },
+    {
+      name: 'Vishakha Sisodhiya',
+      role: 'Cybersecurity Lead',
+      experience: '2+ years',
+      background: 'Information Security & Cyber Risk Management',
+      image: vishakhaImage,
       linkedin: '#'
     }
   ];
@@ -159,15 +189,19 @@ const About = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {leadership.map((leader, index) => (
               <div 
                 key={index} 
                 className="card-elegant p-8 text-center animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-32 h-32 bg-gradient-primary rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Users className="w-16 h-16 text-white" />
+                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-elegant">
+                  <img 
+                    src={leader.image} 
+                    alt={leader.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 <h4 className="text-xl font-poppins font-semibold text-foreground mb-2">

@@ -79,7 +79,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="service-card animate-fade-in-up"
+              className="service-card group animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-6 service-icon transition-all duration-300`}>
