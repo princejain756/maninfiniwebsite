@@ -161,7 +161,12 @@ const Products = () => {
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button size="lg" variant="outline" className="btn-outline-elegant">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="btn-outline-elegant"
+                onClick={() => window.open('/WhatsappBotVideo.mp4', '_blank')}
+              >
                 See Demo
               </Button>
             </div>

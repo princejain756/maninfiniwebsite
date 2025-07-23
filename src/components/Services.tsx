@@ -56,7 +56,7 @@ const Services = () => {
       description: 'Creative design solutions for branding, marketing, and product packaging',
       features: ['Brand Identity', 'Product Packaging', 'Marketing Materials', 'Digital Assets'],
       color: 'from-pink-500 to-rose-600',
-      portfolio: '/Graphic Design Portfolio.pdf'
+      portfolio: '/Graphic%20Design%20Portfolio.pdf'
     }
   ];
 
