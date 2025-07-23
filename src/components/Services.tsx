@@ -7,7 +7,8 @@ import {
   ArrowRight,
   Zap,
   Shield,
-  Clock
+  Clock,
+  Palette
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -32,7 +33,8 @@ const Services = () => {
       title: 'WhatsApp & Communications',
       description: 'Advanced messaging solutions and cloud communication platforms',
       features: ['WhatsApp Bots', 'Bulk Messaging', 'IVR Systems', 'CRM Integration'],
-      color: 'from-green-500 to-emerald-600'
+      color: 'from-green-500 to-emerald-600',
+      demo: '/WhatsappBotVideo.mp4'
     },
     {
       icon: Users,
@@ -47,6 +49,14 @@ const Services = () => {
       description: 'Complete virtual office setup with professional address and support',
       features: ['Business Address', 'Call Handling', 'Mail Management', 'Meeting Rooms'],
       color: 'from-indigo-500 to-blue-600'
+    },
+    {
+      icon: Palette,
+      title: 'Graphic Design & Packaging',
+      description: 'Creative design solutions for branding, marketing, and product packaging',
+      features: ['Brand Identity', 'Product Packaging', 'Marketing Materials', 'Digital Assets'],
+      color: 'from-pink-500 to-rose-600',
+      portfolio: '/Graphic Design Portfolio.pdf'
     }
   ];
 
@@ -103,8 +113,18 @@ const Services = () => {
                 ))}
               </ul>
               
-              <Button variant="ghost" className="group text-primary hover:text-accent p-0">
-                Learn More
+              <Button 
+                variant="ghost" 
+                className="group text-primary hover:text-accent p-0"
+                onClick={() => {
+                  if (service.portfolio) {
+                    window.open(service.portfolio, '_blank');
+                  } else if (service.demo) {
+                    window.open(service.demo, '_blank');
+                  }
+                }}
+              >
+                {service.portfolio ? 'View Portfolio' : service.demo ? 'Watch Demo' : 'Learn More'}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
