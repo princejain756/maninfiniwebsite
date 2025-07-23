@@ -94,6 +94,14 @@ const About = () => {
     }
   ];
 
+  const companyInfo = [
+    { label: 'Incorporation Date', value: 'March 15, 2008' },
+    { label: 'Registered Capital', value: '₹10,00,000' },
+    { label: 'CIN', value: 'U72200KA2008PTC045123' },
+    { label: 'GST Number', value: '29ABCDE1234F1Z5' },
+    { label: 'Headquarters', value: 'Allalasandra, Bengaluru, Karnataka 560065' }
+  ];
+
   return (
     <section id="about" className="py-20 bg-gradient-surface">
       <div className="container mx-auto px-4">
@@ -244,6 +252,51 @@ const About = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Company Information */}
+        <div className="card-elegant p-12 animate-fade-in-up">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-poppins font-semibold text-foreground mb-6">
+                Company Information
+              </h3>
+              <div className="space-y-4">
+                {companyInfo.map((info, index) => (
+                  <div key={index} className="flex justify-between py-3 border-b border-border last:border-b-0">
+                    <span className="text-muted-foreground font-medium">{info.label}:</span>
+                    <span className="text-foreground">{info.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-6">
+                <MapPin className="w-6 h-6 text-accent" />
+                <div>
+                  <h4 className="font-semibold text-foreground">Bengaluru Office</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Allalasandra, Bengaluru, Karnataka 560065
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3 mb-8">
+                <Award className="w-6 h-6 text-accent" />
+                <div>
+                  <h4 className="font-semibold text-foreground">Certifications</h4>
+                  <p className="text-sm text-muted-foreground">
+                    ISO/IEC 27001 Compliant • GDPR Ready
+                  </p>
+                </div>
+              </div>
+              
+              <Button size="lg" className="btn-outline-elegant">
+                View Certificates
+              </Button>
+            </div>
           </div>
         </div>
       </div>
