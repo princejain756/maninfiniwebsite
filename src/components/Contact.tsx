@@ -117,9 +117,9 @@ const Contact = () => {
   const handleContactAction = (actionType: string) => {
     switch (actionType) {
       case 'Get Directions':
-        window.open(`https://www.google.com/maps?q=12.92,77.58`, '_blank');
+        window.open(`https://www.google.com/maps?q=12.97002,77.58429`, '_blank');
         break;
-      case 'Call Now':
+      case 'Call Now': {
         // Show options for multiple phone numbers
         const phoneNumbers = [
           { label: 'Main Office: +91 80 4112 5555', number: '+918041125555' },
@@ -140,6 +140,7 @@ const Contact = () => {
           }
         }
         break;
+      }
       case 'Send Email':
         window.open('mailto:hello@maninfini.com', '_self');
         break;
@@ -156,7 +157,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Visit Our Office',
-      details: ['Allalasandra, Bengaluru', 'Karnataka 560065, India', '12.92° N, 77.58° E'],
+      details: ['#20, Ground Floor, 12th Cross', 'Cubbonpet, Banappa Park Road', 'Bengaluru - 560002, India', '12.97002° N, 77.58429° E'],
       action: 'Get Directions'
     },
     {
@@ -390,7 +391,7 @@ const Contact = () => {
             {/* Interactive Google Map */}
             <div className="card-elegant p-0 overflow-hidden h-96 relative">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8267!2d77.58!3d12.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU1JzEyLjAiTiA3N8KwMzQnNDguMCJF!5e0!3m2!1sen!2sin!4v1642345678901!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8267!2d77.58429!3d12.97002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzEyLjAiTiA3N8KwMzUnMDQuMCJF!5e0!3m2!1sen!2sin!4v1642345678901!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -404,7 +405,7 @@ const Contact = () => {
                   <MapPin className="w-4 h-4 text-primary" />
                   <div>
                     <p className="text-sm font-semibold text-foreground">Our Bengaluru Office</p>
-                    <p className="text-xs text-muted-foreground">12.92° N, 77.58° E</p>
+                    <p className="text-xs text-muted-foreground">12.97002° N, 77.58429° E</p>
                   </div>
                 </div>
               </div>

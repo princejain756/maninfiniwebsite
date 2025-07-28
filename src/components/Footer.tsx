@@ -115,9 +115,10 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent mt-1" />
                 <span className="text-white">
-                  Allalasandra, Bengaluru<br />
-                  Karnataka 560065, India<br />
-                  12.92° N, 77.58° E
+                  #20, Ground Floor, 12th Cross<br />
+                  Cubbonpet, Banappa Park Road<br />
+                  Bengaluru - 560002, India<br />
+                  12.97002° N, 77.58429° E
                 </span>
               </div>
             </div>

@@ -100,7 +100,7 @@ const About = () => {
     { label: 'Registered Capital', value: '₹10,00,000' },
     { label: 'CIN', value: 'U72200KA2008PTC045123' },
     { label: 'GST Number', value: '29ABCDE1234F1Z5' },
-    { label: 'Headquarters', value: 'Allalasandra, Bengaluru, Karnataka 560065' }
+    { label: 'Headquarters', value: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002' }
   ];
 
   return (
@@ -279,7 +279,7 @@ const About = () => {
                 <div>
                   <h4 className="font-semibold text-foreground">Bengaluru Office</h4>
                   <p className="text-sm text-muted-foreground">
-                    Allalasandra, Bengaluru, Karnataka 560065
+                    #20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002
                   </p>
                 </div>
               </div>
