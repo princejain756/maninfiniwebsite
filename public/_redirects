@@ -1,0 +1,21 @@
+# SPA Routing - Redirect all routes to index.html except for static assets
+/*    /index.html   200
+
+# Specific redirects for better SEO
+/blog    /index.html   200
+/blog/*  /index.html   200
+/privacy-policy    /index.html   200
+/terms-of-service    /index.html   200
+
+# Redirect old URLs to new ones (if any)
+/blogs    /blog   301
+/articles    /blog   301
+/news    /blog   301
+
+# Security headers
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=() 

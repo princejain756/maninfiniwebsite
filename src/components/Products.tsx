@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import inventoryImage from '@/assets/inventory-software.jpg';
+import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Products = () => {
   const inventoryFeatures = [
@@ -50,6 +51,55 @@ const Products = () => {
       recommended: false
     }
   ];
+
+  const handleRequestDemo = (product: string) => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      `Hello! I would like to request a demo of your ${product}. Please provide scheduling options and demo details.`
+    );
+  };
+
+  const handleViewFeatures = (product: string) => {
+    websiteActions.sendEmail(
+      contactInfo.email,
+      `${product} Features Request`,
+      `Hello,\n\nI would like to know more about the features of your ${product}.\n\nPlease provide:\n- Detailed feature list\n- Technical specifications\n- Integration capabilities\n- Pricing information\n\nThank you!`
+    );
+  };
+
+  const handleStartTrial = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to start a free trial of your WhatsApp Chatbot Engine. Please provide trial access and setup instructions.'
+    );
+  };
+
+  const handleSeeDemo = () => {
+    websiteActions.openExternalLink('/WhatsappBotVideo.mp4', true);
+  };
+
+  const handleGetStarted = (planName: string) => {
+    if (planName === 'Enterprise') {
+      websiteActions.sendEmail(
+        contactInfo.email,
+        'Enterprise Plan Inquiry',
+        `Hello,\n\nI'm interested in your Enterprise plan for inventory management.\n\nPlease provide:\n- Custom pricing\n- Implementation timeline\n- Dedicated support details\n- White-label options\n\nThank you!`
+      );
+    } else {
+      websiteActions.openWhatsApp(
+        contactInfo.salesPhone,
+        `Hello! I would like to get started with the ${planName} plan. Please provide setup instructions and payment details.`
+      );
+    }
+  };
+
+  const handleContactSales = () => {
+    websiteActions.sendEmail(
+      contactInfo.email,
+      'Sales Inquiry - Enterprise Plan',
+      `Hello,\n\nI'm interested in your Enterprise plan.\n\nPlease provide:\n- Custom pricing\n- Implementation timeline\n- Dedicated support details\n- White-label options\n- Technical requirements\n\nThank you!`
+    );
+  };
 
   return (
     <section id="products" className="py-20 bg-background">
@@ -103,11 +153,20 @@ const Products = () => {
             </div>
             
             <div className="flex gap-4">
-              <Button size="lg" className="btn-gradient">
+              <Button 
+                size="lg" 
+                className="btn-gradient"
+                onClick={() => handleRequestDemo('Inventory Management Software')}
+              >
                 Request Demo
                 <Play className="ml-2 w-5 h-5" />
               </Button>
-              <Button size="lg" variant="outline" className="btn-outline-elegant">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="btn-outline-elegant"
+                onClick={() => handleViewFeatures('Inventory Management Software')}
+              >
                 View Features
               </Button>
             </div>
@@ -157,7 +216,11 @@ const Products = () => {
             </div>
             
             <div className="flex gap-4">
-              <Button size="lg" className="btn-gradient">
+              <Button 
+                size="lg" 
+                className="btn-gradient"
+                onClick={handleStartTrial}
+              >
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -165,7 +228,7 @@ const Products = () => {
                 size="lg" 
                 variant="outline" 
                 className="btn-outline-elegant"
-                onClick={() => window.open('/WhatsappBotVideo.mp4', '_blank')}
+                onClick={handleSeeDemo}
               >
                 See Demo
               </Button>
@@ -253,6 +316,7 @@ const Products = () => {
               <Button 
                 className={plan.recommended ? 'btn-gradient w-full' : 'btn-outline-elegant w-full'}
                 size="lg"
+                onClick={() => plan.name === 'Enterprise' ? handleContactSales() : handleGetStarted(plan.name)}
               >
                 {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
               </Button>

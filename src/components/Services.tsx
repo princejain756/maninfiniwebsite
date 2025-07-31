@@ -11,6 +11,7 @@ import {
   Palette
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Services = () => {
   const services = [
@@ -66,6 +67,27 @@ const Services = () => {
     { icon: Clock, title: 'Timely Delivery', description: 'Agile delivery with regular updates' }
   ];
 
+  const handleServiceAction = (service: any) => {
+    if (service.portfolio) {
+      websiteActions.downloadFile(service.portfolio, `${service.title} Portfolio`);
+    } else if (service.demo) {
+      websiteActions.openExternalLink(service.demo, true);
+    } else {
+      // Default action - open WhatsApp for consultation
+      websiteActions.openWhatsApp(
+        contactInfo.salesPhone,
+        `Hello! I'm interested in your ${service.title} service. Please provide more information about pricing, features, and implementation timeline.`
+      );
+    }
+  };
+
+  const handleStartProject = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to start a project with Maninfini. Please provide information about project requirements, timeline, and next steps.'
+    );
+  };
+
   return (
     <section id="services" className="py-20 bg-gradient-surface">
       <div className="container mx-auto px-4">
@@ -116,13 +138,7 @@ const Services = () => {
               <Button 
                 variant="ghost" 
                 className="group text-primary hover:text-accent p-0"
-                onClick={() => {
-                  if (service.portfolio) {
-                    window.open(service.portfolio, '_blank');
-                  } else if (service.demo) {
-                    window.open(service.demo, '_blank');
-                  }
-                }}
+                onClick={() => handleServiceAction(service)}
               >
                 {service.portfolio ? 'View Portfolio' : service.demo ? 'Watch Demo' : 'Learn More'}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -157,7 +173,11 @@ const Services = () => {
           </div>
           
           <div className="mt-12">
-            <Button size="lg" className="btn-gradient">
+            <Button 
+              size="lg" 
+              className="btn-gradient"
+              onClick={handleStartProject}
+            >
               Start Your Project Today
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>

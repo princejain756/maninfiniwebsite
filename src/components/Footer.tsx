@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Footer = () => {
   const quickLinks = [
@@ -20,7 +21,7 @@ const Footer = () => {
     { label: 'Products', href: '#products' },
     { label: 'About Us', href: '#about' },
     { label: 'Contact', href: '#contact' },
-    { label: 'Blog', href: '#blog' }
+    { label: 'Blog', href: '/blog' }
   ];
 
   const services = [
@@ -33,17 +34,34 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Terms of Service', href: '#terms' },
-    { label: 'Cookie Policy', href: '#cookies' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms of Service', href: '/terms-of-service' },
+    { label: 'Cookie Policy', href: '/cookie-policy' },
     { label: 'GDPR Compliance', href: '#gdpr' }
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/maninfini-automation?originalSubdomain=in', label: 'LinkedIn' },
     { icon: Twitter, href: '#', label: 'Twitter' },
     { icon: Facebook, href: '#', label: 'Facebook' }
   ];
+
+  const handleSubscribe = () => {
+    websiteActions.sendEmail(
+      contactInfo.email,
+      'Newsletter Subscription',
+      'Hello,\n\nI would like to subscribe to your newsletter for automation insights and updates.\n\nPlease add me to your mailing list.\n\nThank you!'
+    );
+  };
+
+  const handleQuickLink = (href: string) => {
+    if (href.startsWith('#')) {
+      websiteActions.scrollToSection(href.substring(1));
+    } else if (href.startsWith('/')) {
+      // Handle internal navigation
+      window.location.href = href;
+    }
+  };
 
   return (
     <footer className="bg-gray-900 text-white" style={{ backgroundColor: 'hsl(var(--surface-dark))' }}>
@@ -65,7 +83,10 @@ const Footer = () => {
                 placeholder="Enter your email address"
                 className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-300"
               />
-              <Button className="btn-gradient px-8">
+              <Button 
+                className="btn-gradient px-8"
+                onClick={handleSubscribe}
+              >
                 Subscribe
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -130,12 +151,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-white/80 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block"
+                  <button 
+                    onClick={() => handleQuickLink(link.href)}
+                    className="text-white/80 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block text-left"
                   >
                     {link.label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -147,13 +168,13 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a 
-                    href={service.href}
-                    className="text-white/80 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block flex items-center gap-2"
+                  <button 
+                    onClick={() => handleQuickLink(service.href)}
+                    className="text-white/80 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block flex items-center gap-2 text-left"
                   >
                     {service.icon && <service.icon className="w-4 h-4" />}
                     {service.label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

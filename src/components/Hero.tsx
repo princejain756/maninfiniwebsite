@@ -1,6 +1,7 @@
 import { ArrowRight, Play, CheckCircle, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-automation-dashboard.jpg';
+import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Hero = () => {
   const achievements = [
@@ -17,8 +18,23 @@ const Hero = () => {
     'Agile Development Process'
   ];
 
+  const handleBookConsultation = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to book a free consultation about your automation services. Please provide available time slots and details about the consultation process.'
+    );
+  };
+
+  const handleWatchDemo = () => {
+    // Open WhatsApp to request demo video
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to watch a demo of your automation services. Please share the demo video or schedule a live demo session.'
+    );
+  };
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 sm:pt-28 md:pt-32 lg:pt-40">
       {/* Background Gradient */}
       <div className="absolute inset-0 hero-gradient opacity-90"></div>
       
@@ -64,7 +80,11 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <Button size="lg" className="btn-gradient group text-lg px-8 py-6">
+              <Button 
+                size="lg" 
+                className="btn-gradient group text-lg px-8 py-6"
+                onClick={handleBookConsultation}
+              >
                 Book Free Consultation
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -72,6 +92,7 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm px-8 py-6 text-lg"
+                onClick={handleWatchDemo}
               >
                 <Play className="mr-2 w-5 h-5" />
                 Watch Demo

@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { websiteActions, contactInfo as contactData, whatsappContacts } from '@/lib/utils';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -30,15 +31,9 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showWhatsAppPopup, setShowWhatsAppPopup] = useState(false);
 
-  const whatsappContacts = [
-    { name: 'Mitesh Narendra Jain', number: '+91 97412 66370', phone: '919741266370', role: 'CEO' },
-    { name: 'Prince Jain', number: '+91 80056 34678', phone: '918005634678', role: 'AIO and CTO' },
-    { name: 'Neerav Deepak Jain', number: '+91 6360 753 004', phone: '919845074004', role: 'COO' }
-  ];
-
   const handleWhatsAppContact = (contact: typeof whatsappContacts[0]) => {
-    const message = encodeURIComponent('Hello, I would like to know more about your automation services.');
-    window.open(`https://wa.me/${contact.phone}?text=${message}`, '_blank');
+    const message = 'Hello, I would like to know more about your automation services.';
+    websiteActions.openWhatsApp(contact.phone, message);
     setShowWhatsAppPopup(false);
   };
 
@@ -117,36 +112,38 @@ const Contact = () => {
   const handleContactAction = (actionType: string) => {
     switch (actionType) {
       case 'Get Directions':
-        window.open(`https://www.google.com/maps?q=12.97002,77.58429`, '_blank');
+        websiteActions.getDirections(contactData.address, contactData.coordinates);
         break;
       case 'Call Now': {
         // Show options for multiple phone numbers
         const phoneNumbers = [
-          { label: 'Main Office: +91 80 4112 5555', number: '+918041125555' },
-          { label: 'Support: +91 98450 12345', number: '+919845012345' },
-          { label: 'Sales: +91 80056 34678', number: '+918005634678' }
+          { label: 'Main Office: +91 80 4112 5555', number: contactData.mainPhone },
+          { label: 'Support: +91 98450 12345', number: contactData.supportPhone },
+          { label: 'Sales: +91 80056 34678', number: contactData.salesPhone }
         ];
         
         const choice = confirm(`Choose a number to call:\n1. ${phoneNumbers[0].label}\n2. ${phoneNumbers[1].label}\n3. ${phoneNumbers[2].label}\n\nClick OK for Main Office, Cancel to see other options`);
         
         if (choice) {
-          window.open(`tel:${phoneNumbers[0].number}`, '_self');
+          websiteActions.callPhone(phoneNumbers[0].number);
         } else {
           const secondChoice = confirm(`Choose:\n1. ${phoneNumbers[1].label}\n2. ${phoneNumbers[2].label}\n\nClick OK for Support, Cancel for Sales`);
           if (secondChoice) {
-            window.open(`tel:${phoneNumbers[1].number}`, '_self');
+            websiteActions.callPhone(phoneNumbers[1].number);
           } else {
-            window.open(`tel:${phoneNumbers[2].number}`, '_self');
+            websiteActions.callPhone(phoneNumbers[2].number);
           }
         }
         break;
       }
       case 'Send Email':
-        window.open('mailto:hello@maninfini.com', '_self');
+        websiteActions.sendEmail(contactData.email);
         break;
       case 'Schedule Call':
-        // You can integrate with a scheduling service like Calendly
-        alert('Please call us to schedule a call:\n\n📞 Main Office: +91 80 4112 5555\n📞 Support: +91 98450 12345\n📞 Sales: +91 80056 34678\n\nOr email us at hello@maninfini.com');
+        websiteActions.openWhatsApp(
+          contactData.salesPhone,
+          'Hello! I would like to schedule a call. Please provide available time slots and call details.'
+        );
         break;
       default:
         break;
@@ -157,19 +154,19 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Visit Our Office',
-      details: ['#20, Ground Floor, 12th Cross', 'Cubbonpet, Banappa Park Road', 'Bengaluru - 560002, India', '12.97002° N, 77.58429° E'],
+      details: [contactData.address, '12.97002° N, 77.58429° E'],
       action: 'Get Directions'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+91 80 4112 5555', '+91 98450 12345', '+91 80056 34678'],
+      details: [contactData.mainPhone, contactData.supportPhone, contactData.salesPhone],
       action: 'Call Now'
     },
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['hello@maninfini.com', 'support@maninfini.com'],
+      details: [contactData.email, contactData.supportEmail],
       action: 'Send Email'
     },
     {
@@ -438,7 +435,11 @@ const Contact = () => {
                 <Button 
                   variant="outline" 
                   className="btn-outline-elegant w-full justify-start"
-                  onClick={() => window.open('mailto:hello@maninfini.com?subject=Inquiry%20about%20Automation%20Services', '_self')}
+                  onClick={() => websiteActions.sendEmail(
+                    contactData.email,
+                    'Inquiry about Automation Services',
+                    'Hello,\n\nI would like to know more about your automation services.\n\nPlease provide information about:\n- Available services\n- Pricing\n- Implementation timeline\n- Case studies\n\nThank you!'
+                  )}
                 >
                   <Mail className="mr-3 w-5 h-5" />
                   Email Us Directly
@@ -470,13 +471,25 @@ const Contact = () => {
               Join 200+ businesses who trust Maninfini for their automation needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+              <Button 
+                size="lg" 
+                className="bg-white text-primary hover:bg-gray-100"
+                onClick={() => websiteActions.openWhatsApp(
+                  contactData.salesPhone,
+                  'Hello! I would like to book a free consultation. Please provide available time slots and consultation details.'
+                )}
+              >
                 Book Free Consultation
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white hover:text-primary"
+                onClick={() => websiteActions.sendEmail(
+                  contactData.email,
+                  'Brochure Request',
+                  'Hello,\n\nI would like to download your company brochure.\n\nPlease provide:\n- Company brochure\n- Service catalogs\n- Case studies\n- Pricing information\n\nThank you!'
+                )}
               >
                 Download Brochure
               </Button>
@@ -494,6 +507,8 @@ const Contact = () => {
               <button
                 onClick={() => setShowWhatsAppPopup(false)}
                 className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+                aria-label="Close WhatsApp popup"
+                title="Close"
               >
                 <X className="w-6 h-6" />
               </button>

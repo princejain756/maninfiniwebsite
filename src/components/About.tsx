@@ -41,7 +41,7 @@ const About = () => {
       experience: '5+ years',
       background: 'AI Operations & Technology Leadership',
       image: princeImage,
-      linkedin: '#'
+      linkedin: 'https://www.linkedin.com/in/prince-jain-267519194/'
     },
     {
       name: 'Neerav Deepak Jain',
@@ -213,7 +213,12 @@ const About = () => {
                 <p className="text-sm text-muted-foreground mb-4">{leader.experience}</p>
                 <p className="text-sm text-muted-foreground mb-6">{leader.background}</p>
                 
-                <Button variant="ghost" size="sm" className="text-primary hover:text-accent">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="text-primary hover:text-accent"
+                  onClick={() => window.open(leader.linkedin, '_blank', 'noopener,noreferrer')}
+                >
                   <Linkedin className="w-4 h-4 mr-2" />
                   Connect
                 </Button>
