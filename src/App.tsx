@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect, useRef, useState } from "react";
 import Index from "./pages/Index";
@@ -95,7 +95,7 @@ const App = () => {
               <source src="/intro.mp3" type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
-            <BrowserRouter>
+            <HashRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/blog" element={<Blog />} />
@@ -117,7 +117,7 @@ const App = () => {
                 title="Manu Assistant" 
                 subtitle="Intelligent conversation powered by PrinceML"
               />
-            </BrowserRouter>
+            </HashRouter>
           </PerformanceOptimizer>
         </TooltipProvider>
       </QueryClientProvider>
