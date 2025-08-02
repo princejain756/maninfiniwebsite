@@ -4,7 +4,6 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/', // Ensure base path is set correctly
   server: {
     host: "::",
     port: 8080,
@@ -22,7 +21,6 @@ export default defineConfig(({ mode }) => ({
     target: 'es2015',
     minify: 'terser',
     sourcemap: false,
-    outDir: 'dist', // Ensure output directory is specified
     rollupOptions: {
       output: {
         manualChunks: {
