@@ -10,7 +10,7 @@ interface FloatingChatbotProps {
 
 export function FloatingChatbot({ 
   className, 
-  title = "Chat with AdBert", 
+  title = "Chat with Manu", 
   subtitle = "Get instant help" 
 }: FloatingChatbotProps) {
   const [isOpen, setIsOpen] = React.useState(false);

@@ -115,7 +115,7 @@ class RasaApiService {
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
       return [{
         recipient_id: 'user',
-        text: "Hello! I'm AdBert, your AI assistant from Maninfini Automation. I can help you with information about our services, pricing, and more. How can I assist you today?",
+        text: "Hello! I'm Manu, your AI assistant from Maninfini Automation. I can help you with information about our services, pricing, and more. How can I assist you today?",
       }];
     }
     

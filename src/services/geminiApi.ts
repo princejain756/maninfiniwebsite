@@ -139,7 +139,7 @@ class GeminiApiService {
 
   private buildContextualPrompt(message: string): string {
     const companyContext = `
-You are AdBert, an AI assistant for Maninfini Automation, a digital solutions company. 
+You are Manu, an AI assistant for Maninfini Automation, a digital solutions company. 
 
 Company Information:
 - Name: Maninfini Automation
@@ -218,7 +218,7 @@ Please provide a helpful, contextual response that addresses the user's question
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
       return [{
         recipient_id: 'user',
-        text: "Hello! I'm AdBert, your AI assistant from Maninfini Automation. I can help you with information about our services, pricing, and more. How can I assist you today?",
+        text: "Hello! I'm Manu, your AI assistant from Maninfini Automation. I can help you with information about our services, pricing, and more. How can I assist you today?",
       }];
     }
     

@@ -114,8 +114,8 @@ const App = () => {
               
               {/* Intelligent Chatbot */}
               <IntelligentChatbot 
-                title="AdBert AI Assistant" 
-                subtitle="Intelligent conversation powered by Rasa"
+                title="Manu Assistant" 
+                subtitle="Intelligent conversation powered by PrinceML"
               />
             </BrowserRouter>
           </PerformanceOptimizer>

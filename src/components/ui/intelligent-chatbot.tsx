@@ -28,7 +28,7 @@ interface ChatMessage {
 
 export function IntelligentChatbot({ 
   className, 
-  title = "AdBert AI Assistant", 
+  title = "Manu Assistant", 
   subtitle = "Intelligent conversation with Gemini AI & fallback" 
 }: IntelligentChatbotProps) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -345,7 +345,7 @@ export function IntelligentChatbot({
                   <div className="bg-muted text-muted-foreground rounded-2xl px-4 py-2 text-sm">
                     <div className="flex items-center gap-2">
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>AdBert is typing...</span>
+                      <span>Manu is typing...</span>
                     </div>
                   </div>
                 </div>
@@ -355,26 +355,12 @@ export function IntelligentChatbot({
 
           {/* Input */}
           <div className="p-4 border-t border-border/50">
-            <form onSubmit={handleSubmit} className="flex gap-2">
-              <div className="flex-1">
-                <PromptBox 
-                  name="message" 
-                  placeholder={isLoading ? "Please wait..." : "Type your message..."}
-                  disabled={isLoading}
-                />
-              </div>
-              <Button 
-                type="submit" 
-                size="sm" 
+            <form onSubmit={handleSubmit}>
+              <PromptBox 
+                name="message" 
+                placeholder={isLoading ? "Please wait..." : "Type your message..."}
                 disabled={isLoading}
-                className="px-3"
-              >
-                {isLoading ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Send className="w-4 h-4" />
-                )}
-              </Button>
+              />
             </form>
           </div>
         </div>

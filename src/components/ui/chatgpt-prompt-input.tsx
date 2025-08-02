@@ -4,6 +4,14 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
+// Web Speech API type declarations
+declare global {
+  interface Window {
+    webkitSpeechRecognition: any;
+    SpeechRecognition: any;
+  }
+}
+
 // --- Utility Function & Radix Primitives (Unchanged) ---
 type ClassValue = string | number | boolean | null | undefined;
 function cn(...inputs: ClassValue[]): string { return inputs.filter(Boolean).join(" "); }
@@ -37,6 +45,17 @@ const LightbulbIcon = (props: React.SVGProps<SVGSVGElement>) => ( <svg viewBox="
 // NEW: MicIcon
 const MicIcon = (props: React.SVGProps<SVGSVGElement>) => ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}> <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path> <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path> <line x1="12" y1="19" x2="12" y2="23"></line> </svg> );
 
+// NEW: MicOffIcon for when recording is stopped
+const MicOffIcon = (props: React.SVGProps<SVGSVGElement>) => ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}> <line x1="1" y1="1" x2="23" y2="23"></line> <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path> <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path> <line x1="12" y1="19" x2="12" y2="23"></line> <line x1="8" y1="23" x2="16" y2="23"></line> </svg> );
+
+// Web Speech API type declarations
+declare global {
+  interface Window {
+    webkitSpeechRecognition: any;
+    SpeechRecognition: any;
+  }
+}
+
 
 const toolsList = [ { id: 'createImage', name: 'Create an image', shortName: 'Image', icon: PaintBrushIcon }, { id: 'searchWeb', name: 'Search the web', shortName: 'Search', icon: GlobeIcon }, { id: 'writeCode', name: 'Write or code', shortName: 'Write', icon: PencilIcon }, { id: 'deepResearch', name: 'Run deep research', shortName: 'Deep Search', icon: TelescopeIcon, extra: '5 left' }, { id: 'thinkLonger', name: 'Think for longer', shortName: 'Think', icon: LightbulbIcon }, ];
 
@@ -51,19 +70,100 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, React.TextareaHTM
     const [selectedTool, setSelectedTool] = React.useState<string | null>(null);
     const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
     const [isImageDialogOpen, setIsImageDialogOpen] = React.useState(false);
+    
+    // Voice-to-text functionality
+    const [isRecording, setIsRecording] = React.useState(false);
+    const [recognition, setRecognition] = React.useState<any>(null);
     React.useImperativeHandle(ref, () => internalTextareaRef.current!, []);
     React.useLayoutEffect(() => { const textarea = internalTextareaRef.current; if (textarea) { textarea.style.height = "auto"; const newHeight = Math.min(textarea.scrollHeight, 200); textarea.style.height = `${newHeight}px`; } }, [value]);
+    
+    // Initialize speech recognition
+    React.useEffect(() => {
+      if (typeof window !== 'undefined' && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+        const recognitionInstance = new SpeechRecognition();
+        recognitionInstance.continuous = false;
+        recognitionInstance.interimResults = false;
+        recognitionInstance.lang = 'en-US';
+        
+        recognitionInstance.onstart = () => {
+          console.log('Speech recognition started');
+          setIsRecording(true);
+        };
+        
+        recognitionInstance.onresult = (event: any) => {
+          console.log('Speech recognition result:', event);
+          const transcript = Array.from(event.results)
+            .map((result: any) => result[0])
+            .map((result: any) => result.transcript)
+            .join('');
+          
+          console.log('Transcript:', transcript);
+          setValue(prev => prev + transcript);
+          if (props.onChange) {
+            const syntheticEvent = {
+              target: { value: prev + transcript }
+            } as React.ChangeEvent<HTMLTextAreaElement>;
+            props.onChange(syntheticEvent);
+          }
+        };
+        
+        recognitionInstance.onerror = (event: any) => {
+          console.error('Speech recognition error:', event.error);
+          setIsRecording(false);
+        };
+        
+        recognitionInstance.onend = () => {
+          console.log('Speech recognition ended');
+          setIsRecording(false);
+        };
+        
+        setRecognition(recognitionInstance);
+        console.log('Speech recognition initialized');
+      } else {
+        console.log('Speech recognition not supported in this browser');
+      }
+    }, [props.onChange]);
+    
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => { setValue(e.target.value); if (props.onChange) props.onChange(e); };
     const handlePlusClick = () => { fileInputRef.current?.click(); };
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => { const file = event.target.files?.[0]; if (file && file.type.startsWith("image/")) { const reader = new FileReader(); reader.onloadend = () => { setImagePreview(reader.result as string); }; reader.readAsDataURL(file); } event.target.value = ""; };
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => { const file = event.target.files?.[0]; if (file && file.type.startsWith("image/")) { const reader = new FileReader(); reader.onloadend = () => { setImagePreview(reader.result as string); }; reader.readAsDataURL(file); }; event.target.value = ""; };
     const handleRemoveImage = (e: React.MouseEvent<HTMLButtonElement>) => { e.stopPropagation(); setImagePreview(null); if(fileInputRef.current) { fileInputRef.current.value = ""; } };
+    
+    // Voice recording handlers
+    const handleVoiceRecord = () => {
+      console.log('Voice record button clicked');
+      console.log('Recognition available:', !!recognition);
+      console.log('Currently recording:', isRecording);
+      
+      if (!recognition) {
+        alert('Speech recognition is not supported in this browser.');
+        return;
+      }
+      
+      if (isRecording) {
+        console.log('Stopping recording');
+        recognition.stop();
+      } else {
+        console.log('Starting recording');
+        recognition.start();
+      }
+    };
     const hasValue = value.trim().length > 0 || imagePreview;
     const activeTool = selectedTool ? toolsList.find(t => t.id === selectedTool) : null;
     const ActiveToolIcon = activeTool?.icon;
 
     return (
       <div className={cn("flex flex-col rounded-[28px] p-2 shadow-sm transition-colors bg-white border dark:bg-[#303030] dark:border-transparent cursor-text", className)}>
-        <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*"/>
+        <input 
+          type="file" 
+          ref={fileInputRef} 
+          onChange={handleFileChange} 
+          className="hidden" 
+          accept="image/*"
+          aria-label="Upload image"
+          title="Upload image"
+        />
         
         {imagePreview && ( <Dialog open={isImageDialogOpen} onOpenChange={setIsImageDialogOpen}> <div className="relative mb-1 w-fit rounded-[1rem] px-1 pt-1"> <button type="button" className="transition-transform" onClick={() => setIsImageDialogOpen(true)}> <img src={imagePreview} alt="Image preview" className="h-14.5 w-14.5 rounded-[1rem]" /> </button> <button onClick={handleRemoveImage} className="absolute right-2 top-2 z-10 flex h-4 w-4 items-center justify-center rounded-full bg-white/50 dark:bg-[#303030] text-black dark:text-white transition-colors hover:bg-accent dark:hover:bg-[#515151]" aria-label="Remove image"> <XIcon className="h-4 w-4" /> </button> </div> <DialogContent> <img src={imagePreview} alt="Full size preview" className="w-full max-h-[95vh] object-contain rounded-[24px]" /> </DialogContent> </Dialog> )}
         
@@ -108,12 +208,29 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, React.TextareaHTM
               <div className="ml-auto flex items-center gap-2">
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <button type="button" className="flex h-8 w-8 items-center justify-center rounded-full text-foreground dark:text-white transition-colors hover:bg-accent dark:hover:bg-[#515151] focus-visible:outline-none">
-                      <MicIcon className="h-5 w-5" />
-                      <span className="sr-only">Record voice</span>
+                    <button 
+                      type="button" 
+                      onClick={handleVoiceRecord}
+                      className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors focus-visible:outline-none ${
+                        isRecording 
+                          ? 'bg-red-500 text-white hover:bg-red-600' 
+                          : 'text-foreground dark:text-white hover:bg-accent dark:hover:bg-[#515151]'
+                      }`}
+                      disabled={!recognition}
+                    >
+                      {isRecording ? (
+                        <MicOffIcon className="h-5 w-5" />
+                      ) : (
+                        <MicIcon className="h-5 w-5" />
+                      )}
+                      <span className="sr-only">
+                        {isRecording ? 'Stop recording' : 'Record voice'}
+                      </span>
                     </button>
                   </TooltipTrigger>
-                  <TooltipContent side="top" showArrow={true}><p>Record voice</p></TooltipContent>
+                  <TooltipContent side="top" showArrow={true}>
+                    <p>{isRecording ? 'Stop recording' : 'Record voice'}</p>
+                  </TooltipContent>
                 </Tooltip>
 
                 <Tooltip>

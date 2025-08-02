@@ -71,8 +71,8 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Hello! I'm AdBert, your intelligent AI assistant from Maninfini Automation. I'm here to help you with information about our services, answer your questions, and guide you through our solutions. How can I assist you today?"
-    - text: "Hi there! Welcome to Maninfini Automation. I'm AdBert, your AI assistant. I can help you learn about our automation services, web development, graphic design, and more. What would you like to know?"
+    - text: "Hello! I'm Manu, your intelligent AI assistant from Maninfini Automation. I'm here to help you with information about our services, answer your questions, and guide you through our solutions. How can I assist you today?"
+    - text: "Hi there! Welcome to Maninfini Automation. I'm Manu, your AI assistant. I can help you learn about our automation services, web development, graphic design, and more. What would you like to know?"
 
   utter_goodbye:
     - text: "Thank you for chatting with me! If you have more questions later, feel free to reach out. Have a great day!"
