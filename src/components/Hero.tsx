@@ -1,6 +1,6 @@
 import { ArrowRight, Play, CheckCircle, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-automation-dashboard.jpg';
+import InteractiveDashboard from '@/components/ui/interactive-dashboard';
 import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Hero = () => {
@@ -45,8 +45,8 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-vibrant-orange/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 lg:px-8 py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-start">
           {/* Left Content */}
           <div className="text-white space-y-8">
             {/* Hero Badge */}
@@ -110,40 +110,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Hero Image */}
+          {/* Right Content - Interactive Dashboard */}
           <div className="relative animate-slide-in-right">
-            <div className="relative">
-              <img 
-                src={heroImage} 
-                alt="Automation Dashboard" 
-                className="w-full h-auto rounded-2xl shadow-elegant hover:shadow-glow transition-all duration-500"
-              />
-              
-              {/* Floating Cards */}
-              <div className="absolute -top-6 -left-6 bg-white rounded-xl p-4 shadow-elegant animate-float">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-foreground">System Online</span>
-                </div>
-              </div>
-              
-              <div className="absolute -bottom-6 -right-6 bg-accent rounded-xl p-4 shadow-glow animate-float" style={{ animationDelay: '2s' }}>
-                <div className="text-white text-center">
-                  <div className="text-2xl font-bold">99.9%</div>
-                  <div className="text-sm opacity-90">Uptime</div>
-                </div>
-              </div>
-            </div>
+            <InteractiveDashboard />
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
+
     </section>
   );
 };

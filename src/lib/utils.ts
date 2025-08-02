@@ -115,8 +115,8 @@ export const websiteActions = {
 
 // Contact information
 export const contactInfo = {
-  mainPhone: '+91 80 4112 5555',
-  supportPhone: '+91 98450 12345',
+  mainPhone: '+91 97412 66370',
+  supportPhone: '+91 97412 66370',
   salesPhone: '+91 97412 66370',
   email: 'hello@maninfini.com',
   supportEmail: 'support@maninfini.com',

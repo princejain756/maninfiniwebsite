@@ -104,7 +104,7 @@ const Footer = () => {
               <img 
                 src="/manlogo.png" 
                 alt="Maninfini Logo" 
-                className="h-16 w-auto mr-3"
+                className="h-20 w-auto mr-3"
               />
               <div>
                 <h3 className="text-2xl font-poppins font-bold">Maninfini</h3>
@@ -121,9 +121,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent" />
                 <div className="text-white">
-                  <div className="text-white">+91 80 4112 5555</div>
-                  <div className="text-white">+91 98450 12345</div>
-                  <div className="text-white">+91 80056 34678</div>
+                  <div className="text-white">+91 97412 66370</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -218,7 +216,7 @@ const Footer = () => {
             <div className="text-white/70 text-sm">
               <p>© 2024 Maninfini Automation. All rights reserved.</p>
               <p className="mt-1">
-                CIN: U72200KA2008PTC045123 | GST: 29ABCDE1234F1Z5
+                CIN: U72200KA2008PTC045123 | GST: 29AAQCM1170Q1ZO
               </p>
             </div>
             

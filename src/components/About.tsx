@@ -97,9 +97,9 @@ const About = () => {
 
   const companyInfo = [
     { label: 'Incorporation Date', value: 'March 15, 2008' },
-    { label: 'Registered Capital', value: '₹10,00,000' },
+    { label: 'Authorised Capital', value: '₹10,00,000' },
     { label: 'CIN', value: 'U72200KA2008PTC045123' },
-    { label: 'GST Number', value: '29ABCDE1234F1Z5' },
+    { label: 'GST Number', value: '29AAQCM1170Q1ZO' },
     { label: 'Headquarters', value: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002' }
   ];
 
@@ -197,11 +197,19 @@ const About = () => {
                 className="card-elegant p-8 text-center animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-elegant">
+                <div className={`mx-auto mb-6 overflow-hidden shadow-elegant ${
+                  leader.name === 'Rambhupal M' 
+                    ? 'w-32 h-40 rounded-lg' 
+                    : 'w-32 h-32 rounded-full'
+                }`}>
                   <img 
                     src={leader.image} 
                     alt={leader.name}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full ${
+                      leader.name === 'Rambhupal M' 
+                        ? 'object-contain' 
+                        : 'object-cover'
+                    }`}
                   />
                 </div>
                 

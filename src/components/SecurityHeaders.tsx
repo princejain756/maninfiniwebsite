@@ -18,7 +18,7 @@ const SecurityHeaders: React.FC = () => {
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data: https:;
         media-src 'self' https:;
-        connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
+        connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://generativelanguage.googleapis.com;
         frame-src 'self';
         object-src 'none';
         base-uri 'self';

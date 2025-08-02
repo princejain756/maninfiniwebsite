@@ -8,7 +8,9 @@ import {
   Zap,
   Shield,
   Clock,
-  Palette
+  Palette,
+  TrendingUp,
+  Brain
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { websiteActions, contactInfo } from '@/lib/utils';
@@ -58,6 +60,23 @@ const Services = () => {
       features: ['Brand Identity', 'Product Packaging', 'Marketing Materials', 'Digital Assets'],
       color: 'from-pink-500 to-rose-600',
       portfolio: '/Graphic%20Design%20Portfolio.pdf'
+    },
+    {
+      icon: Brain,
+      title: 'Quantiti',
+      description: 'Advanced AI and algorithmic solutions for financial markets, risk management, and business optimization',
+      features: [
+        'Algorithmic Trading & HFT',
+        'Fraud Detection & Risk Management', 
+        'Portfolio Optimization & Robo-Advisory',
+        'Product & Content Personalization',
+        'Price Optimization & Revenue Management',
+        'Supply Chain & Logistics Optimization',
+        'Insurance Underwriting & Risk Analysis',
+        'Computer Vision & Image Recognition',
+        'Scientific Computing & Simulation'
+      ],
+      color: 'from-cyan-500 to-blue-600'
     }
   ];
 
@@ -73,11 +92,27 @@ const Services = () => {
     } else if (service.demo) {
       websiteActions.openExternalLink(service.demo, true);
     } else {
-      // Default action - open WhatsApp for consultation
-      websiteActions.openWhatsApp(
-        contactInfo.salesPhone,
-        `Hello! I'm interested in your ${service.title} service. Please provide more information about pricing, features, and implementation timeline.`
-      );
+      // Navigate to service page based on service title
+      const serviceRoutes: { [key: string]: string } = {
+        'Web & Custom Development': '/services/web-development',
+        'E-commerce & Inventory': '/services/ecommerce-inventory',
+        'WhatsApp & Communications': '/services/whatsapp-communications',
+        'Offshore Talent': '/services/offshore-talent',
+        'Virtual Office Services': '/services/virtual-office',
+        'Graphic Design & Packaging': '/services/graphic-design',
+        'Quantiti': '/services/quantiti'
+      };
+      
+      const route = serviceRoutes[service.title];
+      if (route) {
+        window.location.href = route;
+      } else {
+        // Fallback to WhatsApp for consultation
+        websiteActions.openWhatsApp(
+          contactInfo.salesPhone,
+          `Hello! I'm interested in your ${service.title} service. Please provide more information about pricing, features, and implementation timeline.`
+        );
+      }
     }
   };
 
@@ -140,7 +175,7 @@ const Services = () => {
                 className="group text-primary hover:text-accent p-0"
                 onClick={() => handleServiceAction(service)}
               >
-                {service.portfolio ? 'View Portfolio' : service.demo ? 'Watch Demo' : 'Learn More'}
+                {service.portfolio ? 'View Portfolio' : service.demo ? 'Watch Demo' : 'Explore Service'}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

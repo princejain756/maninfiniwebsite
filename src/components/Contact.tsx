@@ -69,21 +69,35 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      // Create form data for Google Forms
-      const googleFormData = new FormData();
-      googleFormData.append(FORM_FIELDS.firstName, formData.firstName);
-      googleFormData.append(FORM_FIELDS.lastName, formData.lastName);
-      googleFormData.append(FORM_FIELDS.email, formData.email);
-      googleFormData.append(FORM_FIELDS.phone, formData.phone);
-      googleFormData.append(FORM_FIELDS.service, formData.service);
-      googleFormData.append(FORM_FIELDS.message, formData.message);
+      // Create structured WhatsApp message with all form details
+      const whatsappMessage = `*New Contact Form Submission* 📋
 
-      // Submit to Google Forms
-      await fetch(GOOGLE_FORM_URL, {
-        method: 'POST',
-        body: googleFormData,
-        mode: 'no-cors' // Important for Google Forms
-      });
+*Contact Information:*
+👤 *Name:* ${formData.firstName} ${formData.lastName}
+📧 *Email:* ${formData.email}
+📱 *Phone:* ${formData.phone || 'Not provided'}
+
+*Service Interest:*
+🎯 *Service:* ${formData.service}
+
+*Project Details:*
+📝 *Message:* ${formData.message || 'No additional details provided'}
+
+*Consent:* ✅ User agreed to receive communications
+
+---
+*Submitted via:* Maninfini Website Contact Form
+*Timestamp:* ${new Date().toLocaleString('en-IN', { 
+  timeZone: 'Asia/Kolkata',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+})}`;
+
+      // Send to WhatsApp
+      websiteActions.openWhatsApp(contactData.salesPhone, whatsappMessage);
 
       // Reset form and show success message
       setFormData({
@@ -101,7 +115,7 @@ const Contact = () => {
       setTimeout(() => setSubmitStatus('idle'), 5000);
       
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error sending to WhatsApp:', error);
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
@@ -117,22 +131,16 @@ const Contact = () => {
       case 'Call Now': {
         // Show options for multiple phone numbers
         const phoneNumbers = [
-          { label: 'Main Office: +91 80 4112 5555', number: contactData.mainPhone },
-          { label: 'Support: +91 98450 12345', number: contactData.supportPhone },
-          { label: 'Sales: +91 80056 34678', number: contactData.salesPhone }
+          { label: 'Support: +91 97412 66370', number: contactData.supportPhone },
+          { label: 'Sales: +91 97412 66370', number: contactData.salesPhone }
         ];
         
-        const choice = confirm(`Choose a number to call:\n1. ${phoneNumbers[0].label}\n2. ${phoneNumbers[1].label}\n3. ${phoneNumbers[2].label}\n\nClick OK for Main Office, Cancel to see other options`);
+        const choice = confirm(`Choose a number to call:\n1. ${phoneNumbers[0].label}\n2. ${phoneNumbers[1].label}\n\nClick OK for Support, Cancel for Sales`);
         
         if (choice) {
           websiteActions.callPhone(phoneNumbers[0].number);
         } else {
-          const secondChoice = confirm(`Choose:\n1. ${phoneNumbers[1].label}\n2. ${phoneNumbers[2].label}\n\nClick OK for Support, Cancel for Sales`);
-          if (secondChoice) {
-            websiteActions.callPhone(phoneNumbers[1].number);
-          } else {
-            websiteActions.callPhone(phoneNumbers[2].number);
-          }
+          websiteActions.callPhone(phoneNumbers[1].number);
         }
         break;
       }
@@ -254,7 +262,7 @@ const Contact = () => {
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-600" />
                     <p className="text-green-800 font-medium">
-                      Thank you! Your message has been sent successfully. We'll get back to you soon.
+                      Thank you! Your message has been sent to WhatsApp. Our team will respond within 24 hours.
                     </p>
                   </div>
                 </div>
@@ -376,7 +384,7 @@ const Contact = () => {
                   className="btn-gradient w-full"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Sending to WhatsApp...' : 'Send to WhatsApp'}
                   <Send className="ml-2 w-5 h-5" />
                 </Button>
               </form>

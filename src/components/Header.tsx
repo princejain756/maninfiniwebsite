@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { websiteActions, contactInfo } from '@/lib/utils';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -24,11 +24,18 @@ const Header = () => {
     { label: 'Products', href: '/', section: 'products' },
     { label: 'About', href: '/', section: 'about' },
     { label: 'Contact', href: '/', section: 'contact' },
+    { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true },
   ];
 
-  const handleNavigation = (href: string, section?: string) => {
+  const handleNavigation = (href: string, section?: string, external?: boolean) => {
     // Close mobile menu
     setIsMenuOpen(false);
+
+    // Handle external links
+    if (external) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
 
     // If we're on the home page and trying to navigate to a section
     if (location.pathname === '/' && section) {
@@ -73,11 +80,6 @@ const Header = () => {
         <div className="container mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center gap-2 sm:gap-6">
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">+91 80 4112 5555</span>
-              <span className="sm:hidden">+91 80 4112 5555</span>
-            </div>
-            <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               <span className="hidden sm:inline">hello@maninfini.com</span>
               <span className="sm:hidden">hello@maninfini.com</span>
@@ -101,14 +103,14 @@ const Header = () => {
               <img 
                 src="/manlogo.png" 
                 alt="Maninfini Logo" 
-                className="h-8 sm:h-10 lg:h-12 w-auto mr-2 sm:mr-3"
+                className="h-10 sm:h-12 lg:h-14 w-auto mr-2 sm:mr-3"
               />
               <div className="flex flex-col">
                 <div className="text-lg sm:text-xl lg:text-2xl font-poppins font-bold text-primary">Maninfini</div>
                 <div className="flex items-center">
                   <span className="text-xs text-orange-500 mr-1">⭐</span>
-                  <p className="text-xs text-muted-foreground hidden sm:block">Trusted Automation Partner Since 2008</p>
-                  <p className="text-xs text-muted-foreground sm:hidden">Since 2008</p>
+                  <p className="text-xs text-white/90 hidden sm:block">Trusted Automation Partner Since 2008</p>
+                  <p className="text-xs text-white/90 sm:hidden">Since 2008</p>
                 </div>
               </div>
             </button>
@@ -119,10 +121,11 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                onClick={() => handleNavigation(item.href, item.section)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                onClick={() => handleNavigation(item.href, item.section, item.external)}
+                className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-1"
               >
                 {item.label}
+                {item.external && <ExternalLink className="w-3 h-3" />}
               </button>
             ))}
           </div>
@@ -164,10 +167,11 @@ const Header = () => {
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => handleNavigation(item.href, item.section)}
-                  className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left"
+                  onClick={() => handleNavigation(item.href, item.section, item.external)}
+                  className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left flex items-center gap-2"
                 >
                   {item.label}
+                  {item.external && <ExternalLink className="w-3 h-3" />}
                 </button>
               ))}
               <div className="flex flex-col space-y-2 pt-4">

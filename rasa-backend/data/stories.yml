@@ -1,0 +1,169 @@
+version: "3.1"
+
+stories:
+- story: greet and ask services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_services
+  - action: utter_ask_services
+
+- story: ask about automation
+  steps:
+  - intent: ask_automation
+  - action: utter_ask_automation
+
+- story: ask about web development
+  steps:
+  - intent: ask_web_development
+  - action: utter_ask_web_development
+
+- story: ask about graphic design
+  steps:
+  - intent: ask_graphic_design
+  - action: utter_ask_graphic_design
+
+- story: ask about WhatsApp integration
+  steps:
+  - intent: ask_whatsapp_integration
+  - action: utter_ask_whatsapp_integration
+
+- story: ask about pricing
+  steps:
+  - intent: ask_pricing
+  - action: utter_ask_pricing
+
+- story: ask about contact
+  steps:
+  - intent: ask_contact
+  - action: utter_ask_contact
+
+- story: book consultation
+  steps:
+  - intent: book_consultation
+  - action: utter_book_consultation
+
+- story: request quote
+  steps:
+  - intent: request_quote
+  - action: utter_book_consultation
+
+- story: ask about portfolio
+  steps:
+  - intent: ask_portfolio
+  - action: utter_ask_portfolio
+
+- story: ask about team
+  steps:
+  - intent: ask_team
+  - action: utter_ask_team
+
+- story: ask about technologies
+  steps:
+  - intent: ask_technologies
+  - action: utter_ask_technologies
+
+- story: ask about process
+  steps:
+  - intent: ask_process
+  - action: utter_ask_process
+
+- story: ask about timeline
+  steps:
+  - intent: ask_timeline
+  - action: utter_ask_timeline
+
+- story: ask about support
+  steps:
+  - intent: ask_support
+  - action: utter_ask_support
+
+- story: ask about features
+  steps:
+  - intent: ask_features
+  - action: utter_ask_features
+
+- story: ask about benefits
+  steps:
+  - intent: ask_benefits
+  - action: utter_ask_benefits
+
+- story: ask about case studies
+  steps:
+  - intent: ask_case_studies
+  - action: utter_ask_case_studies
+
+- story: ask about testimonials
+  steps:
+  - intent: ask_testimonials
+  - action: utter_ask_testimonials
+
+- story: ask about industries
+  steps:
+  - intent: ask_industries
+  - action: utter_ask_industries
+
+- story: ask about expertise
+  steps:
+  - intent: ask_expertise
+  - action: utter_ask_expertise
+
+- story: ask about innovation
+  steps:
+  - intent: ask_innovation
+  - action: utter_ask_innovation
+
+- story: ask about quality
+  steps:
+  - intent: ask_quality
+  - action: utter_ask_quality
+
+- story: ask about reliability
+  steps:
+  - intent: ask_reliability
+  - action: utter_ask_reliability
+
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- story: interactive story 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_services
+  - action: utter_ask_services
+  - intent: ask_automation
+  - action: utter_ask_automation
+  - intent: book_consultation
+  - action: utter_book_consultation
+
+- story: interactive story 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_pricing
+  - action: utter_ask_pricing
+  - intent: request_quote
+  - action: utter_book_consultation
+  - intent: ask_contact
+  - action: utter_ask_contact
+
+- story: interactive story 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_web_development
+  - action: utter_ask_web_development
+  - intent: ask_technologies
+  - action: utter_ask_technologies
+  - intent: ask_process
+  - action: utter_ask_process
+  - intent: book_consultation
+  - action: utter_book_consultation 

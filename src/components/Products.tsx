@@ -6,8 +6,7 @@ import {
   Bell, 
   Smartphone,
   ArrowRight,
-  Play,
-  Star
+  Play
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import inventoryImage from '@/assets/inventory-software.jpg';
@@ -28,29 +27,7 @@ const Products = () => {
     { icon: BarChart3, title: 'Campaign Analytics', description: 'Track engagement and conversion metrics' }
   ];
 
-  const pricingPlans = [
-    {
-      name: 'Starter',
-      price: '₹2,999',
-      period: '/month',
-      features: ['Up to 1,000 SKUs', 'Basic Analytics', 'Email Support', 'Mobile App'],
-      recommended: false
-    },
-    {
-      name: 'Professional',
-      price: '₹7,999',
-      period: '/month',
-      features: ['Up to 10,000 SKUs', 'Advanced Analytics', 'Priority Support', 'API Access', 'Multi-location'],
-      recommended: true
-    },
-    {
-      name: 'Enterprise',
-      price: 'Custom',
-      period: '',
-      features: ['Unlimited SKUs', 'Custom Integrations', '24/7 Support', 'Dedicated Manager', 'White-label'],
-      recommended: false
-    }
-  ];
+
 
   const handleRequestDemo = (product: string) => {
     websiteActions.openWhatsApp(
@@ -78,28 +55,7 @@ const Products = () => {
     websiteActions.openExternalLink('/WhatsappBotVideo.mp4', true);
   };
 
-  const handleGetStarted = (planName: string) => {
-    if (planName === 'Enterprise') {
-      websiteActions.sendEmail(
-        contactInfo.email,
-        'Enterprise Plan Inquiry',
-        `Hello,\n\nI'm interested in your Enterprise plan for inventory management.\n\nPlease provide:\n- Custom pricing\n- Implementation timeline\n- Dedicated support details\n- White-label options\n\nThank you!`
-      );
-    } else {
-      websiteActions.openWhatsApp(
-        contactInfo.salesPhone,
-        `Hello! I would like to get started with the ${planName} plan. Please provide setup instructions and payment details.`
-      );
-    }
-  };
 
-  const handleContactSales = () => {
-    websiteActions.sendEmail(
-      contactInfo.email,
-      'Sales Inquiry - Enterprise Plan',
-      `Hello,\n\nI'm interested in your Enterprise plan.\n\nPlease provide:\n- Custom pricing\n- Implementation timeline\n- Dedicated support details\n- White-label options\n- Technical requirements\n\nThank you!`
-    );
-  };
 
   return (
     <section id="products" className="py-20 bg-background">
@@ -267,62 +223,7 @@ const Products = () => {
           </div>
         </div>
 
-        {/* Pricing Section */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h3 className="text-3xl font-poppins font-semibold text-foreground mb-4">
-            Simple, Transparent Pricing
-          </h3>
-          <p className="text-muted-foreground text-lg">
-            Choose the plan that fits your business needs
-          </p>
-        </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {pricingPlans.map((plan, index) => (
-            <div 
-              key={index} 
-              className={`card-elegant p-8 text-center relative animate-fade-in-up ${
-                plan.recommended ? 'ring-2 ring-accent shadow-glow' : ''
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {plan.recommended && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-accent text-white px-6 py-2 rounded-full text-sm font-medium flex items-center gap-2">
-                    <Star className="w-4 h-4" />
-                    Most Popular
-                  </div>
-                </div>
-              )}
-              
-              <h4 className="text-xl font-poppins font-semibold text-foreground mb-4">
-                {plan.name}
-              </h4>
-              
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-primary">{plan.price}</span>
-                <span className="text-muted-foreground">{plan.period}</span>
-              </div>
-              
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center gap-3 text-sm">
-                    <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                    <span className="text-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <Button 
-                className={plan.recommended ? 'btn-gradient w-full' : 'btn-outline-elegant w-full'}
-                size="lg"
-                onClick={() => plan.name === 'Enterprise' ? handleContactSales() : handleGetStarted(plan.name)}
-              >
-                {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
-              </Button>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

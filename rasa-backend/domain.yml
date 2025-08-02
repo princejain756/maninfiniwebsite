@@ -1,0 +1,110 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - out_of_scope
+  - ask_services
+  - ask_automation
+  - ask_web_development
+  - ask_graphic_design
+  - ask_whatsapp_integration
+  - ask_pricing
+  - ask_contact
+  - ask_portfolio
+  - ask_team
+  - ask_technologies
+  - ask_process
+  - ask_timeline
+  - ask_support
+  - book_consultation
+  - request_quote
+  - ask_features
+  - ask_benefits
+  - ask_case_studies
+  - ask_testimonials
+  - ask_industries
+  - ask_expertise
+  - ask_innovation
+  - ask_quality
+  - ask_reliability
+
+entities:
+  - service_type
+  - industry
+  - budget_range
+  - timeline
+  - company_size
+  - location
+  - technology
+  - feature
+  - requirement
+
+slots:
+  service_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: service_type
+  industry:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: industry
+  budget_range:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: budget_range
+  timeline:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: timeline
+  company_size:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: company_size
+
+responses:
+  utter_greet:
+    - text: "Hello! I'm AdBert, your intelligent AI assistant from Maninfini Automation. I'm here to help you with information about our services, answer your questions, and guide you through our solutions. How can I assist you today?"
+    - text: "Hi there! Welcome to Maninfini Automation. I'm AdBert, your AI assistant. I can help you learn about our automation services, web development, graphic design, and more. What would you like to know?"
+
+  utter_goodbye:
+    - text: "Thank you for chatting with me! If you have more questions later, feel free to reach out. Have a great day!"
+    - text: "Goodbye! It was a pleasure helping you. Don't hesitate to contact us if you need any assistance in the future."
+
+  utter_ask_services:
+    - text: "At Maninfini Automation, we offer comprehensive digital solutions including:\n\n🤖 **Process Automation**: RPA, AI-powered workflows, and business process optimization\n🌐 **Web Development**: Custom websites, e-commerce platforms, and web applications\n🎨 **Graphic Design**: Brand identity, marketing materials, and creative design\n📱 **WhatsApp Integration**: Business API integration, chatbots, and communication automation\n💼 **Virtual Office Solutions**: Complete business infrastructure and support\n\nWhich service interests you most?"
+
+  utter_ask_automation:
+    - text: "Our automation services are designed to transform your business operations:\n\n• **RPA (Robotic Process Automation)**: Automate repetitive tasks\n• **AI-Powered Workflows**: Intelligent process optimization\n• **Business Process Automation**: Streamline operations\n• **Custom Automation Solutions**: Tailored to your specific needs\n\nWe've helped companies reduce operational costs by up to 60% and improve efficiency by 80%. Would you like to learn more about a specific automation solution?"
+
+  utter_ask_web_development:
+    - text: "Our web development services cover everything from simple websites to complex applications:\n\n• **Custom Website Development**: Responsive, modern designs\n• **E-commerce Platforms**: Online stores and payment integration\n• **Web Applications**: Custom software solutions\n• **Progressive Web Apps (PWA)**: Mobile-optimized experiences\n• **API Development**: Backend services and integrations\n\nWe use cutting-edge technologies like React, Node.js, and cloud platforms. What type of web solution are you looking for?"
+
+  utter_ask_graphic_design:
+    - text: "Our graphic design services help you create compelling visual identities:\n\n• **Brand Identity Design**: Logos, color schemes, and brand guidelines\n• **Marketing Materials**: Brochures, flyers, and promotional content\n• **Digital Design**: Social media graphics and web visuals\n• **Print Design**: Business cards, letterheads, and packaging\n• **UI/UX Design**: User interface and experience design\n\nWe focus on creating designs that not only look great but also drive results. What type of design project do you have in mind?"
+
+  utter_ask_whatsapp_integration:
+    - text: "Our WhatsApp Business integration services include:\n\n• **WhatsApp Business API**: Official API integration\n• **Intelligent Chatbots**: AI-powered customer support\n• **Bulk Messaging**: Automated marketing campaigns\n• **CRM Integration**: Customer relationship management\n• **IVR Systems**: Interactive voice response\n\nWe help businesses improve customer communication and increase engagement. Would you like to know more about any specific WhatsApp feature?"
+
+  utter_ask_pricing:
+    - text: "Our pricing is tailored to your specific needs and project requirements. We offer:\n\n• **Flexible Pricing Models**: Project-based, retainer, or hourly rates\n• **Custom Quotes**: Based on your specific requirements\n• **Transparent Pricing**: No hidden costs\n• **Value-Based Pricing**: Focus on ROI and results\n\nTo provide you with an accurate quote, I'd need to understand your project better. Would you like to schedule a consultation to discuss your requirements?"
+
+  utter_ask_contact:
+    - text: "You can reach us through multiple channels:\n\n📧 **Email**: info@maninfini.com\n📞 **Phone**: +91-XXXXXXXXXX\n💬 **WhatsApp**: +91-XXXXXXXXXX\n🌐 **Website**: www.maninfini.com\n📍 **Office**: [Your Office Address]\n\nWe typically respond within 2-4 hours during business days. Would you like me to connect you with a specific team member?"
+
+  utter_book_consultation:
+    - text: "Great! I'd be happy to help you schedule a consultation. Our team will:\n\n• Understand your business needs\n• Analyze your current processes\n• Propose customized solutions\n• Provide detailed project scope\n• Discuss timeline and pricing\n\nPlease provide your preferred contact method and best time for a call. You can also share any specific questions or requirements you'd like to discuss."
+
+  utter_out_of_scope:
+    - text: "I apologize, but I'm not able to help with that specific request. However, I can assist you with information about our services, pricing, portfolio, or help you schedule a consultation. What would you like to know about Maninfini Automation?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true 

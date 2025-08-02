@@ -1,0 +1,669 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hey bot
+    - hi bot
+    - hello bot
+    - good morning bot
+    - hi there
+    - hello there
+    - hey there bot
+    - hi there bot
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - see you around
+    - bye bye
+    - see you later
+    - see you
+    - talk to you later
+    - good bye
+    - bye bye
+    - see ya
+    - see you soon
+    - take care
+    - bye for now
+    - see you tomorrow
+    - good night
+    - have a good day
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - that's right
+    - sure
+    - ok
+    - okay
+    - yes please
+    - yes that's right
+    - absolutely
+    - definitely
+    - of course
+    - sure thing
+    - yes sure
+    - yes please
+    - yes that's correct
+    - yes that's right
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - not at all
+    - no thanks
+    - no thank you
+    - not interested
+    - no not really
+    - no that's not right
+    - no that's wrong
+    - no I don't want that
+    - no I don't need that
+    - no I don't think so
+    - no that's not what I want
+    - no that's not what I need
+    - no that's not what I'm looking for
+
+- intent: ask_services
+  examples: |
+    - what services do you offer
+    - what do you do
+    - what services do you provide
+    - what can you help me with
+    - what are your services
+    - what do you specialize in
+    - what are your offerings
+    - what can you do for me
+    - what services are available
+    - what do you offer
+    - tell me about your services
+    - what are your main services
+    - what do you provide
+    - what are your core services
+    - what can you help with
+    - what are your offerings
+    - what do you specialize in
+    - what are your main offerings
+    - what services do you have
+    - what can you do
+
+- intent: ask_automation
+  examples: |
+    - tell me about automation
+    - what is automation
+    - automation services
+    - process automation
+    - business automation
+    - RPA
+    - robotic process automation
+    - workflow automation
+    - business process automation
+    - automation solutions
+    - what is RPA
+    - how does automation work
+    - automation benefits
+    - automation advantages
+    - automation features
+    - automation capabilities
+    - automation tools
+    - automation software
+    - automation platform
+    - automation technology
+
+- intent: ask_web_development
+  examples: |
+    - web development
+    - website development
+    - web design
+    - website design
+    - web application
+    - website creation
+    - web development services
+    - website development services
+    - web design services
+    - website design services
+    - custom website
+    - custom web application
+    - e-commerce website
+    - online store
+    - web app
+    - website builder
+    - web development company
+    - website development company
+    - web design company
+    - website design company
+
+- intent: ask_graphic_design
+  examples: |
+    - graphic design
+    - logo design
+    - brand design
+    - visual design
+    - creative design
+    - design services
+    - graphic design services
+    - logo design services
+    - brand design services
+    - visual design services
+    - creative design services
+    - marketing materials
+    - promotional materials
+    - brand identity
+    - visual identity
+    - design work
+    - creative work
+    - design projects
+    - graphic work
+    - visual work
+
+- intent: ask_whatsapp_integration
+  examples: |
+    - WhatsApp integration
+    - WhatsApp Business
+    - WhatsApp API
+    - WhatsApp chatbot
+    - WhatsApp bot
+    - WhatsApp automation
+    - WhatsApp Business API
+    - WhatsApp integration services
+    - WhatsApp Business services
+    - WhatsApp API services
+    - WhatsApp chatbot services
+    - WhatsApp bot services
+    - WhatsApp automation services
+    - WhatsApp Business API services
+    - WhatsApp integration company
+    - WhatsApp Business company
+    - WhatsApp API company
+    - WhatsApp chatbot company
+    - WhatsApp bot company
+    - WhatsApp automation company
+
+- intent: ask_pricing
+  examples: |
+    - how much does it cost
+    - what is the price
+    - pricing
+    - cost
+    - rates
+    - fees
+    - how much do you charge
+    - what are your rates
+    - what are your fees
+    - how much does it cost
+    - what is the cost
+    - pricing information
+    - cost information
+    - rate information
+    - fee information
+    - how much do you charge
+    - what are your prices
+    - what are your costs
+    - what are your rates
+    - what are your fees
+
+- intent: ask_contact
+  examples: |
+    - how can I contact you
+    - contact information
+    - contact details
+    - how to reach you
+    - how to contact you
+    - contact us
+    - get in touch
+    - reach out
+    - contact details
+    - contact info
+    - how to reach us
+    - how to contact us
+    - contact information
+    - contact details
+    - how to get in touch
+    - how to reach out
+    - contact us
+    - get in touch with us
+    - reach out to us
+    - contact details
+
+- intent: book_consultation
+  examples: |
+    - I want to book a consultation
+    - book consultation
+    - schedule consultation
+    - book a meeting
+    - schedule a meeting
+    - book appointment
+    - schedule appointment
+    - book a call
+    - schedule a call
+    - book a demo
+    - schedule a demo
+    - book a consultation
+    - schedule a consultation
+    - book a meeting
+    - schedule a meeting
+    - book an appointment
+    - schedule an appointment
+    - book a call
+    - schedule a call
+    - book a demo
+
+- intent: request_quote
+  examples: |
+    - I need a quote
+    - get a quote
+    - request quote
+    - quote request
+    - get quote
+    - request a quote
+    - get a quote
+    - quote for project
+    - project quote
+    - service quote
+    - get a quote for
+    - request a quote for
+    - quote for services
+    - services quote
+    - get quote for
+    - request quote for
+    - quote request
+    - get a quote
+    - request a quote
+    - get quote
+
+- intent: ask_portfolio
+  examples: |
+    - show me your portfolio
+    - portfolio
+    - your work
+    - examples of your work
+    - case studies
+    - previous work
+    - past projects
+    - your projects
+    - work examples
+    - project examples
+    - show portfolio
+    - view portfolio
+    - see portfolio
+    - look at portfolio
+    - check portfolio
+    - browse portfolio
+    - explore portfolio
+    - view work
+    - see work
+    - look at work
+
+- intent: ask_team
+  examples: |
+    - tell me about your team
+    - your team
+    - team members
+    - who are you
+    - about your team
+    - team information
+    - team details
+    - who works here
+    - team members
+    - staff
+    - employees
+    - team size
+    - team composition
+    - team structure
+    - team overview
+    - team background
+    - team experience
+    - team expertise
+    - team skills
+    - team capabilities
+
+- intent: ask_technologies
+  examples: |
+    - what technologies do you use
+    - technologies
+    - tech stack
+    - technology stack
+    - what tech do you use
+    - what technology do you use
+    - tools you use
+    - platforms you use
+    - software you use
+    - frameworks you use
+    - programming languages
+    - development tools
+    - technology platforms
+    - tech platforms
+    - development platforms
+    - coding languages
+    - programming tools
+    - development software
+    - tech tools
+    - technology tools
+
+- intent: ask_process
+  examples: |
+    - what is your process
+    - how do you work
+    - your process
+    - work process
+    - development process
+    - project process
+    - how do you handle projects
+    - project workflow
+    - work workflow
+    - development workflow
+    - project methodology
+    - work methodology
+    - development methodology
+    - project approach
+    - work approach
+    - development approach
+    - project steps
+    - work steps
+    - development steps
+    - project phases
+
+- intent: ask_timeline
+  examples: |
+    - how long does it take
+    - timeline
+    - project timeline
+    - how long
+    - duration
+    - time frame
+    - project duration
+    - how much time
+    - time required
+    - project time
+    - development time
+    - completion time
+    - delivery time
+    - project schedule
+    - work schedule
+    - development schedule
+    - project duration
+    - work duration
+    - development duration
+    - project time frame
+
+- intent: ask_support
+  examples: |
+    - I need help
+    - help
+    - support
+    - assistance
+    - I need assistance
+    - I need support
+    - help me
+    - support me
+    - assist me
+    - I need help with
+    - I need assistance with
+    - I need support with
+    - help with
+    - support with
+    - assistance with
+    - I need help
+    - I need assistance
+    - I need support
+    - help me please
+    - support me please
+
+- intent: ask_features
+  examples: |
+    - what features do you offer
+    - features
+    - what features
+    - available features
+    - feature list
+    - what features are available
+    - feature set
+    - capabilities
+    - what can you do
+    - functionality
+    - what functionality
+    - available functionality
+    - feature overview
+    - feature details
+    - feature information
+    - feature description
+    - feature list
+    - feature set
+    - feature capabilities
+    - feature functionality
+
+- intent: ask_benefits
+  examples: |
+    - what are the benefits
+    - benefits
+    - advantages
+    - pros
+    - what are the advantages
+    - what are the pros
+    - benefits of your service
+    - advantages of your service
+    - pros of your service
+    - benefits of working with you
+    - advantages of working with you
+    - pros of working with you
+    - what are the benefits of
+    - what are the advantages of
+    - what are the pros of
+    - benefit list
+    - advantage list
+    - pro list
+    - benefit overview
+    - advantage overview
+
+- intent: ask_case_studies
+  examples: |
+    - case studies
+    - success stories
+    - examples of success
+    - case study
+    - success story
+    - example of success
+    - case studies
+    - success stories
+    - examples of success
+    - case study
+    - success story
+    - example of success
+    - case studies
+    - success stories
+    - examples of success
+    - case study
+    - success story
+    - example of success
+    - case studies
+    - success stories
+
+- intent: ask_testimonials
+  examples: |
+    - testimonials
+    - reviews
+    - customer reviews
+    - client reviews
+    - customer testimonials
+    - client testimonials
+    - customer feedback
+    - client feedback
+    - reviews from customers
+    - testimonials from customers
+    - feedback from customers
+    - reviews from clients
+    - testimonials from clients
+    - feedback from clients
+    - customer reviews
+    - client reviews
+    - customer testimonials
+    - client testimonials
+    - customer feedback
+    - client feedback
+
+- intent: ask_industries
+  examples: |
+    - what industries do you work with
+    - industries
+    - what industries
+    - which industries
+    - industry experience
+    - industry expertise
+    - industry background
+    - industry knowledge
+    - industry experience
+    - industry expertise
+    - industry background
+    - industry knowledge
+    - what industries do you serve
+    - what industries do you work in
+    - what industries do you have experience in
+    - what industries do you specialize in
+    - what industries do you focus on
+    - what industries do you target
+    - what industries do you work with
+    - what industries do you serve
+
+- intent: ask_expertise
+  examples: |
+    - what is your expertise
+    - expertise
+    - what are you experts in
+    - what do you specialize in
+    - what are you good at
+    - what are you best at
+    - what are you known for
+    - what are you famous for
+    - what are you recognized for
+    - what are you acknowledged for
+    - what are you celebrated for
+    - what are you praised for
+    - what are you commended for
+    - what are you lauded for
+    - what are you extolled for
+    - what are you acclaimed for
+    - what are you renowned for
+    - what are you noted for
+    - what are you distinguished for
+    - what are you eminent for
+
+- intent: ask_innovation
+  examples: |
+    - how innovative are you
+    - innovation
+    - how do you innovate
+    - what innovations do you have
+    - innovative solutions
+    - innovative approaches
+    - innovative methods
+    - innovative techniques
+    - innovative strategies
+    - innovative processes
+    - innovative technologies
+    - innovative tools
+    - innovative platforms
+    - innovative systems
+    - innovative services
+    - innovative products
+    - innovative solutions
+    - innovative approaches
+    - innovative methods
+    - innovative techniques
+
+- intent: ask_quality
+  examples: |
+    - how good is your quality
+    - quality
+    - how do you ensure quality
+    - what is your quality standard
+    - quality assurance
+    - quality control
+    - quality management
+    - quality standards
+    - quality processes
+    - quality procedures
+    - quality systems
+    - quality tools
+    - quality methods
+    - quality techniques
+    - quality strategies
+    - quality approaches
+    - quality solutions
+    - quality services
+    - quality products
+    - quality work
+
+- intent: ask_reliability
+  examples: |
+    - how reliable are you
+    - reliability
+    - how do you ensure reliability
+    - what is your reliability record
+    - reliability standards
+    - reliability processes
+    - reliability procedures
+    - reliability systems
+    - reliability tools
+    - reliability methods
+    - reliability techniques
+    - reliability strategies
+    - reliability approaches
+    - reliability solutions
+    - reliability services
+    - reliability products
+    - reliability work
+    - reliability record
+    - reliability history
+    - reliability track record
+
+- intent: out_of_scope
+  examples: |
+    - I want to order a pizza
+    - What is the weather like
+    - Book a flight
+    - Order food
+    - Make a reservation
+    - Buy tickets
+    - Check my bank account
+    - Transfer money
+    - Pay bills
+    - Check my email
+    - Send an email
+    - Make a phone call
+    - Send a text message
+    - Check my calendar
+    - Schedule a meeting
+    - Book a hotel
+    - Rent a car
+    - Buy groceries
+    - Order takeout
+    - Make an appointment 
