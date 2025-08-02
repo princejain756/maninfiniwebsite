@@ -118,7 +118,7 @@ export const contactInfo = {
   mainPhone: '+91 97412 66370',
   supportPhone: '+91 97412 66370',
   salesPhone: '+91 97412 66370',
-  email: 'hello@maninfini.com',
+  email: 'mitesh@maninfini.com',
   supportEmail: 'support@maninfini.com',
   address: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002',
   coordinates: { lat: 12.97002, lng: 77.58429 }

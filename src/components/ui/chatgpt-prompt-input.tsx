@@ -60,8 +60,13 @@ declare global {
 const toolsList = [ { id: 'createImage', name: 'Create an image', shortName: 'Image', icon: PaintBrushIcon }, { id: 'searchWeb', name: 'Search the web', shortName: 'Search', icon: GlobeIcon }, { id: 'writeCode', name: 'Write or code', shortName: 'Write', icon: PencilIcon }, { id: 'deepResearch', name: 'Run deep research', shortName: 'Deep Search', icon: TelescopeIcon, extra: '5 left' }, { id: 'thinkLonger', name: 'Think for longer', shortName: 'Think', icon: LightbulbIcon }, ];
 
 // --- The Final, Self-Contained PromptBox Component ---
-export const PromptBox = React.forwardRef<HTMLTextAreaElement, React.TextareaHTMLAttributes<HTMLTextAreaElement>>(
-  ({ className, ...props }, ref) => {
+interface PromptBoxProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  onToolsClick?: () => void;
+  onPlusClick?: () => void;
+}
+
+export const PromptBox = React.forwardRef<HTMLTextAreaElement, PromptBoxProps>(
+  ({ className, onToolsClick, onPlusClick, ...props }, ref) => {
     // ... all state and handlers are unchanged ...
     const internalTextareaRef = React.useRef<HTMLTextAreaElement>(null);
     const fileInputRef = React.useRef<HTMLInputElement>(null);
@@ -126,7 +131,13 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, React.TextareaHTM
     }, [props.onChange]);
     
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => { setValue(e.target.value); if (props.onChange) props.onChange(e); };
-    const handlePlusClick = () => { fileInputRef.current?.click(); };
+    const handlePlusClick = () => { 
+      if (onPlusClick) {
+        onPlusClick();
+      } else {
+        fileInputRef.current?.click(); 
+      }
+    };
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => { const file = event.target.files?.[0]; if (file && file.type.startsWith("image/")) { const reader = new FileReader(); reader.onloadend = () => { setImagePreview(reader.result as string); }; reader.readAsDataURL(file); }; event.target.value = ""; };
     const handleRemoveImage = (e: React.MouseEvent<HTMLButtonElement>) => { e.stopPropagation(); setImagePreview(null); if(fileInputRef.current) { fileInputRef.current.value = ""; } };
     
@@ -188,7 +199,24 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, React.TextareaHTM
                 </Tooltip>
                 <PopoverContent side="top" align="start">
                   <div className="flex flex-col gap-1">
-                    {toolsList.map(tool => ( <button key={tool.id} onClick={() => { setSelectedTool(tool.id); setIsPopoverOpen(false); }} className="flex w-full items-center gap-2 rounded-md p-2 text-left text-sm hover:bg-accent dark:hover:bg-[#515151]"> <tool.icon className="h-4 w-4" /> <span>{tool.name}</span> {tool.extra && <span className="ml-auto text-xs text-muted-foreground dark:text-gray-400">{tool.extra}</span>} </button> ))}
+                    {toolsList.map(tool => ( 
+                      <button 
+                        key={tool.id} 
+                        onClick={() => { 
+                          if (onToolsClick) {
+                            onToolsClick();
+                          } else {
+                            setSelectedTool(tool.id); 
+                            setIsPopoverOpen(false); 
+                          }
+                        }} 
+                        className="flex w-full items-center gap-2 rounded-md p-2 text-left text-sm hover:bg-accent dark:hover:bg-[#515151]"
+                      > 
+                        <tool.icon className="h-4 w-4" /> 
+                        <span>{tool.name}</span> 
+                        {tool.extra && <span className="ml-auto text-xs text-muted-foreground dark:text-gray-400">{tool.extra}</span>} 
+                      </button> 
+                    ))}
                   </div>
                 </PopoverContent>
               </Popover>
