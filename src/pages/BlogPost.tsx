@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import ArticleSchema from '@/components/ArticleSchema';
 import Breadcrumb from '@/components/Breadcrumb';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { getBlogPostBySlug, blogPosts } from '@/data/blogPosts';
 
 const BlogPost = () => {
@@ -108,10 +109,9 @@ const BlogPost = () => {
               </div>
 
               {/* Article Body */}
-              <div 
-                className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: blogPost.content }}
-              />
+              <div className="prose prose-lg max-w-none">
+                <MarkdownRenderer content={blogPost.content} />
+              </div>
 
               {/* Share Section */}
               <div className="mt-8 pt-6 border-t border-gray-200">
