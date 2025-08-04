@@ -6,14 +6,10 @@ import {
   Bell, 
   Smartphone,
   ArrowRight,
-  Play,
-  Ruler,
-  Users,
-  Database
+  Play
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import inventoryImage from '@/assets/inventory-software.jpg';
-import schoolUniformImage from '@/assets/SchoolUniformMeasurementSoftware.jpg';
 import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Products = () => {
@@ -29,13 +25,6 @@ const Products = () => {
     { icon: Smartphone, title: 'Bulk Messaging', description: 'Send targeted campaigns to thousands of customers' },
     { icon: RefreshCw, title: 'CRM Integration', description: 'Seamlessly connect with existing CRM systems' },
     { icon: BarChart3, title: 'Campaign Analytics', description: 'Track engagement and conversion metrics' }
-  ];
-
-  const schoolUniformFeatures = [
-    { icon: Ruler, title: 'Digital Measurement', description: 'Accurate body measurements using advanced algorithms' },
-    { icon: Users, title: 'Student Database', description: 'Comprehensive student profiles with measurement history' },
-    { icon: Database, title: 'Size Recommendations', description: 'AI-powered size suggestions based on measurements' },
-    { icon: Smartphone, title: 'Mobile App', description: 'Cross-platform mobile application for easy access' }
   ];
 
 
@@ -64,21 +53,6 @@ const Products = () => {
 
   const handleSeeDemo = () => {
     websiteActions.openExternalLink('/WhatsappBotVideo.mp4', true);
-  };
-
-  const handleSchoolUniformDemo = () => {
-    websiteActions.openWhatsApp(
-      contactInfo.salesPhone,
-      'Hello! I would like to request a demo of your School Uniform Measurement Software. Please provide scheduling options and demo details.'
-    );
-  };
-
-  const handleSchoolUniformFeatures = () => {
-    websiteActions.sendEmail(
-      contactInfo.email,
-      'School Uniform Measurement Software Features Request',
-      `Hello,\n\nI would like to know more about the features of your School Uniform Measurement Software.\n\nPlease provide:\n- Detailed feature list\n- Technical specifications\n- Integration capabilities\n- Pricing information\n- Implementation timeline\n\nThank you!`
-    );
   };
 
 
@@ -246,70 +220,6 @@ const Products = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* School Uniform Measurement Software Product */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="animate-fade-in-up">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
-                <Ruler className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-3xl font-poppins font-semibold text-foreground">
-                  School Uniform Measurement Software
-                </h3>
-                <p className="text-accent font-medium">Digital measurement & size management system</p>
-              </div>
-            </div>
-            
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Streamline uniform sizing with our intelligent measurement software. 
-              Capture accurate body measurements, manage student databases, and provide 
-              precise size recommendations for perfect uniform fitting.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {schoolUniformFeatures.map((feature, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">{feature.title}</h4>
-                    <p className="text-sm text-muted-foreground">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="flex gap-4">
-              <Button 
-                size="lg" 
-                className="btn-gradient"
-                onClick={handleSchoolUniformDemo}
-              >
-                Request Demo
-                <Play className="ml-2 w-5 h-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="btn-outline-elegant"
-                onClick={handleSchoolUniformFeatures}
-              >
-                View Features
-              </Button>
-            </div>
-          </div>
-          
-          <div className="animate-slide-in-right">
-            <img 
-              src={schoolUniformImage} 
-              alt="School Uniform Measurement Software Interface" 
-              className="w-full h-auto rounded-2xl shadow-elegant hover:shadow-glow transition-all duration-500"
-            />
           </div>
         </div>
 

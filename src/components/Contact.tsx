@@ -7,7 +7,9 @@ import {
   Send,
   CheckCircle,
   X,
-  User
+  User,
+  Shield,
+  AlertTriangle
 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -15,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { websiteActions, contactInfo as contactData, whatsappContacts } from '@/lib/utils';
+import { validateContactForm, SecurityValidator } from '@/lib/security';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,9 +30,11 @@ const Contact = () => {
     consent: false
   });
 
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showWhatsAppPopup, setShowWhatsAppPopup] = useState(false);
+  const [csrfToken] = useState(() => SecurityValidator.csrf.generateToken());
 
   const handleWhatsAppContact = (contact: typeof whatsappContacts[0]) => {
     const message = 'Hello, I would like to know more about your automation services.';
@@ -60,8 +65,23 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.service || !formData.consent) {
-      alert('Please fill in all required fields and accept the consent.');
+    // Clear previous errors
+    setFormErrors({});
+    
+    // Validate form data
+    const validation = validateContactForm(formData);
+    if (!validation.isValid) {
+      setFormErrors(validation.errors);
+      SecurityValidator.logSecurityEvent('form_validation_failed', { errors: validation.errors });
+      return;
+    }
+    
+    // Rate limiting check
+    const clientId = typeof window !== 'undefined' ? window.location.hostname : 'unknown';
+    if (!SecurityValidator.rateLimiter.checkLimit(`contact_form_${clientId}`, 3, 300000)) {
+      setSubmitStatus('error');
+      setFormErrors({ general: 'Too many submission attempts. Please try again in 5 minutes.' });
+      SecurityValidator.logSecurityEvent('rate_limit_exceeded', { clientId });
       return;
     }
 
@@ -96,8 +116,17 @@ const Contact = () => {
   minute: '2-digit'
 })}`;
 
+      // Sanitize message content before sending
+      const sanitizedMessage = SecurityValidator.sanitizeHtml(whatsappMessage);
+      
       // Send to WhatsApp
-      websiteActions.openWhatsApp(contactData.salesPhone, whatsappMessage);
+      websiteActions.openWhatsApp(contactData.salesPhone, sanitizedMessage);
+      
+      // Log successful submission
+      SecurityValidator.logSecurityEvent('contact_form_submitted', {
+        service: formData.service,
+        hasPhone: !!formData.phone
+      });
 
       // Reset form and show success message
       setFormData({

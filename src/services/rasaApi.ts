@@ -184,7 +184,7 @@ class RasaApiService {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Model training initiated:', data);
+        // Model training initiated
         return true;
       }
       return false;

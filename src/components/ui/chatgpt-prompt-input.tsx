@@ -92,18 +92,18 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, PromptBoxProps>(
         recognitionInstance.lang = 'en-US';
         
         recognitionInstance.onstart = () => {
-          console.log('Speech recognition started');
+          // Speech recognition started
           setIsRecording(true);
         };
         
         recognitionInstance.onresult = (event: any) => {
-          console.log('Speech recognition result:', event);
+          // Speech recognition result received
           const transcript = Array.from(event.results)
             .map((result: any) => result[0])
             .map((result: any) => result.transcript)
             .join('');
           
-          console.log('Transcript:', transcript);
+          // Transcript processed
           setValue(prev => prev + transcript);
           if (props.onChange) {
             const syntheticEvent = {
@@ -119,14 +119,14 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, PromptBoxProps>(
         };
         
         recognitionInstance.onend = () => {
-          console.log('Speech recognition ended');
+          // Speech recognition ended
           setIsRecording(false);
         };
         
         setRecognition(recognitionInstance);
-        console.log('Speech recognition initialized');
+        // Speech recognition initialized
       } else {
-        console.log('Speech recognition not supported in this browser');
+        // Speech recognition not supported in this browser
       }
     }, [props.onChange]);
     
@@ -143,9 +143,8 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, PromptBoxProps>(
     
     // Voice recording handlers
     const handleVoiceRecord = () => {
-      console.log('Voice record button clicked');
-      console.log('Recognition available:', !!recognition);
-      console.log('Currently recording:', isRecording);
+      // Voice record button clicked
+      // Recognition available and recording status checked
       
       if (!recognition) {
         alert('Speech recognition is not supported in this browser.');
@@ -153,10 +152,10 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, PromptBoxProps>(
       }
       
       if (isRecording) {
-        console.log('Stopping recording');
+        // Stopping recording
         recognition.stop();
       } else {
-        console.log('Starting recording');
+        // Starting recording
         recognition.start();
       }
     };

@@ -115,7 +115,7 @@ const Index = () => {
     <>
       <SEO 
         title="Maninfini Automation - Business Automation Services"
-        description="Transform your business with cutting-edge automation and custom software development. Trusted automation partner since 2008."
+        description="Transform your business with cutting-edge automation and custom software development. Trusted automation partner since 2008. Expert in AI, RPA, and digital transformation."
         keywords="business automation, digital transformation, custom software development, process automation, AI solutions, machine learning, workflow automation, enterprise software, business intelligence, data analytics, cloud solutions, API development, web applications, mobile apps, system integration, legacy modernization, digital consulting, IT services, technology solutions, automation consulting"
         url="https://maninfini.com"
         image="https://maninfini.com/manlogo.png"

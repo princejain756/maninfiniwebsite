@@ -1,31 +1,21 @@
 import { Helmet } from 'react-helmet-async';
+import { SecurityValidator } from '@/lib/security';
 
 const SecurityHeaders: React.FC = () => {
+  const csp = SecurityValidator.buildCSP();
+  const securityHeaders = SecurityValidator.getSecurityHeaders();
+
   return (
     <Helmet>
-      {/* Security Headers */}
-      <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-      <meta httpEquiv="X-Frame-Options" content="DENY" />
-      <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-      <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-      <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+      {/* Enhanced Security Headers */}
+      <meta httpEquiv="X-Content-Type-Options" content={securityHeaders['X-Content-Type-Options']} />
+      <meta httpEquiv="X-Frame-Options" content={securityHeaders['X-Frame-Options']} />
+      <meta httpEquiv="X-XSS-Protection" content={securityHeaders['X-XSS-Protection']} />
+      <meta httpEquiv="Referrer-Policy" content={securityHeaders['Referrer-Policy']} />
+      <meta httpEquiv="Permissions-Policy" content={securityHeaders['Permissions-Policy']} />
       
-      {/* Content Security Policy */}
-      <meta httpEquiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        font-src 'self' https://fonts.gstatic.com;
-        img-src 'self' data: https:;
-        media-src 'self' https:;
-        connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://generativelanguage.googleapis.com;
-        frame-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        form-action 'self';
-        frame-ancestors 'none';
-        upgrade-insecure-requests;
-      " />
+      {/* Dynamic Content Security Policy */}
+      <meta httpEquiv="Content-Security-Policy" content={csp} />
       
       {/* Feature Policy */}
       <meta httpEquiv="Feature-Policy" content="
@@ -37,13 +27,21 @@ const SecurityHeaders: React.FC = () => {
         magnetometer 'none';
         gyroscope 'none';
         accelerometer 'none';
+        autoplay 'none';
+        fullscreen 'none';
+        picture-in-picture 'none';
       " />
       
       {/* Additional Security Headers */}
-      <meta httpEquiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
-      <meta httpEquiv="Cache-Control" content="public, max-age=31536000" />
-      <meta httpEquiv="Pragma" content="no-cache" />
-      <meta httpEquiv="Expires" content="0" />
+      <meta httpEquiv="Strict-Transport-Security" content={securityHeaders['Strict-Transport-Security']} />
+      <meta httpEquiv="Cache-Control" content={securityHeaders['Cache-Control']} />
+      <meta httpEquiv="Pragma" content={securityHeaders['Pragma']} />
+      <meta httpEquiv="Expires" content={securityHeaders['Expires']} />
+      
+      {/* Additional Security Meta Tags */}
+      <meta name="robots" content="noindex, nofollow" />
+      <meta name="googlebot" content="noindex, nofollow" />
+      <meta name="security" content="high" />
     </Helmet>
   );
 };

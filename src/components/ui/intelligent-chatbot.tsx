@@ -181,12 +181,12 @@ export function IntelligentChatbot({
       const isConnected = await unifiedApi.getModelStatus();
       setApiConnected(isConnected);
       if (!isConnected) {
-        console.warn('API not connected, using fallback responses');
+        // API not connected, using fallback responses
       }
     } catch (error) {
       console.error('Failed to check API connection:', error);
       setApiConnected(false);
-      console.log('Using fallback mode - API is not available');
+      // Using fallback mode - API is not available
     }
   };
 
@@ -431,7 +431,7 @@ export function IntelligentChatbot({
   };
 
   const handleButtonClick = async (payload: string) => {
-    const whatsappNumber = '+91 97412 66370';
+    const whatsappNumber = '919741266370'; // Remove spaces and + for WhatsApp URL
     const email = 'mitesh@maninfini.com';
     
     switch (payload) {

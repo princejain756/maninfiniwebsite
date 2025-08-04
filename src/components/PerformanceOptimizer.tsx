@@ -97,13 +97,13 @@ const PerformanceOptimizer: React.FC<PerformanceOptimizerProps> = ({ children })
             const observer = new PerformanceObserver((list) => {
               list.getEntries().forEach((entry) => {
                 if (entry.entryType === 'largest-contentful-paint') {
-                  console.log('LCP:', entry.startTime);
+                  // LCP monitoring active
                 }
                 if (entry.entryType === 'first-input') {
-                  console.log('FID:', entry.processingStart - entry.startTime);
+                  // FID monitoring active
                 }
                 if (entry.entryType === 'layout-shift') {
-                  console.log('CLS:', entry.value);
+                  // CLS monitoring active
                 }
               });
             });

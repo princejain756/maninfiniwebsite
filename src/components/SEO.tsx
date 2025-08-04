@@ -6,7 +6,6 @@ const validateMetaDescription = (description: string): string => {
   const minLength = 150;
   
   if (description.length > maxLength) {
-    console.warn(`Meta description is ${description.length} characters (should be ${minLength}-${maxLength}): "${description}"`);
     // Truncate to maxLength and add ellipsis if needed
     return description.length > maxLength + 3 
       ? description.substring(0, maxLength - 3) + '...'
@@ -14,7 +13,7 @@ const validateMetaDescription = (description: string): string => {
   }
   
   if (description.length < minLength) {
-    console.warn(`Meta description is ${description.length} characters (should be ${minLength}-${maxLength}): "${description}"`);
+    // Description is too short, but we'll keep it as is
   }
   
   return description;
@@ -50,7 +49,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title = "Maninfini Automation - Leading Digital Transformation & Business Automation Services",
-  description = "Transform your business with cutting-edge automation and custom software development. Trusted automation partner since 2008.",
+  description = "Transform your business with cutting-edge automation and custom software development. Trusted automation partner since 2008. Expert in AI, RPA, and digital transformation.",
   keywords = "business automation, digital transformation, custom software development, process automation, AI solutions, machine learning, workflow automation, enterprise software, business intelligence, data analytics, cloud solutions, API development, web applications, mobile apps, system integration, legacy modernization, digital consulting, IT services, technology solutions, automation consulting, RPA, artificial intelligence, machine learning, cloud computing, digital transformation services",
   image = "https://maninfini.com/manlogo.png",
   url = "https://maninfini.com",

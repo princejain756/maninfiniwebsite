@@ -4,7 +4,6 @@ export const validateMetaDescription = (description: string): string => {
   const minLength = 150;
   
   if (description.length > maxLength) {
-    console.warn(`Meta description is ${description.length} characters (should be ${minLength}-${maxLength}): "${description}"`);
     // Truncate to maxLength and add ellipsis if needed
     return description.length > maxLength + 3 
       ? description.substring(0, maxLength - 3) + '...'
@@ -12,7 +11,7 @@ export const validateMetaDescription = (description: string): string => {
   }
   
   if (description.length < minLength) {
-    console.warn(`Meta description is ${description.length} characters (should be ${minLength}-${maxLength}): "${description}"`);
+    // Description is too short, but we'll keep it as is
   }
   
   return description;
@@ -30,9 +29,9 @@ export const testMetaDescriptions = () => {
     "Discover best practices for developing custom software that grows with your business needs."
   ];
 
-  console.log("Testing meta descriptions:");
+  // Testing meta descriptions silently
   testDescriptions.forEach((desc, index) => {
     const validated = validateMetaDescription(desc);
-    console.log(`Description ${index + 1}: ${desc.length} chars - "${validated}"`);
+    // Validation completed silently
   });
 }; 

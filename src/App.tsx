@@ -13,6 +13,15 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
+
+// Service pages
+import WebDevelopment from "./pages/services/web-development";
+import GraphicDesign from "./pages/services/graphic-design";
+import EcommerceInventory from "./pages/services/ecommerce-inventory";
+import WhatsAppCommunications from "./pages/services/whatsapp-communications";
+import VirtualOffice from "./pages/services/virtual-office";
+import OffshoreTalent from "./pages/services/offshore-talent";
+import Quantiti from "./pages/services/quantiti";
 import PerformanceOptimizer from "./components/PerformanceOptimizer";
 import { IntelligentChatbot } from "./components/ui/intelligent-chatbot";
 
@@ -35,10 +44,10 @@ const App = () => {
           if (playPromise !== undefined) {
             await playPromise;
             setAudioEnabled(true);
-            console.log('Intro audio started playing');
+            // Intro audio started playing
           }
         } catch (error) {
-          console.log('Audio autoplay was prevented by the browser:', error);
+          // Audio autoplay was prevented by the browser
           
           // Set up user interaction listener to play audio on first click
           const handleFirstUserInteraction = async () => {
@@ -46,10 +55,10 @@ const App = () => {
               if (audioRef.current && !audioEnabled) {
                 await audioRef.current.play();
                 setAudioEnabled(true);
-                console.log('Intro audio started playing after user interaction');
+                // Intro audio started playing after user interaction
               }
             } catch (err) {
-              console.log('Could not play audio even after user interaction:', err);
+              // Could not play audio even after user interaction
             }
             
             // Remove listeners after first interaction
@@ -87,9 +96,9 @@ const App = () => {
               preload="auto"
               crossOrigin="anonymous"
               style={{ display: 'none' }}
-              onCanPlayThrough={() => console.log('Audio can play through')}
-              onError={(e) => console.log('Audio error:', e)}
-              onLoadStart={() => console.log('Audio loading started')}
+              onCanPlayThrough={() => {/* Audio can play through */}}
+              onError={(e) => {/* Audio error handled */}}
+              onLoadStart={() => {/* Audio loading started */}}
             >
               <source src="/intro.mp3" type="audio/mpeg" />
               <source src="/intro.mp3" type="audio/mp3" />
@@ -98,16 +107,34 @@ const App = () => {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
+                
+                {/* Service Routes */}
+                <Route path="/services/web-development" element={<WebDevelopment />} />
+                <Route path="/services/graphic-design" element={<GraphicDesign />} />
+                <Route path="/services/ecommerce-inventory" element={<EcommerceInventory />} />
+                <Route path="/services/whatsapp-communications" element={<WhatsAppCommunications />} />
+                <Route path="/services/virtual-office" element={<VirtualOffice />} />
+                <Route path="/services/offshore-talent" element={<OffshoreTalent />} />
+                <Route path="/services/quantiti" element={<Quantiti />} />
+                
+                {/* Blog Routes */}
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/blog/category/:category" element={<BlogCategory />} />
+                
+                {/* Policy Routes */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
+                
                 {/* Blog redirection routes */}
                 <Route path="/blogs" element={<Blog />} />
                 <Route path="/articles" element={<Blog />} />
                 <Route path="/news" element={<Blog />} />
+                
+                {/* Error pages */}
+                <Route path="/404" element={<NotFound />} />
+                
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

@@ -48,4 +48,9 @@ export default defineConfig(({ mode }) => ({
   define: {
     __DEV__: mode === 'development',
   },
+  // Ensure proper SPA routing
+  preview: {
+    port: 8080,
+    host: "::",
+  },
 }));

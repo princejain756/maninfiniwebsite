@@ -51,7 +51,7 @@ class UnifiedApiService {
   private async checkGeminiAvailability(): Promise<void> {
     try {
       this.geminiAvailable = await geminiApi.getModelStatus();
-      console.log('Gemini API available:', this.geminiAvailable);
+      // Gemini API availability checked
     } catch (error) {
       console.error('Failed to check Gemini availability:', error);
       this.geminiAvailable = false;
