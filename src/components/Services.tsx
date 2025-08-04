@@ -124,47 +124,47 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-gradient-surface">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-gradient-surface">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-6 py-3 mb-6">
-            <Zap className="w-5 h-5" />
-            <span className="font-medium">Our Services</span>
+        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6">
+            <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="font-medium text-sm sm:text-base">Our Services</span>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-poppins font-bold text-foreground mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold text-foreground mb-4 sm:mb-6">
             What We Do
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
             From concept to deployment, we provide end-to-end digital transformation 
             solutions that drive real business results.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="service-card group animate-fade-in-up"
+              className="service-card group animate-fade-in-up p-6 sm:p-8"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-6 service-icon transition-all duration-300`}>
-                <service.icon className="w-8 h-8 text-white" />
+              <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4 sm:mb-6 service-icon transition-all duration-300`}>
+                <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               
-              <h3 className="text-2xl font-poppins font-semibold text-foreground mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-poppins font-semibold text-foreground mb-3 sm:mb-4">
                 {service.title}
               </h3>
               
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
                 {service.description}
               </p>
               
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center gap-3 text-sm">
-                    <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                  <li key={featureIndex} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full flex-shrink-0"></div>
                     <span className="text-foreground">{feature}</span>
                   </li>
                 ))}
@@ -172,49 +172,49 @@ const Services = () => {
               
               <Button 
                 variant="ghost" 
-                className="group text-primary hover:text-accent p-0"
+                className="group text-primary hover:text-foreground p-0 text-sm sm:text-base"
                 onClick={() => handleServiceAction(service)}
               >
                 {service.portfolio ? 'View Portfolio' : service.demo ? 'Watch Demo' : 'Explore Service'}
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
           ))}
         </div>
 
         {/* Process Section */}
-        <div className="card-elegant p-12 text-center animate-fade-in-up">
-          <h3 className="text-3xl font-poppins font-semibold text-foreground mb-4">
+        <div className="card-elegant p-8 sm:p-10 lg:p-12 text-center animate-fade-in-up">
+          <h3 className="text-2xl sm:text-3xl font-poppins font-semibold text-foreground mb-3 sm:mb-4">
             Our 3-Step Process
           </h3>
-          <p className="text-muted-foreground mb-12 text-lg">
+          <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-12">
             Simple, transparent, and efficient approach to every project
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {processSteps.map((step, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="w-20 h-20 bg-gradient-accent rounded-full flex items-center justify-center mb-6 shadow-glow">
-                  <step.icon className="w-10 h-10 text-white" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-accent rounded-full flex items-center justify-center mb-4 sm:mb-6 shadow-glow">
+                  <step.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                 </div>
-                <h4 className="text-xl font-poppins font-semibold text-foreground mb-3">
+                <h4 className="text-lg sm:text-xl font-poppins font-semibold text-foreground mb-2 sm:mb-3">
                   {step.title}
                 </h4>
-                <p className="text-muted-foreground">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   {step.description}
                 </p>
               </div>
             ))}
           </div>
           
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <Button 
               size="lg" 
-              className="btn-gradient"
+              className="btn-gradient text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
               onClick={handleStartProject}
             >
               Start Your Project Today
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>

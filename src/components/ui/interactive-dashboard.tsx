@@ -179,7 +179,7 @@ const InteractiveDashboard = () => {
   const handleQuickAction = (action: string) => {
     switch (action) {
       case 'automation':
-        websiteActions.openWhatsApp(contactInfo.salesPhone, 'Hello! I would like to know more about your automation solutions and see a live demo.');
+        websiteActions.openWhatsApp(contactInfo.salesPhone, 'Hello! I would like to know more about your automation and see a live demo.');
         break;
       case 'analytics':
         websiteActions.openWhatsApp(contactInfo.salesPhone, 'Hello! I would like to see your advanced analytics dashboard and reporting capabilities.');
@@ -204,7 +204,7 @@ const InteractiveDashboard = () => {
   const handleContactAction = (contact: { name: string; number: string; email?: string; linkedin?: string }, action: string) => {
     switch (action) {
       case 'whatsapp':
-        websiteActions.openWhatsApp(contact.number, `Hello ${contact.name}! I would like to discuss automation solutions.`);
+        websiteActions.openWhatsApp(contact.number, `Hello ${contact.name}! I would like to discuss automation.`);
         break;
       case 'phone':
         websiteActions.callPhone(contact.number);

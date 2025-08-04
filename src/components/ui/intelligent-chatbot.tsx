@@ -169,12 +169,41 @@ export function IntelligentChatbot({
     checkApiConnection();
   }, []);
 
-  // Auto-scroll to bottom when new messages arrive
+  // Auto-scroll to bottom when new messages arrive, typing state changes, or loading state changes
   React.useEffect(() => {
-    if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
+    const scrollToBottom = () => {
+      if (scrollAreaRef.current) {
+        const viewport = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
+        if (viewport) {
+          viewport.scrollTo({
+            top: viewport.scrollHeight,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    // Use setTimeout to ensure the DOM has updated
+    setTimeout(scrollToBottom, 100);
+  }, [messages, isTyping, isLoading]);
+
+  // Scroll to bottom when chat is opened
+  React.useEffect(() => {
+    if (isOpen && messages.length > 0) {
+      const scrollToBottom = () => {
+        if (scrollAreaRef.current) {
+          const viewport = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
+          if (viewport) {
+            viewport.scrollTo({
+              top: viewport.scrollHeight,
+              behavior: 'smooth'
+            });
+          }
+        }
+      };
+      setTimeout(scrollToBottom, 200);
     }
-  }, [messages]);
+  }, [isOpen, messages.length]);
 
   const checkApiConnection = async () => {
     try {
@@ -190,6 +219,18 @@ export function IntelligentChatbot({
     }
   };
 
+  const scrollToBottom = () => {
+    if (scrollAreaRef.current) {
+      const viewport = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
+      if (viewport) {
+        viewport.scrollTo({
+          top: viewport.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   const addMessage = (message: Omit<ChatMessage, 'id' | 'timestamp'>) => {
     const newMessage: ChatMessage = {
       ...message,
@@ -197,6 +238,9 @@ export function IntelligentChatbot({
       timestamp: new Date(),
     };
     setMessages(prev => [...prev, newMessage]);
+    
+    // Scroll to bottom immediately after adding message
+    setTimeout(scrollToBottom, 50);
   };
 
   const simulateTyping = async (duration: number = 1000) => {
@@ -339,7 +383,7 @@ export function IntelligentChatbot({
     if (lowerMessage.includes('portfolio') || lowerMessage.includes('work') || lowerMessage.includes('examples')) {
       return [{
         recipient_id: 'user',
-        text: "I'd be happy to show you our portfolio! We have examples of web development, automation solutions, and AI integrations. Would you like to see specific types of projects?",
+        text: "I'd be happy to show you our portfolio! We have examples of web development, automation, and AI integrations. Would you like to see specific types of projects?",
         buttons: [
           { title: '🌐 Web Development', payload: 'portfolio_web' },
           { title: '🤖 AI Solutions', payload: 'portfolio_ai' },
@@ -488,7 +532,7 @@ export function IntelligentChatbot({
         break;
       case 'ai_automation':
         addMessage({
-          text: "We offer AI-powered automation solutions including chatbots, data processing, and intelligent workflows. Would you like to discuss your specific needs?",
+          text: "We offer AI-powered automation including chatbots, data processing, and intelligent workflows. Would you like to discuss your specific needs?",
           sender: 'bot',
         });
         break;
@@ -515,6 +559,19 @@ export function IntelligentChatbot({
     setMessages([]);
     setConversationHistory([]);
     setUserPreferences({});
+    
+    // Scroll to top when conversation is reset
+    setTimeout(() => {
+      if (scrollAreaRef.current) {
+        const viewport = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
+        if (viewport) {
+          viewport.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 100);
   };
 
   // Handle Tools and Plus button clicks

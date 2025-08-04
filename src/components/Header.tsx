@@ -82,11 +82,14 @@ const Header = () => {
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               <span className="hidden sm:inline">hello@maninfini.com</span>
-              <span className="sm:hidden">hello@maninfini.com</span>
+              <span className="sm:hidden text-xs">hello@maninfini.com</span>
             </div>
           </div>
           <div className="hidden md:block">
             <span>🚀 Start Automating Today - Free Consultation Available</span>
+          </div>
+          <div className="md:hidden">
+            <span className="text-xs">🚀 Free Consultation</span>
           </div>
         </div>
       </div>
@@ -103,10 +106,10 @@ const Header = () => {
               <img 
                 src="/manlogo.png" 
                 alt="Maninfini Logo" 
-                className="h-10 sm:h-12 lg:h-14 w-auto mr-2 sm:mr-3"
+                className="h-8 sm:h-10 lg:h-12 w-auto mr-2 sm:mr-3"
               />
               <div className="flex flex-col">
-                <div className="text-lg sm:text-xl lg:text-2xl font-poppins font-bold text-primary">Maninfini</div>
+                <div className="text-base sm:text-lg lg:text-xl font-poppins font-bold text-primary">Maninfini</div>
                 <div className="flex items-center">
                   <span className="text-xs text-orange-500 mr-1">⭐</span>
                   <p className="text-xs text-white/90 hidden sm:block">Trusted Automation Partner Since 2008</p>
@@ -151,6 +154,7 @@ const Header = () => {
           <button
             className="lg:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6 text-foreground" />
@@ -162,22 +166,22 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-border animate-fade-in-up">
+          <div className="lg:hidden mt-4 py-6 border-t border-border animate-fade-in-up bg-background/95 backdrop-blur-md rounded-lg">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => handleNavigation(item.href, item.section, item.external)}
-                  className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left flex items-center gap-2"
+                  className="text-foreground hover:text-primary transition-colors font-medium py-3 text-left flex items-center gap-2 hover:bg-primary/5 rounded-lg px-4"
                 >
                   {item.label}
                   {item.external && <ExternalLink className="w-3 h-3" />}
                 </button>
               ))}
-              <div className="flex flex-col space-y-2 pt-4">
+              <div className="flex flex-col space-y-3 pt-4 border-t border-border/50">
                 <Button 
                   variant="outline" 
-                  className="btn-outline-elegant"
+                  className="btn-outline-elegant w-full"
                   onClick={() => {
                     handleGetDemo();
                     setIsMenuOpen(false);
@@ -186,7 +190,7 @@ const Header = () => {
                   Get Demo
                 </Button>
                 <Button 
-                  className="btn-gradient"
+                  className="btn-gradient w-full"
                   onClick={() => {
                     handleFreeConsultation();
                     setIsMenuOpen(false);

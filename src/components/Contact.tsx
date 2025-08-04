@@ -224,42 +224,42 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent rounded-full px-6 py-3 mb-6">
-            <MessageSquare className="w-5 h-5" />
-            <span className="font-medium">Get In Touch</span>
+        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6">
+            <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="font-medium text-sm sm:text-base">Get In Touch</span>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-poppins font-bold text-foreground mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold text-foreground mb-4 sm:mb-6">
             Let's Start Your Project
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
             Ready to transform your business? Get in touch with our experts for a free consultation 
             and discover how we can help you achieve your goals.
           </p>
         </div>
 
         {/* Contact Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {contactInfo.map((info, index) => (
             <div 
               key={index} 
-              className="card-elegant p-6 text-center group cursor-pointer animate-fade-in-up"
+              className="card-elegant p-4 sm:p-6 text-center group cursor-pointer animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-glow group-hover:scale-110 transition-transform">
-                <info.icon className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-glow group-hover:scale-110 transition-transform">
+                <info.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               
-              <h3 className="text-lg font-poppins font-semibold text-foreground mb-4">
+              <h3 className="text-base sm:text-lg font-poppins font-semibold text-foreground mb-3 sm:mb-4">
                 {info.title}
               </h3>
               
-              <div className="space-y-2 mb-6">
+              <div className="space-y-1 sm:space-y-2 mb-4 sm:mb-6">
                 {info.details.map((detail, detailIndex) => (
-                  <p key={detailIndex} className="text-muted-foreground">
+                  <p key={detailIndex} className="text-xs sm:text-sm text-muted-foreground">
                     {detail}
                   </p>
                 ))}
@@ -267,7 +267,7 @@ const Contact = () => {
               
               <Button 
                 variant="ghost" 
-                className="text-primary hover:text-accent"
+                className="text-primary hover:text-foreground text-xs sm:text-sm"
                 onClick={() => handleContactAction(info.action)}
               >
                 {info.action}
@@ -277,20 +277,20 @@ const Contact = () => {
         </div>
 
         {/* Contact Form & Map */}
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Contact Form */}
           <div className="animate-fade-in-up">
-            <div className="card-elegant p-8">
-              <h3 className="text-2xl font-poppins font-semibold text-foreground mb-6">
+            <div className="card-elegant p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-poppins font-semibold text-foreground mb-4 sm:mb-6">
                 Send Us a Message
               </h3>
               
               {/* Success/Error Messages */}
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                    <p className="text-green-800 font-medium">
+                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                    <p className="text-green-800 font-medium text-sm sm:text-base">
                       Thank you! Your message has been sent to WhatsApp. Our team will respond within 24 hours.
                     </p>
                   </div>
@@ -298,34 +298,34 @@ const Contact = () => {
               )}
               
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-800">
+                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-800 text-sm sm:text-base">
                     Sorry, there was an error sending your message. Please try again or contact us directly.
                   </p>
                 </div>
               )}
               
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <div className="grid md:grid-cols-2 gap-4">
+              <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                       First Name *
                     </label>
                     <Input 
                       placeholder="Your first name"
-                      className="w-full"
+                      className="w-full text-sm sm:text-base"
                       value={formData.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                       Last Name *
                     </label>
                     <Input 
                       placeholder="Your last name"
-                      className="w-full"
+                      className="w-full text-sm sm:text-base"
                       value={formData.lastName}
                       onChange={(e) => handleInputChange('lastName', e.target.value)}
                       required
@@ -334,13 +334,13 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Email Address *
                   </label>
                   <Input 
                     type="email" 
                     placeholder="your.email@company.com"
-                    className="w-full"
+                    className="w-full text-sm sm:text-base"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     required
@@ -348,24 +348,24 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Phone Number
                   </label>
                   <Input 
                     type="tel" 
                     placeholder="+91 98765 43210"
-                    className="w-full"
+                    className="w-full text-sm sm:text-base"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Service Interest *
                   </label>
                   <Select value={formData.service} onValueChange={(value) => handleInputChange('service', value)}>
-                    <SelectTrigger>
+                    <SelectTrigger className="text-sm sm:text-base">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     <SelectContent>
@@ -379,13 +379,13 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Project Details
                   </label>
                   <Textarea 
                     placeholder="Tell us about your project requirements, timeline, and any specific needs..."
                     rows={4}
-                    className="w-full"
+                    className="w-full text-sm sm:text-base"
                     value={formData.message}
                     onChange={(e) => handleInputChange('message', e.target.value)}
                   />
@@ -400,30 +400,30 @@ const Contact = () => {
                     onChange={(e) => handleInputChange('consent', e.target.checked)}
                     required
                   />
-                  <label htmlFor="consent" className="text-sm text-muted-foreground">
+                  <label htmlFor="consent" className="text-xs sm:text-sm text-muted-foreground">
                     I agree to receive communications from Maninfini Automation and understand 
                     that I can unsubscribe at any time. View our{' '}
-                    <a href="#" className="text-primary hover:text-accent">Privacy Policy</a>.
+                    <a href="#" className="text-primary hover:text-foreground">Privacy Policy</a>.
                   </label>
                 </div>
                 
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="btn-gradient w-full"
+                  className="btn-gradient w-full text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Sending to WhatsApp...' : 'Send to WhatsApp'}
-                  <Send className="ml-2 w-5 h-5" />
+                  <Send className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
               </form>
             </div>
           </div>
 
           {/* Map & Quick Actions */}
-          <div className="space-y-8 animate-slide-in-right">
+          <div className="space-y-6 sm:space-y-8 animate-slide-in-right">
             {/* Interactive Google Map */}
-            <div className="card-elegant p-0 overflow-hidden h-96 relative">
+            <div className="card-elegant p-0 overflow-hidden h-64 sm:h-96 relative">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8267!2d77.58429!3d12.97002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzEyLjAiTiA3N8KwMzUnMDQuMCJF!5e0!3m2!1sen!2sin!4v1642345678901!5m2!1sen!2sin"
                 width="100%"
@@ -434,11 +434,11 @@ const Contact = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Maninfini Automation Office Location"
               ></iframe>
-              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
+              <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-white/90 backdrop-blur-sm px-2 sm:px-4 py-1 sm:py-2 rounded-lg shadow-lg">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                   <div>
-                    <p className="text-sm font-semibold text-foreground">Our Bengaluru Office</p>
+                    <p className="text-xs sm:text-sm font-semibold text-foreground">Our Bengaluru Office</p>
                     <p className="text-xs text-muted-foreground">12.97002° N, 77.58429° E</p>
                   </div>
                 </div>
@@ -446,49 +446,49 @@ const Contact = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="card-elegant p-8">
-              <h4 className="text-xl font-poppins font-semibold text-foreground mb-6">
+            <div className="card-elegant p-6 sm:p-8">
+              <h4 className="text-lg sm:text-xl font-poppins font-semibold text-foreground mb-4 sm:mb-6">
                 Quick Actions
               </h4>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <Button 
-                  className="btn-gradient w-full justify-start"
+                  className="btn-gradient w-full justify-start text-sm sm:text-base"
                   onClick={() => setShowWhatsAppPopup(true)}
                 >
-                  <MessageSquare className="mr-3 w-5 h-5" />
+                  <MessageSquare className="mr-2 sm:mr-3 w-4 h-4 sm:w-5 sm:h-5" />
                   Chat on WhatsApp
                 </Button>
                 
                 <Button 
                   variant="outline" 
-                  className="btn-outline-elegant w-full justify-start"
+                  className="btn-outline-elegant w-full justify-start text-sm sm:text-base"
                   onClick={() => handleContactAction('Schedule Call')}
                 >
-                  <Phone className="mr-3 w-5 h-5" />
+                  <Phone className="mr-2 sm:mr-3 w-4 h-4 sm:w-5 sm:h-5" />
                   Schedule a Call
                 </Button>
                 
                 <Button 
                   variant="outline" 
-                  className="btn-outline-elegant w-full justify-start"
+                  className="btn-outline-elegant w-full justify-start text-sm sm:text-base"
                   onClick={() => websiteActions.sendEmail(
                     contactData.email,
                     'Inquiry about Automation Services',
                     'Hello,\n\nI would like to know more about your automation services.\n\nPlease provide information about:\n- Available services\n- Pricing\n- Implementation timeline\n- Case studies\n\nThank you!'
                   )}
                 >
-                  <Mail className="mr-3 w-5 h-5" />
+                  <Mail className="mr-2 sm:mr-3 w-4 h-4 sm:w-5 sm:h-5" />
                   Email Us Directly
                 </Button>
               </div>
               
-              <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+              <div className="mt-6 sm:mt-8 p-3 sm:p-4 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                   <div>
-                    <h5 className="font-semibold text-green-800">Free Consultation</h5>
-                    <p className="text-sm text-green-700">
+                    <h5 className="font-semibold text-green-800 text-sm sm:text-base">Free Consultation</h5>
+                    <p className="text-xs sm:text-sm text-green-700">
                       Get expert advice within 24 hours
                     </p>
                   </div>
@@ -499,18 +499,18 @@ const Contact = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 animate-fade-in-up">
-          <div className="card-elegant p-12 bg-gradient-to-r from-primary to-accent text-white">
-            <h3 className="text-3xl font-poppins font-semibold mb-4">
+        <div className="text-center mt-12 sm:mt-16 animate-fade-in-up">
+          <div className="card-elegant p-8 sm:p-12 bg-gradient-to-r from-primary to-accent text-white">
+            <h3 className="text-2xl sm:text-3xl font-poppins font-semibold mb-3 sm:mb-4">
               Ready to Get Started?
             </h3>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 opacity-90">
               Join 200+ businesses who trust Maninfini for their automation needs
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-white text-primary hover:bg-gray-100"
+                className="bg-white text-primary hover:bg-gray-100 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
                 onClick={() => websiteActions.openWhatsApp(
                   contactData.salesPhone,
                   'Hello! I would like to book a free consultation. Please provide available time slots and consultation details.'
@@ -521,7 +521,7 @@ const Contact = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-primary"
+                className="border-white text-white hover:bg-white hover:text-primary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
                 onClick={() => websiteActions.sendEmail(
                   contactData.email,
                   'Brochure Request',
@@ -538,49 +538,49 @@ const Contact = () => {
       {/* WhatsApp Contact Popup */}
       {showWhatsAppPopup && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full animate-fade-in-up">
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-md w-full animate-fade-in-up">
             {/* Header */}
-            <div className="bg-green-500 text-white p-6 rounded-t-2xl relative">
+            <div className="bg-green-500 text-white p-4 sm:p-6 rounded-t-xl sm:rounded-t-2xl relative">
               <button
                 onClick={() => setShowWhatsAppPopup(false)}
-                className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+                className="absolute top-2 sm:top-4 right-2 sm:right-4 text-white hover:text-gray-200 transition-colors"
                 aria-label="Close WhatsApp popup"
                 title="Close"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
-              <div className="flex items-center gap-3">
-                <MessageSquare className="w-8 h-8" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8" />
                 <div>
-                  <h3 className="text-xl font-semibold">Chat on WhatsApp</h3>
-                  <p className="text-green-100 text-sm">Choose who you'd like to chat with</p>
+                  <h3 className="text-lg sm:text-xl font-semibold">Chat on WhatsApp</h3>
+                  <p className="text-green-100 text-xs sm:text-sm">Choose who you'd like to chat with</p>
                 </div>
               </div>
             </div>
 
             {/* Contact List */}
-            <div className="p-6 space-y-3">
+            <div className="p-4 sm:p-6 space-y-2 sm:space-y-3">
               {whatsappContacts.map((contact, index) => (
                 <div
                   key={index}
                   onClick={() => handleWhatsAppContact(contact)}
-                  className="flex items-center gap-4 p-4 rounded-xl border border-gray-200 hover:border-green-300 hover:bg-green-50 cursor-pointer transition-all duration-200 hover:scale-[1.02]"
+                  className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl border border-gray-200 hover:border-green-300 hover:bg-green-50 cursor-pointer transition-all duration-200 hover:scale-[1.02]"
                 >
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <User className="w-6 h-6 text-green-600" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center">
+                    <User className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-semibold text-gray-900">{contact.name}</h4>
-                    <p className="text-sm text-gray-600">{contact.role}</p>
-                    <p className="text-sm text-green-600 font-medium">{contact.number}</p>
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{contact.name}</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">{contact.role}</p>
+                    <p className="text-xs sm:text-sm text-green-600 font-medium">{contact.number}</p>
                   </div>
-                  <MessageSquare className="w-5 h-5 text-green-500" />
+                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
                 </div>
               ))}
             </div>
 
             {/* Footer */}
-            <div className="px-6 pb-6">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-6">
               <p className="text-xs text-gray-500 text-center">
                 You'll be redirected to WhatsApp to start the conversation
               </p>

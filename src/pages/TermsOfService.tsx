@@ -7,10 +7,10 @@ const TermsOfService = () => {
   return (
     <>
       <Helmet>
-        <title>Terms of Service - Maninfini | Automation Solutions</title>
+        <title>Terms of Service - Maninfini | Automation</title>
         <meta name="description" content="Read Maninfini's terms of service to understand the rules and conditions for using our automation solutions and services. Learn about your rights and obligations." />
         <meta name="keywords" content="terms of service, terms and conditions, legal agreement, Maninfini, automation services" />
-        <meta property="og:title" content="Terms of Service - Maninfini | Automation Solutions" />
+        <meta property="og:title" content="Terms of Service - Maninfini | Automation" />
         <meta property="og:description" content="Read Maninfini's terms of service to understand the rules and conditions for using our automation solutions and services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maninfini.com/terms-of-service" />
@@ -49,7 +49,7 @@ const TermsOfService = () => {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">2. Description of Service</h2>
                 <p className="text-gray-700 mb-4">
-                  Maninfini provides automation solutions, custom development, and intelligent systems services, including but not limited to:
+                  Maninfini provides automation, custom development, and intelligent systems services, including but not limited to:
                 </p>
                 <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
                   <li>Web development and design services</li>

@@ -7,10 +7,10 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy - Maninfini | Automation Solutions</title>
+        <title>Privacy Policy - Maninfini | Automation</title>
         <meta name="description" content="Read Maninfini's privacy policy to understand how we collect, use, and protect your personal information. Learn about your rights and our data protection practices." />
         <meta name="keywords" content="privacy policy, data protection, GDPR compliance, personal information, Maninfini" />
-        <meta property="og:title" content="Privacy Policy - Maninfini | Automation Solutions" />
+        <meta property="og:title" content="Privacy Policy - Maninfini | Automation" />
         <meta property="og:description" content="Read Maninfini's privacy policy to understand how we collect, use, and protect your personal information." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maninfini.com/privacy-policy" />

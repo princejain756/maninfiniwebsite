@@ -7,10 +7,10 @@ const CookiePolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Cookie Policy - Maninfini | Automation Solutions</title>
+        <title>Cookie Policy - Maninfini | Automation</title>
         <meta name="description" content="Learn about how Maninfini uses cookies and similar technologies to enhance your browsing experience and provide personalized services." />
         <meta name="keywords" content="cookie policy, cookies, tracking technologies, data collection, Maninfini" />
-        <meta property="og:title" content="Cookie Policy - Maninfini | Automation Solutions" />
+        <meta property="og:title" content="Cookie Policy - Maninfini | Automation" />
         <meta property="og:description" content="Learn about how Maninfini uses cookies and similar technologies to enhance your browsing experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maninfini.com/cookie-policy" />

@@ -64,27 +64,27 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white" style={{ backgroundColor: 'hsl(var(--surface-dark))' }}>
+    <footer className="text-gray-900" style={{ backgroundColor: '#FFFAF1' }}>
       {/* Newsletter Section */}
-      <div className="border-b border-white/10">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+      <div className="border-b border-gray-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-poppins font-semibold mb-4">
+              <h3 className="text-xl sm:text-2xl font-poppins font-semibold mb-3 sm:mb-4">
                 Stay Updated with Latest Automation Trends
               </h3>
-              <p className="text-white text-lg">
+              <p className="text-gray-700 text-sm sm:text-base lg:text-lg">
                 Get exclusive insights, case studies, and automation tips delivered to your inbox monthly.
               </p>
             </div>
             
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Input 
                 placeholder="Enter your email address"
-                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-300"
+                className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 text-sm sm:text-base"
               />
               <Button 
-                className="btn-gradient px-8"
+                className="btn-gradient px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
                 onClick={handleSubscribe}
               >
                 Subscribe
@@ -96,44 +96,44 @@ const Footer = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center mb-6">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center mb-4 sm:mb-6">
               <img 
                 src="/manlogo.png" 
                 alt="Maninfini Logo" 
-                className="h-20 w-auto mr-3"
+                className="h-16 sm:h-20 w-auto mr-3"
               />
               <div>
-                <h3 className="text-2xl font-poppins font-bold">Maninfini</h3>
-                <p className="text-sm text-white">Automation Solutions</p>
+                <h3 className="text-xl sm:text-2xl font-poppins font-bold">Maninfini</h3>
+                <p className="text-xs sm:text-sm text-gray-600">Automation</p>
               </div>
             </div>
             
-            <p className="text-white mb-6 leading-relaxed">
+            <p className="text-gray-700 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
               Transforming businesses through innovative automation solutions, 
               custom development, and intelligent systems since 2008.
             </p>
             
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent" />
-                <div className="text-white">
-                  <div className="text-white">+91 97412 66370</div>
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                <div className="text-gray-700 text-sm sm:text-base">
+                  <div className="text-gray-700">+91 97412 66370</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent" />
-                <div className="text-white">
-                  <div className="text-white">hello@maninfini.com</div>
-                  <div className="text-white">support@maninfini.com</div>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                <div className="text-gray-700 text-sm sm:text-base">
+                  <div className="text-gray-700">hello@maninfini.com</div>
+                  <div className="text-gray-700">support@maninfini.com</div>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent mt-1" />
-                <span className="text-white">
+              <div className="flex items-start gap-2 sm:gap-3">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-accent mt-1" />
+                <span className="text-gray-700 text-sm sm:text-base">
                   #20, Ground Floor, 12th Cross<br />
                   Cubbonpet, Banappa Park Road<br />
                   Bengaluru - 560002, India<br />
@@ -145,13 +145,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-poppins font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-poppins font-semibold mb-4 sm:mb-6">Quick Links</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button 
                     onClick={() => handleQuickLink(link.href)}
-                    className="text-white/80 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block text-left"
+                    className="text-gray-600 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block text-left text-sm sm:text-base"
                   >
                     {link.label}
                   </button>
@@ -162,15 +162,15 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-poppins font-semibold mb-6">Our Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-poppins font-semibold mb-4 sm:mb-6">Our Services</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
                   <button 
                     onClick={() => handleQuickLink(service.href)}
-                    className="text-white/80 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block flex items-center gap-2 text-left"
+                    className="text-gray-600 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block flex items-center gap-2 text-left text-sm sm:text-base"
                   >
-                    {service.icon && <service.icon className="w-4 h-4" />}
+                    {service.icon && <service.icon className="w-3 h-3 sm:w-4 sm:h-4" />}
                     {service.label}
                   </button>
                 </li>
@@ -180,13 +180,13 @@ const Footer = () => {
 
           {/* Legal & Certifications */}
           <div>
-            <h4 className="text-lg font-poppins font-semibold mb-6">Legal & Compliance</h4>
-            <ul className="space-y-3 mb-8">
+            <h4 className="text-base sm:text-lg font-poppins font-semibold mb-4 sm:mb-6">Legal & Compliance</h4>
+            <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
               {legalLinks.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href}
-                    className="text-white/80 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block"
+                    className="text-gray-600 hover:text-accent transition-colors hover:translate-x-1 transform duration-200 inline-block text-sm sm:text-base"
                   >
                     {link.label}
                   </a>
@@ -195,14 +195,14 @@ const Footer = () => {
             </ul>
 
             {/* Certifications */}
-            <div className="space-y-3">
-              <div className="bg-white/10 rounded-lg p-3">
-                <div className="text-sm font-medium text-white mb-1">ISO/IEC 27001</div>
-                <div className="text-xs text-white/70">Information Security</div>
+            <div className="space-y-2 sm:space-y-3">
+              <div className="bg-white/80 rounded-lg p-2 sm:p-3">
+                <div className="text-xs sm:text-sm font-medium text-gray-900 mb-1">ISO/IEC 27001</div>
+                <div className="text-xs text-gray-600">Information Security</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-3">
-                <div className="text-sm font-medium text-white mb-1">GDPR Compliant</div>
-                <div className="text-xs text-white/70">Data Protection</div>
+              <div className="bg-white/80 rounded-lg p-2 sm:p-3">
+                <div className="text-xs sm:text-sm font-medium text-gray-900 mb-1">GDPR Compliant</div>
+                <div className="text-xs text-gray-600">Data Protection</div>
               </div>
             </div>
           </div>
@@ -210,10 +210,10 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container mx-auto px-4 py-6">
+      <div className="border-t border-gray-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-white/70 text-sm">
+            <div className="text-gray-600 text-xs sm:text-sm text-center md:text-left">
               <p>© 2024 Maninfini Automation. All rights reserved.</p>
               <p className="mt-1">
                 CIN: U72200KA2008PTC045123 | GST: 29AAQCM1170Q1ZO
@@ -221,16 +221,16 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
-            <div className="flex items-center gap-4">
-              <span className="text-white/70 text-sm">Follow us:</span>
+            <div className="flex items-center gap-3 sm:gap-4">
+              <span className="text-gray-600 text-xs sm:text-sm">Follow us:</span>
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent hover:scale-110 transition-all duration-200"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-white/80 rounded-full flex items-center justify-center hover:bg-accent hover:scale-110 transition-all duration-200"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
               ))}
             </div>
