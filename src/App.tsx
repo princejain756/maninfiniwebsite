@@ -139,10 +139,9 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
               
-              {/* Intelligent Chatbot */}
-              <IntelligentChatbot 
-                title="Manu Assistant" 
-                subtitle="Intelligent conversation powered by PrinceML"
+              {/* Intelligent Auto-Learning Chatbot */}
+              <IntelligentChatbot
+                autoLearningApiUrl="http://localhost:3001"
               />
             </BrowserRouter>
           </PerformanceOptimizer>

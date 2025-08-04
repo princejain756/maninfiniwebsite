@@ -6,12 +6,13 @@ import { Button } from "./button";
 import { Badge } from "./badge";
 import { Card } from "./card";
 import { ScrollArea } from "./scroll-area";
-import { Loader2, Send, Bot, User, Sparkles, MessageSquare, X, Settings, Brain, Crown, Zap, Search, Code, Lightbulb, Image, Star, Gift } from "lucide-react";
+import { Loader2, Send, Bot, User, Sparkles, MessageSquare, X, Settings, Brain, Crown, Zap, Search, Code, Lightbulb, Image, Star, Gift, RefreshCw } from "lucide-react";
 
 interface IntelligentChatbotProps {
   className?: string;
   title?: string;
   subtitle?: string;
+  autoLearningApiUrl?: string; // New prop for auto-learning API
 }
 
 interface ChatMessage {
@@ -28,6 +29,17 @@ interface ChatMessage {
     payload: string;
   }>;
   isTyping?: boolean;
+}
+
+// Auto-learning API interface
+interface AutoLearningResponse {
+  response: string;
+  intent?: string;
+  confidence?: number;
+  buttons?: Array<{
+    title: string;
+    payload: string;
+  }>;
 }
 
 // Join Automation Pro Popup Component
@@ -152,7 +164,8 @@ const JoinAutomationProPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose:
 export function IntelligentChatbot({ 
   className, 
   title = "Manu Assistant", 
-  subtitle = "Intelligent conversation with Gemini AI & fallback" 
+  subtitle = "Intelligent conversation with auto-learning capabilities",
+  autoLearningApiUrl
 }: IntelligentChatbotProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [messages, setMessages] = React.useState<ChatMessage[]>([]);
@@ -162,12 +175,16 @@ export function IntelligentChatbot({
   const [conversationHistory, setConversationHistory] = React.useState<UnifiedMessage[]>([]);
   const [userPreferences, setUserPreferences] = React.useState<Record<string, string>>({});
   const [showJoinPopup, setShowJoinPopup] = React.useState(false);
+  const [autoLearningStatus, setAutoLearningStatus] = React.useState<'connected' | 'disconnected' | 'checking'>('checking');
   const scrollAreaRef = React.useRef<HTMLDivElement>(null);
 
   // Check API connection on mount
   React.useEffect(() => {
     checkApiConnection();
-  }, []);
+    if (autoLearningApiUrl) {
+      checkAutoLearningStatus();
+    }
+  }, [autoLearningApiUrl]);
 
   // Auto-scroll to bottom when new messages arrive, typing state changes, or loading state changes
   React.useEffect(() => {
@@ -216,6 +233,41 @@ export function IntelligentChatbot({
       console.error('Failed to check API connection:', error);
       setApiConnected(false);
       // Using fallback mode - API is not available
+    }
+  };
+
+  const checkAutoLearningStatus = async () => {
+    if (!autoLearningApiUrl) return;
+    
+    try {
+      const response = await fetch(`${autoLearningApiUrl}/api/health`);
+      if (response.ok) {
+        setAutoLearningStatus('connected');
+      } else {
+        setAutoLearningStatus('disconnected');
+      }
+    } catch (error) {
+      console.error('Auto-learning API not available:', error);
+      setAutoLearningStatus('disconnected');
+    }
+  };
+
+  const triggerManualScraping = async () => {
+    if (!autoLearningApiUrl) return;
+    
+    try {
+      const response = await fetch(`${autoLearningApiUrl}/api/scrape`, {
+        method: 'POST',
+      });
+      
+      if (response.ok) {
+        console.log('Manual scraping triggered successfully');
+        // Optionally show a success message
+      } else {
+        console.error('Failed to trigger manual scraping');
+      }
+    } catch (error) {
+      console.error('Error triggering manual scraping:', error);
     }
   };
 
@@ -276,15 +328,74 @@ export function IntelligentChatbot({
 
       let responses: UnifiedResponse[];
 
-      if (apiConnected) {
+      // Try auto-learning API first if available
+      if (autoLearningApiUrl) {
         try {
-          responses = await unifiedApi.sendMessage(message, 'user');
+          const autoLearningResponse = await fetch(`${autoLearningApiUrl}/api/chat`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message }),
+          });
+
+          if (autoLearningResponse.ok) {
+            const autoResponse: AutoLearningResponse = await autoLearningResponse.json();
+            
+            // Convert auto-learning response to UnifiedResponse format
+            responses = [{
+              recipient_id: 'user',
+              text: autoResponse.response,
+              buttons: autoResponse.buttons || [],
+            }];
+
+            // Add intent and confidence if available
+            if (autoResponse.intent && autoResponse.confidence) {
+              const lastMessage = messages[messages.length - 1];
+              if (lastMessage && lastMessage.sender === 'bot') {
+                lastMessage.intent = autoResponse.intent;
+                lastMessage.confidence = autoResponse.confidence;
+              }
+            }
+          } else {
+            // Fallback to original logic
+            if (apiConnected) {
+              try {
+                responses = await unifiedApi.sendMessage(message, 'user');
+              } catch (error) {
+                console.error('API call failed, using fallback:', error);
+                responses = getFallbackResponse(message);
+              }
+            } else {
+              responses = getFallbackResponse(message);
+            }
+          }
         } catch (error) {
-          console.error('API call failed, using fallback:', error);
-          responses = getFallbackResponse(message);
+          console.error('Auto-learning API failed, using fallback:', error);
+          // Fallback to original logic
+          if (apiConnected) {
+            try {
+              responses = await unifiedApi.sendMessage(message, 'user');
+            } catch (error) {
+              console.error('API call failed, using fallback:', error);
+              responses = getFallbackResponse(message);
+            }
+          } else {
+            responses = getFallbackResponse(message);
+          }
         }
       } else {
-        responses = getFallbackResponse(message);
+        // Original logic when auto-learning API is not available
+        if (apiConnected) {
+          try {
+            responses = await unifiedApi.sendMessage(message, 'user');
+          } catch (error) {
+            console.error('API call failed, using fallback:', error);
+            responses = getFallbackResponse(message);
+          }
+        } else {
+          responses = getFallbackResponse(message);
+        }
       }
 
       // Add bot responses
@@ -603,15 +714,44 @@ export function IntelligentChatbot({
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                 )}
               </div>
-              <div>
-                <h3 className="font-semibold text-foreground flex items-center gap-2">
-                  {title}
-                  <Sparkles className="w-4 h-4 text-yellow-500" />
-                </h3>
-                <p className="text-sm text-muted-foreground">{subtitle}</p>
-              </div>
+                              <div>
+                  <h3 className="font-semibold text-foreground flex items-center gap-2">
+                    {title}
+                    <Sparkles className="w-4 h-4 text-yellow-500" />
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {subtitle}
+                    {autoLearningApiUrl && (
+                      <span className={cn(
+                        "ml-2 px-2 py-0.5 text-xs rounded-full",
+                        autoLearningStatus === 'connected' 
+                          ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
+                          : autoLearningStatus === 'checking'
+                          ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300"
+                          : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                      )}>
+                        {autoLearningStatus === 'connected' ? 'Auto-learning' : 
+                         autoLearningStatus === 'checking' ? 'Checking...' : 'Offline'}
+                      </span>
+                    )}
+                  </p>
+                </div>
             </div>
             <div className="flex items-center gap-2">
+              {autoLearningApiUrl && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={triggerManualScraping}
+                  title="Refresh website content"
+                  className={cn(
+                    "transition-colors",
+                    autoLearningStatus === 'connected' ? "text-green-500" : "text-gray-400"
+                  )}
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </Button>
+              )}
               <Button
                 variant="ghost"
                 size="sm"
