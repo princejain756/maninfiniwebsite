@@ -10,6 +10,7 @@ import FAQSchema from '@/components/FAQSchema';
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 import { StaggerTestimonials } from '@/components/ui/stagger-testimonials';
+import ClientsSection from '@/components/ui/ClientsSection';
 
 import SecurityHeaders from '@/components/SecurityHeaders';
 import ReviewSchema from '@/components/ReviewSchema';
@@ -154,6 +155,7 @@ const Index = () => {
             <Services />
             <Products />
             <About />
+            <ClientsSection />
             <StaggerTestimonials />
             <Contact />
           </main>

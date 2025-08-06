@@ -127,7 +127,7 @@ const Footer = () => {
               <div className="flex items-center gap-2 sm:gap-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <div className="text-gray-700 text-sm sm:text-base">
-                  <div className="text-gray-700">hello@maninfini.com</div>
+                  <div className="text-gray-700">mitesh@maninfini.com</div>
                   <div className="text-gray-700">support@maninfini.com</div>
                 </div>
               </div>
@@ -216,7 +216,7 @@ const Footer = () => {
             <div className="text-gray-600 text-xs sm:text-sm text-center md:text-left">
               <p>© 2024 Maninfini Automation. All rights reserved.</p>
               <p className="mt-1">
-                CIN: U72200KA2008PTC045123 | GST: 29AAQCM1170Q1ZO
+                CIN: U72900KA2022PTC165226 | GST: 29AAQCM1170Q1ZO
               </p>
             </div>
             

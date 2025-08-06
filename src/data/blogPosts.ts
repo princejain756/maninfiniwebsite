@@ -154,7 +154,7 @@ The future of LLMs is not just about bigger models or faster processing—it's a
     publishedDate: "2024-01-15",
     category: "AI & Machine Learning",
     readTime: 8,
-    image: "/assets/blog-llm-future.jpg",
+    image: "/The Future of LLMs From GPT-4 to AGI - What's Next.jpg",
     tags: ["LLM", "GPT-4", "AGI", "AI", "Machine Learning", "Future Technology"]
   },
   {
@@ -416,7 +416,7 @@ The race for quantum advantage is accelerating, with major investments from gove
     publishedDate: "2024-01-10",
     category: "Quantum Computing",
     readTime: 12,
-    image: "/assets/blog-quantum-computing.jpg",
+    image: "/Quantum Computing Revolutionizing AI and Cryptography.jpg",
     tags: ["Quantum Computing", "AI", "Cryptography", "Technology", "Security"]
   },
   {
@@ -740,7 +740,7 @@ The future of TTS lies in creating voices that don't just sound human but think 
     publishedDate: "2024-01-08",
     category: "Voice Technology",
     readTime: 10,
-    image: "/assets/blog-voice-tts.jpg",
+    image: "/Voice TTS Revolution From Text-to-Speech to Emotional AI Voices.jpg",
     tags: ["TTS", "Voice AI", "Emotional AI", "Accessibility", "Technology"]
   },
   {
@@ -1095,7 +1095,7 @@ The future of healthcare is AI-powered, personalized, and patient-centered, with
     publishedDate: "2024-01-05",
     category: "Healthcare AI",
     readTime: 15,
-    image: "/assets/blog-ai-healthcare.jpg",
+    image: "/ai in healthcare.jpg",
     tags: ["Healthcare", "AI", "Medical Imaging", "Drug Discovery", "Personalized Medicine"]
   },
   {
@@ -1473,7 +1473,7 @@ The future of AI is distributed, intelligent, and ubiquitous—powered by Edge A
     publishedDate: "2024-01-03",
     category: "Edge Computing",
     readTime: 11,
-    image: "/assets/blog-edge-ai.jpg",
+    image: "/The Rise of Edge AI Computing at the Source.jpg",
     tags: ["Edge AI", "IoT", "Real-time Processing", "Privacy", "Technology"]
   },
   {
@@ -1878,7 +1878,7 @@ The future of Computer Vision lies in creating systems that don't just see but u
     publishedDate: "2024-01-01",
     category: "Computer Vision",
     readTime: 13,
-    image: "/assets/blog-computer-vision.jpg",
+    image: "/Computer Vision From Image Recognition to Visual Intelligence.jpg",
     tags: ["Computer Vision", "AI", "Deep Learning", "Image Recognition", "Technology"]
   }
 ];

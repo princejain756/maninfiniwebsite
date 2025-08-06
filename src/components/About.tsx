@@ -33,7 +33,7 @@ const About = () => {
       experience: '16+ years',
       background: 'Ex-Ola Cabs, Full-stack Architecture Expert',
       image: miteshImage,
-      linkedin: '#'
+      linkedin: 'https://www.linkedin.com/in/miteshj'
     },
     {
       name: 'Prince Jain',
@@ -66,6 +66,14 @@ const About = () => {
       background: 'F.C.A , DISA',
       image: JaswantCA,
       linkedin: '#'
+    },
+    {
+      name: 'Vishakha Sisodiya',
+      role: 'Cybersecurity & Cloud Expert',
+      experience: '4+ years',
+      background: 'Cybersecurity and Cloud Infrastructure Specialist',
+      image: vishakhaImage,
+      linkedin: 'https://www.linkedin.com/in/vishakhasisodiya96/'
     },
     {
       name: 'Rambhupal M',

@@ -81,8 +81,8 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-6">
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
-              <span className="hidden sm:inline">hello@maninfini.com</span>
-              <span className="sm:hidden text-xs">hello@maninfini.com</span>
+              <span className="hidden sm:inline">mitesh@maninfini.com</span>
+              <span className="sm:hidden text-xs">mitesh@maninfini.com</span>
             </div>
           </div>
           <div className="hidden md:block">

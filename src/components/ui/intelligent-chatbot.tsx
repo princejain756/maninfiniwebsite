@@ -2,6 +2,7 @@ import * as React from "react";
 import { PromptBox } from "./chatgpt-prompt-input";
 import { cn } from "@/lib/utils";
 import { unifiedApi, UnifiedMessage, UnifiedResponse } from "@/services/unifiedApi";
+import { websiteCrawler } from "@/services/websiteCrawler";
 import { Button } from "./button";
 import { Badge } from "./badge";
 import { Card } from "./card";
@@ -12,7 +13,6 @@ interface IntelligentChatbotProps {
   className?: string;
   title?: string;
   subtitle?: string;
-  autoLearningApiUrl?: string; // New prop for auto-learning API
 }
 
 interface ChatMessage {
@@ -29,17 +29,6 @@ interface ChatMessage {
     payload: string;
   }>;
   isTyping?: boolean;
-}
-
-// Auto-learning API interface
-interface AutoLearningResponse {
-  response: string;
-  intent?: string;
-  confidence?: number;
-  buttons?: Array<{
-    title: string;
-    payload: string;
-  }>;
 }
 
 // Join Automation Pro Popup Component
@@ -164,8 +153,7 @@ const JoinAutomationProPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose:
 export function IntelligentChatbot({ 
   className, 
   title = "Manu Assistant", 
-  subtitle = "Intelligent conversation with auto-learning capabilities",
-  autoLearningApiUrl
+  subtitle = "Intelligent conversation with Gemini AI"
 }: IntelligentChatbotProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [messages, setMessages] = React.useState<ChatMessage[]>([]);
@@ -175,16 +163,12 @@ export function IntelligentChatbot({
   const [conversationHistory, setConversationHistory] = React.useState<UnifiedMessage[]>([]);
   const [userPreferences, setUserPreferences] = React.useState<Record<string, string>>({});
   const [showJoinPopup, setShowJoinPopup] = React.useState(false);
-  const [autoLearningStatus, setAutoLearningStatus] = React.useState<'connected' | 'disconnected' | 'checking'>('checking');
   const scrollAreaRef = React.useRef<HTMLDivElement>(null);
 
   // Check API connection on mount
   React.useEffect(() => {
     checkApiConnection();
-    if (autoLearningApiUrl) {
-      checkAutoLearningStatus();
-    }
-  }, [autoLearningApiUrl]);
+  }, []);
 
   // Auto-scroll to bottom when new messages arrive, typing state changes, or loading state changes
   React.useEffect(() => {
@@ -224,50 +208,28 @@ export function IntelligentChatbot({
 
   const checkApiConnection = async () => {
     try {
+      // Initialize website crawler for context-aware responses
+      await websiteCrawler.initialize();
+      
       const isConnected = await unifiedApi.getModelStatus();
       setApiConnected(isConnected);
       if (!isConnected) {
-        // API not connected, using fallback responses
+        console.log('Gemini API not connected, using fallback responses');
       }
     } catch (error) {
       console.error('Failed to check API connection:', error);
       setApiConnected(false);
-      // Using fallback mode - API is not available
-    }
-  };
-
-  const checkAutoLearningStatus = async () => {
-    if (!autoLearningApiUrl) return;
-    
-    try {
-      const response = await fetch(`${autoLearningApiUrl}/api/health`);
-      if (response.ok) {
-        setAutoLearningStatus('connected');
-      } else {
-        setAutoLearningStatus('disconnected');
-      }
-    } catch (error) {
-      console.error('Auto-learning API not available:', error);
-      setAutoLearningStatus('disconnected');
+      console.log('Using fallback mode - Gemini API is not available');
     }
   };
 
   const triggerManualScraping = async () => {
-    if (!autoLearningApiUrl) return;
-    
     try {
-      const response = await fetch(`${autoLearningApiUrl}/api/scrape`, {
-        method: 'POST',
-      });
-      
-      if (response.ok) {
-        console.log('Manual scraping triggered successfully');
-        // Optionally show a success message
-      } else {
-        console.error('Failed to trigger manual scraping');
-      }
+      // Refresh website content for better context
+      await websiteCrawler.refreshContent();
+      console.log('Website content refreshed successfully');
     } catch (error) {
-      console.error('Error triggering manual scraping:', error);
+      console.error('Error refreshing content:', error);
     }
   };
 
@@ -328,74 +290,16 @@ export function IntelligentChatbot({
 
       let responses: UnifiedResponse[];
 
-      // Try auto-learning API first if available
-      if (autoLearningApiUrl) {
+      // Use Gemini API if connected, otherwise fallback
+      if (apiConnected) {
         try {
-          const autoLearningResponse = await fetch(`${autoLearningApiUrl}/api/chat`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message }),
-          });
-
-          if (autoLearningResponse.ok) {
-            const autoResponse: AutoLearningResponse = await autoLearningResponse.json();
-            
-            // Convert auto-learning response to UnifiedResponse format
-            responses = [{
-              recipient_id: 'user',
-              text: autoResponse.response,
-              buttons: autoResponse.buttons || [],
-            }];
-
-            // Add intent and confidence if available
-            if (autoResponse.intent && autoResponse.confidence) {
-              const lastMessage = messages[messages.length - 1];
-              if (lastMessage && lastMessage.sender === 'bot') {
-                lastMessage.intent = autoResponse.intent;
-                lastMessage.confidence = autoResponse.confidence;
-              }
-            }
-          } else {
-            // Fallback to original logic
-            if (apiConnected) {
-              try {
-                responses = await unifiedApi.sendMessage(message, 'user');
-              } catch (error) {
-                console.error('API call failed, using fallback:', error);
-                responses = getFallbackResponse(message);
-              }
-            } else {
-              responses = getFallbackResponse(message);
-            }
-          }
+          responses = await unifiedApi.sendMessage(message, 'user');
         } catch (error) {
-          console.error('Auto-learning API failed, using fallback:', error);
-          // Fallback to original logic
-          if (apiConnected) {
-            try {
-              responses = await unifiedApi.sendMessage(message, 'user');
-            } catch (error) {
-              console.error('API call failed, using fallback:', error);
-              responses = getFallbackResponse(message);
-            }
-          } else {
-            responses = getFallbackResponse(message);
-          }
-        }
-      } else {
-        // Original logic when auto-learning API is not available
-        if (apiConnected) {
-          try {
-            responses = await unifiedApi.sendMessage(message, 'user');
-          } catch (error) {
-            console.error('API call failed, using fallback:', error);
-            responses = getFallbackResponse(message);
-          }
-        } else {
+          console.error('Gemini API call failed, using fallback:', error);
           responses = getFallbackResponse(message);
         }
+      } else {
+        responses = getFallbackResponse(message);
       }
 
       // Add bot responses
@@ -554,13 +458,17 @@ export function IntelligentChatbot({
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const message = formData.get('message') as string;
     
     if (message.trim()) {
+      // Get textarea reference before async operation
+      const textarea = form?.querySelector('textarea');
+      
       await processUserMessage(message);
-      // Reset form
-      const textarea = event.currentTarget.querySelector('textarea');
+      
+      // Reset form after message is processed
       if (textarea) {
         textarea.value = '';
       }
@@ -694,6 +602,47 @@ export function IntelligentChatbot({
     setShowJoinPopup(true);
   };
 
+  // Format message text to handle markdown-style formatting
+  const formatMessageText = (text: string) => {
+    return text
+      .split('\n')
+      .map((line, index) => {
+        // Handle bold text **text**
+        let formattedLine = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // Handle bullet points
+        if (line.trim().startsWith('•')) {
+          return (
+            <div key={index} className="flex items-start gap-2 my-1">
+              <span className="text-primary mt-1">•</span>
+              <span dangerouslySetInnerHTML={{ __html: formattedLine.replace('•', '').trim() }} />
+            </div>
+          );
+        }
+        
+        // Handle headers (lines starting with emojis or in all caps)
+        if (line.match(/^[🎯🚀💰📊⚡✨🤖🌐🎨📱💼📞💬📧🔍📈🏆]/)) {
+          return (
+            <div key={index} className="font-semibold text-primary my-2">
+              <span dangerouslySetInnerHTML={{ __html: formattedLine }} />
+            </div>
+          );
+        }
+        
+        // Regular lines
+        if (line.trim()) {
+          return (
+            <div key={index} className="my-1">
+              <span dangerouslySetInnerHTML={{ __html: formattedLine }} />
+            </div>
+          );
+        }
+        
+        // Empty lines for spacing
+        return <div key={index} className="h-2" />;
+      });
+  };
+
   return (
     <div className={cn("fixed bottom-6 right-6 z-50", className)}>
       {/* Join Automation Pro Popup */}
@@ -721,37 +670,19 @@ export function IntelligentChatbot({
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {subtitle}
-                    {autoLearningApiUrl && (
-                      <span className={cn(
-                        "ml-2 px-2 py-0.5 text-xs rounded-full",
-                        autoLearningStatus === 'connected' 
-                          ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
-                          : autoLearningStatus === 'checking'
-                          ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300"
-                          : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                      )}>
-                        {autoLearningStatus === 'connected' ? 'Auto-learning' : 
-                         autoLearningStatus === 'checking' ? 'Checking...' : 'Offline'}
-                      </span>
-                    )}
                   </p>
                 </div>
             </div>
             <div className="flex items-center gap-2">
-              {autoLearningApiUrl && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={triggerManualScraping}
-                  title="Refresh website content"
-                  className={cn(
-                    "transition-colors",
-                    autoLearningStatus === 'connected' ? "text-green-500" : "text-gray-400"
-                  )}
-                >
-                  <RefreshCw className="w-4 h-4" />
-                </Button>
-              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={triggerManualScraping}
+                title="Refresh website content"
+                className="text-primary"
+              >
+                <RefreshCw className="w-4 h-4" />
+              </Button>
               <Button
                 variant="ghost"
                 size="sm"
@@ -776,25 +707,32 @@ export function IntelligentChatbot({
           <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
             <div className="space-y-4">
               {messages.length === 0 ? (
-                <div className="text-center text-muted-foreground text-sm space-y-4">
-                  <div className="flex items-center justify-center gap-2">
-                    <Brain className="w-5 h-5" />
-                    <p>👋 Hi! I'm AdBert, your intelligent AI assistant.</p>
+                  <div className="text-center text-muted-foreground text-sm space-y-4">
+                    <div className="flex items-center justify-center gap-2">
+                      <Brain className="w-5 h-5" />
+                      <p>👋 Hi! I'm Manu, your intelligent AI assistant powered by Gemini AI.</p>
+                    </div>
+                    <div className="text-xs text-gray-500 mb-3">
+                      💡 I have comprehensive knowledge about Maninfini's services, pricing, and capabilities. Ask me anything!
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      {['services', 'pricing', 'contact', 'portfolio'].map((action) => (
+                        <Button
+                          key={action}
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleQuickAction(action)}
+                          className="text-xs py-3 px-4 h-auto border-2 hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-200 font-medium"
+                        >
+                          {action === 'services' && '🚀 '}
+                          {action === 'pricing' && '💰 '}
+                          {action === 'contact' && '📞 '}
+                          {action === 'portfolio' && '🎨 '}
+                          {action.charAt(0).toUpperCase() + action.slice(1)}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {['services', 'pricing', 'contact', 'portfolio'].map((action) => (
-                      <Button
-                        key={action}
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleQuickAction(action)}
-                        className="text-xs"
-                      >
-                        {action.charAt(0).toUpperCase() + action.slice(1)}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
               ) : (
                 messages.map((message) => (
                   <div
@@ -813,7 +751,9 @@ export function IntelligentChatbot({
                             : 'bg-muted text-muted-foreground'
                         )}
                       >
-                        {message.text}
+                        <div className="space-y-1">
+                          {formatMessageText(message.text)}
+                        </div>
                       </div>
                       
                       {/* Message metadata */}
@@ -837,16 +777,16 @@ export function IntelligentChatbot({
 
                       {/* Suggested responses */}
                       {message.suggestedResponses && message.suggestedResponses.length > 0 && (
-                        <div className="space-y-2">
-                          <p className="text-xs text-muted-foreground">Quick responses:</p>
+                        <div className="space-y-3 mt-3">
+                          <p className="text-xs text-muted-foreground font-medium">Quick responses:</p>
                           <div className="flex flex-wrap gap-2">
                             {message.suggestedResponses.map((response, index) => (
                               <Button
                                 key={index}
-                                variant="outline"
+                                variant="secondary"
                                 size="sm"
                                 onClick={() => handleSuggestedResponse(response)}
-                                className="text-xs h-auto py-1 px-2"
+                                className="text-xs h-auto py-2 px-3 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-200"
                               >
                                 {response}
                               </Button>
@@ -857,18 +797,25 @@ export function IntelligentChatbot({
 
                       {/* Action buttons from UnifiedResponse */}
                       {message.buttons && message.buttons.length > 0 && (
-                        <div className="space-y-2">
-                          <p className="text-xs text-muted-foreground">Quick actions:</p>
-                          <div className="flex flex-wrap gap-2">
+                        <div className="space-y-3 mt-3">
+                          <p className="text-xs text-muted-foreground font-medium">Choose an action:</p>
+                          <div className="flex flex-col gap-2">
                             {message.buttons.map((button, index) => (
                               <Button
                                 key={index}
-                                variant="outline"
+                                variant={index === 0 ? "default" : "outline"}
                                 size="sm"
                                 onClick={() => handleButtonClick(button.payload)}
-                                className="text-xs h-auto py-1 px-2"
+                                className={cn(
+                                  "justify-start text-left h-auto py-3 px-4 font-medium transition-all duration-200",
+                                  index === 0 
+                                    ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-md hover:shadow-lg" 
+                                    : "border-2 hover:border-primary hover:bg-primary/5 hover:text-primary"
+                                )}
                               >
-                                {button.title}
+                                <span className="flex items-center gap-2">
+                                  {button.title}
+                                </span>
                               </Button>
                             ))}
                           </div>
