@@ -160,8 +160,8 @@ const Contact = () => {
       case 'Call Now': {
         // Show options for multiple phone numbers
         const phoneNumbers = [
-          { label: 'Support: +91 97412 66370', number: contactData.supportPhone },
-          { label: 'Sales: +91 97412 66370', number: contactData.salesPhone }
+          { label: 'Support: +91 83105 16955', number: contactData.supportPhone },
+          { label: 'Sales: +91 83105 16955', number: contactData.salesPhone }
         ];
         
         const choice = confirm(`Choose a number to call:\n1. ${phoneNumbers[0].label}\n2. ${phoneNumbers[1].label}\n\nClick OK for Support, Cancel for Sales`);
@@ -197,7 +197,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      details: [contactData.mainPhone, contactData.supportPhone, contactData.salesPhone],
+      details: [contactData.salesPhone],
       action: 'Call Now'
     },
     {

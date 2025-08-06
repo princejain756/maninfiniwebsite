@@ -365,7 +365,7 @@ export function IntelligentChatbot({
         text: "Our pricing varies based on project complexity and requirements. For detailed pricing information and personalized quotes, I'd recommend speaking with our sales team directly.",
         buttons: [
           { title: '💬 Get Pricing on WhatsApp', payload: 'whatsapp_pricing' },
-          { title: '📞 Schedule a Call', payload: 'call_pricing' },
+          { title: '📞 Contact Us', payload: 'contact_us' },
           { title: '📧 Email Quote Request', payload: 'email_pricing' }
         ]
       }];
@@ -378,7 +378,7 @@ export function IntelligentChatbot({
         buttons: [
           { title: '🎨 View Portfolio', payload: 'portfolio' },
           { title: '💬 Discuss Project', payload: 'whatsapp_webdev' },
-          { title: '📞 Schedule Call', payload: 'call_webdev' }
+          { title: '📞 Contact Us', payload: 'contact_us' }
         ]
       }];
     }
@@ -390,7 +390,7 @@ export function IntelligentChatbot({
         buttons: [
           { title: '🤖 AI Automation', payload: 'ai_automation' },
           { title: '⚡ Process Automation', payload: 'process_automation' },
-          { title: '💬 Get Consultation', payload: 'whatsapp_automation' }
+          { title: '� Contact Us', payload: 'contact_us' }
         ]
       }];
     }
@@ -494,7 +494,7 @@ export function IntelligentChatbot({
   };
 
   const handleButtonClick = async (payload: string) => {
-    const whatsappNumber = '919741266370'; // Remove spaces and + for WhatsApp URL
+    const whatsappNumber = '918310516955'; // Remove spaces and + for WhatsApp URL
     const email = 'mitesh@maninfini.com';
     
     switch (payload) {
@@ -519,12 +519,8 @@ export function IntelligentChatbot({
       case 'whatsapp_general':
         window.open(`https://wa.me/${whatsappNumber}?text=Hi! I have a question about your services. Can you help me?`, '_blank');
         break;
-      case 'call_pricing':
-      case 'call_webdev':
-      case 'call_automation':
-      case 'call_contact':
-      case 'call_general':
-        window.open('tel:+91 97412 66370', '_self');
+      case 'contact_us':
+        window.open('https://maninfini.com/contact', '_blank');
         break;
       case 'email_pricing':
         window.open(`mailto:${email}?subject=Pricing Inquiry&body=Hi! I would like to know about your pricing for web development and automation services.`, '_self');

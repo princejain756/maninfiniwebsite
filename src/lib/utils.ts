@@ -115,21 +115,21 @@ export const websiteActions = {
 
 // Contact information
 export const contactInfo = {
-  mainPhone: '+91 97412 66370',
-  supportPhone: '+91 97412 66370',
-  salesPhone: '+91 97412 66370',
+  mainPhone: '+91 83105 16955',
+  supportPhone: '+91 83105 16955',
+  salesPhone: '+91 83105 16955',
   email: 'mitesh@maninfini.com',
   supportEmail: 'support@maninfini.com',
   address: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002',
-  coordinates: { lat: 12.97002, lng: 77.58429 }
+  coordinates: { lat: 12.9686, lng: 77.5822 }
 };
 
 // WhatsApp contacts
 export const whatsappContacts = [
   { 
     name: 'Mitesh Narendra Jain', 
-    number: '+91 97412 66370', 
-    phone: '919741266370', 
+    number: '+91 83105 16955', 
+    phone: '918310516955', 
     role: 'CEO' 
   },
   { 

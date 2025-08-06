@@ -366,6 +366,6 @@ echo "5. Conduct regular security audits"
 echo ""
 echo "📞 Security Contact:"
 echo "Email: security@maninfini.com"
-echo "WhatsApp: +91 97412 66370"
+echo "WhatsApp: +91 83105 16955"
 
 print_success "Security deployment script completed successfully!" 

@@ -10,13 +10,46 @@ import {
   Clock,
   Palette,
   TrendingUp,
-  Brain
+  Brain,
+  Cloud
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Services = () => {
   const services = [
+    {
+      icon: Shield,
+      title: 'Cyber Security',
+      description: 'Comprehensive cybersecurity solutions to protect your business from digital threats and ensure compliance.',
+      features: [
+        'Vulnerability Assessment',
+        'Penetration Testing',
+        'Security Audits',
+        'Data Protection & Compliance',
+        '24/7 Threat Monitoring',
+        'Incident Response',
+        'Cloud Security',
+        'Network Security'
+      ],
+      color: 'from-gray-800 to-blue-600'
+    },
+    {
+      icon: Cloud,
+      title: 'Cloud Solutions',
+      description: 'Scalable and secure cloud services for modern businesses, enabling agility, collaboration, and cost savings.',
+      features: [
+        'Cloud Migration',
+        'Managed Cloud Hosting',
+        'DevOps & Automation',
+        'Disaster Recovery',
+        'Hybrid & Multi-Cloud',
+        'Serverless Architecture',
+        'Cloud Cost Optimization',
+        'Collaboration Tools'
+      ],
+      color: 'from-sky-500 to-indigo-500'
+    },
     {
       icon: Code2,
       title: 'Web & Custom Development',
@@ -94,6 +127,8 @@ const Services = () => {
     } else {
       // Navigate to service page based on service title
       const serviceRoutes: { [key: string]: string } = {
+        'Cyber Security': '/services/cyber-cloud',
+        'Cloud Solutions': '/services/cloud-solutions',
         'Web & Custom Development': '/services/web-development',
         'E-commerce & Inventory': '/services/ecommerce-inventory',
         'WhatsApp & Communications': '/services/whatsapp-communications',
@@ -102,7 +137,6 @@ const Services = () => {
         'Graphic Design & Packaging': '/services/graphic-design',
         'Quantiti': '/services/quantiti'
       };
-      
       const route = serviceRoutes[service.title];
       if (route) {
         window.location.href = route;
@@ -150,7 +184,11 @@ const Services = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4 sm:mb-6 service-icon transition-all duration-300`}>
-                <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                {Array.isArray(service.icon)
+                  ? service.icon.map((IconComp, i) => (
+                      <IconComp key={i} className="w-5 h-5 sm:w-7 sm:h-7 text-white mx-1" />
+                    ))
+                  : <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />}
               </div>
               
               <h3 className="text-lg sm:text-xl md:text-2xl font-poppins font-semibold text-foreground mb-3 sm:mb-4">
@@ -171,8 +209,9 @@ const Services = () => {
               </ul>
               
               <Button 
-                variant="ghost" 
-                className="group text-primary hover:text-foreground p-0 text-sm sm:text-base"
+                variant="ghost"
+                className="group text-foreground hover:text-foreground p-0 text-sm sm:text-base bg-transparent border-none shadow-none"
+                style={{ backgroundColor: 'transparent', color: 'inherit', boxShadow: 'none', border: 'none' }}
                 onClick={() => handleServiceAction(service)}
               >
                 {service.portfolio ? 'View Portfolio' : service.demo ? 'Watch Demo' : 'Explore Service'}

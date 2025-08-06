@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CloudSolutionsPage from "./pages/services/cloud-solutions";
+import CyberCloudPage from "./pages/services/cyber-cloud";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect, useRef, useState } from "react";
 import Index from "./pages/Index";
@@ -116,6 +118,8 @@ const App = () => {
                 <Route path="/services/virtual-office" element={<VirtualOffice />} />
                 <Route path="/services/offshore-talent" element={<OffshoreTalent />} />
                 <Route path="/services/quantiti" element={<Quantiti />} />
+                <Route path="/services/cyber-cloud" element={<CyberCloudPage />} />
+                <Route path="/services/cloud-solutions" element={<CloudSolutionsPage />} />
                 
                 {/* Blog Routes */}
                 <Route path="/blog" element={<Blog />} />

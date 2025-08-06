@@ -10,9 +10,7 @@ const clientImages = [
   "Radhe Jewels.jpg",
   "Rc Bullion.jpg",
   "Rotatory Bangalore Junction.jpg",
-  "Vishakha Sisodhiya Cybersecurity.jpg",
   "SEC.jpg",
-  "Rambhupal M CFO Qualified CA with 25 years of experience.jpg",
 ];
 
 export default function ClientsSection() {

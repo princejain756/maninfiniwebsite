@@ -8,7 +8,7 @@ const InteractiveDashboard = () => {
         src={insteadofdashboardImage} 
         alt="Maninfini Smart Factory Dashboard - Advanced real-time monitoring and control system"
         className="w-full h-auto object-contain"
-        style={{ maxHeight: '1200px', minHeight: '700x' }}
+        style={{ maxHeight: '3000px', minHeight: '800px' }}
       />
     </div>
   );

@@ -331,7 +331,7 @@ Contact Maninfini Automation
 Get in touch with our team for all your digital transformation needs. We're here to help you automate processes, build applications, and achieve your technology goals.
 
 Contact Information:
-- Phone: +91 97412 66370
+- Phone: +91 83105 16955
 - Email: info@maninfini.com
 - Website: https://maninfini.com
 
@@ -347,8 +347,8 @@ Saturday: 10:00 AM - 4:00 PM IST
 Sunday: Closed (Emergency support available)
 
 How to Reach Us:
-1. WhatsApp: +91 97412 66370 (Fastest response)
-2. Phone Call: +91 97412 66370
+1. WhatsApp: +91 83105 16955 (Fastest response)
+2. Phone Call: +91 83105 16955
 3. Email: info@maninfini.com
 4. Website Contact Form: https://maninfini.com/contact
 
@@ -472,7 +472,7 @@ Pricing:
 - Custom Web Application: Starting from ₹1,00,000
 - Enterprise Solutions: Custom pricing based on requirements
 
-Get a free consultation and project quote by contacting us at +91 97412 66370 or info@maninfini.com
+Get a free consultation and project quote by contacting us at +91 83105 16955 or info@maninfini.com
     `;
   }
 
@@ -578,7 +578,7 @@ Pricing Models:
 - Managed Services: Ongoing automation management
 - Licensing: For automation tools and platforms
 
-Get started with a free automation assessment. Contact us at +91 97412 66370 or info@maninfini.com to discuss your automation needs.
+Get started with a free automation assessment. Contact us at +91 83105 16955 or info@maninfini.com to discuss your automation needs.
     `;
   }
 
@@ -694,7 +694,7 @@ Why Choose Our Design Services:
 
 Portfolio includes work for various clients across different industries. View our design portfolio at https://maninfini.com/portfolio
 
-Get a free design consultation and quote by contacting us at +91 97412 66370 or info@maninfini.com
+Get a free design consultation and quote by contacting us at +91 83105 16955 or info@maninfini.com
     `;
   }
 

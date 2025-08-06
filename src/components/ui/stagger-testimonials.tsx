@@ -22,97 +22,100 @@ const testimonials = [
     tempId: 0,
     testimonial: "Superb service and follow up by Mitesh Sir's Team. Indeed a one place solution for all automation needs. Would highly recommend.",
     by: "Kamna Jain, Local Guide",
-    imgSrc: kamnajain
+    imgSrc: kamnajain,
+    stars: 5
   },
   {
     tempId: 1,
     testimonial: "Wow wow wow the best and ever service I saw. Always and always the best of it",
     by: "Pradeep Kumar",
-    imgSrc: pradeepkumar
+    imgSrc: pradeepkumar,
+    stars: 5
   },
   {
     tempId: 2,
     testimonial: "The Whatsapp API of Maninfini was an easy one to understand. The onboarding was well taken care of. We have purchased the package and will continue to be their client.",
     by: "Manoj Didwania, Local Guide",
-    imgSrc: manojdidwania
+    imgSrc: manojdidwania,
+    stars: 4
   },
   {
     tempId: 3,
     testimonial: "Thank you Mitesh and his team for their amazing work done on our website Aaujo and always guiding us in right track from understanding my needs from translating my ideas into design. They were a pleasure to work with and brought vision to life!",
     by: "Pavan Kumar",
-    imgSrc: pawankumar
+    imgSrc: pawankumar,
+    stars: 5
   },
   {
     tempId: 4,
     testimonial: "They will save a lot of your time by helping you automate your business. Super service 👌",
     by: "Ashish Dugar, Local Guide",
-    imgSrc: ashishdugar
+    imgSrc: ashishdugar,
+    stars: 5
   },
   {
     tempId: 5,
     testimonial: "Massive team. Glad to have our projects run through them. 👍 Cheers Mithesh 🎉",
     by: "NIKITH SURANA",
-    imgSrc: nikithsurana
+    imgSrc: nikithsurana,
+    stars: 5
   },
   {
     tempId: 6,
     testimonial: "Very good, easily deliver the invoice/ledger to the customer from Tally",
     by: "Mambee Honey, Local Guide",
-    imgSrc: mambeehoney
+    imgSrc: mambeehoney,
+    stars: 5
   },
   {
     tempId: 7,
     testimonial: "Simply superb EXCELLENT SERVICE",
     by: "Vikram Jain",
-    imgSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
+    imgSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
+    stars: 5
   },
   {
     tempId: 8,
     testimonial: "Excellent service, best team work, always available",
     by: "Info MK",
-    imgSrc: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+    imgSrc: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    stars: 5
   },
   {
     tempId: 9,
     testimonial: "Good",
     by: "Praveen Ganna, Local Guide",
-    imgSrc: praveenganna
+    imgSrc: praveenganna,
+    stars: 5
   },
   {
     tempId: 10,
     testimonial: "Excellent Service experience",
     by: "Roshni Jain",
-    imgSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+    imgSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    stars: 5
   },
   {
     tempId: 11,
     testimonial: "Great Service",
     by: "Sohel Pathan, Local Guide",
-    imgSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+    imgSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    stars: 5
   },
-  {
-    tempId: 12,
-    testimonial: "👌🏻",
-    by: "Pratik Oswal",
-    imgSrc: prateekoswal
-  },
-  {
-    tempId: 13,
-    testimonial: "oduba. run",
-    by: "NAKODA BULLION",
-    imgSrc: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
-  },
+  // ...existing testimonials (removed Pratik Oswal and Nakoda Bullion)
   {
     tempId: 14,
     testimonial: "Excellent automation solutions",
     by: "Jiya K",
-    imgSrc: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
+    imgSrc: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    stars: 5
   },
   {
     tempId: 15,
     testimonial: "Professional team and great service",
     by: "Nikhil Jain",
-    imgSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
+    imgSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
+    stars: 5
   }
 ];
 
@@ -170,16 +173,26 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           boxShadow: "3px 3px 0px hsl(var(--background))"
         }}
       />
-      <h3 className={cn(
-        "text-base sm:text-xl font-medium",
-        isCenter ? "text-primary-foreground" : "text-foreground"
-      )}>
+      <div className="flex items-center mb-2">
+        {[...Array(testimonial.stars || 5)].map((_, i) => (
+          <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.38 2.455a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.54 1.118l-3.38-2.455a1 1 0 00-1.175 0l-3.38 2.455c-.784.57-1.838-.197-1.539-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.174 9.393c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.966z"/></svg>
+        ))}
+      </div>
+      <h3
+        className={cn(
+          "text-base sm:text-xl font-medium mb-4",
+          isCenter ? "text-primary-foreground" : "text-foreground"
+        )}
+      >
         "{testimonial.testimonial}"
       </h3>
-      <p className={cn(
-        "absolute bottom-8 left-8 right-8 mt-2 text-sm italic",
-        isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
-      )}>
+      <p
+        className={cn(
+          "mt-4 text-sm italic text-center w-full",
+          isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
+        )}
+        style={{ background: 'transparent' }}
+      >
         - {testimonial.by}
       </p>
     </div>
@@ -230,22 +243,23 @@ export const StaggerTestimonials: React.FC = () => {
             Discover why businesses trust Maninfini Automation for their digital transformation needs
           </p>
         </div>
-        
         <div
           className="relative w-full overflow-hidden bg-muted/30 rounded-lg"
-          style={{ height: 600 }}
+          style={{ height: 650 }}
         >
           {testimonialsList.map((testimonial, index) => {
             const position = testimonialsList.length % 2
               ? index - (testimonialsList.length + 1) / 2
               : index - testimonialsList.length / 2;
+            // Increase card size for Pavan Kumar
+            const customCardSize = testimonial.by.includes('Pavan Kumar') ? cardSize + 80 : cardSize;
             return (
               <TestimonialCard
                 key={testimonial.tempId}
                 testimonial={testimonial}
                 handleMove={handleMove}
                 position={position}
-                cardSize={cardSize}
+                cardSize={customCardSize}
               />
             );
           })}

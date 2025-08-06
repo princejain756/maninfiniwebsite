@@ -63,10 +63,8 @@ const Header = () => {
   };
 
   const handleFreeConsultation = () => {
-    websiteActions.openWhatsApp(
-      contactInfo.salesPhone,
-      'Hello! I would like to schedule a free consultation about your automation services. Please let me know the available time slots.'
-    );
+    setIsMenuOpen(false);
+    websiteActions.scrollToSection('contact');
   };
 
   return (
@@ -81,8 +79,8 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-6">
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
-              <span className="hidden sm:inline">mitesh@maninfini.com</span>
-              <span className="sm:hidden text-xs">mitesh@maninfini.com</span>
+              <span className="hidden sm:inline">mitesh@maninfini.com &nbsp; | &nbsp; +91 83105 16955</span>
+              <span className="sm:hidden text-xs">mitesh@maninfini.com | +91 83105 16955</span>
             </div>
           </div>
           <div className="hidden md:block">
@@ -112,8 +110,16 @@ const Header = () => {
                 <div className="text-base sm:text-lg lg:text-xl font-poppins font-bold text-primary">Maninfini</div>
                 <div className="flex items-center">
                   <span className="text-xs text-orange-500 mr-1">⭐</span>
-                  <p className="text-xs text-white/90 hidden sm:block">Trusted Automation Partner Since 2008</p>
-                  <p className="text-xs text-white/90 sm:hidden">Since 2008</p>
+                  <p
+                    className={`text-xs hidden sm:block transition-colors duration-300 ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}
+                  >
+                    Trusted Automation Partner Since 2008
+                  </p>
+                  <p
+                    className={`text-xs sm:hidden transition-colors duration-300 ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}
+                  >
+                    Since 2008
+                  </p>
                 </div>
               </div>
             </button>
@@ -135,13 +141,6 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              className="btn-outline-elegant"
-              onClick={handleGetDemo}
-            >
-              Get Demo
-            </Button>
             <Button 
               className="btn-gradient"
               onClick={handleFreeConsultation}
@@ -179,16 +178,6 @@ const Header = () => {
                 </button>
               ))}
               <div className="flex flex-col space-y-3 pt-4 border-t border-border/50">
-                <Button 
-                  variant="outline" 
-                  className="btn-outline-elegant w-full"
-                  onClick={() => {
-                    handleGetDemo();
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  Get Demo
-                </Button>
                 <Button 
                   className="btn-gradient w-full"
                   onClick={() => {

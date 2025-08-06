@@ -158,7 +158,7 @@ RESPONSE FORMATTING GUIDELINES:
 4. Keep responses concise but informative
 5. Always end with a relevant question to continue the conversation
 6. When mentioning services, be specific about what we offer
-7. Include contact information when relevant: +91 97412 66370 or info@maninfini.com
+7. Include contact information when relevant: +91 97412 66370 or mitesh@maninfini.com
 
 IMPORTANT INSTRUCTIONS:
 1. You have access to ALL the above website content and should use it to provide accurate, detailed responses
@@ -240,48 +240,53 @@ Please provide a helpful, well-formatted, contextual response based on the compr
     // Add relevant buttons based on response content
     if (lowerResponse.includes('service') || lowerResponse.includes('automation') || lowerResponse.includes('development')) {
       buttons.push({ title: '💬 Get Quote on WhatsApp', payload: 'whatsapp_quote' });
-      buttons.push({ title: '📞 Schedule Call', payload: 'call_consultation' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     if (lowerResponse.includes('price') || lowerResponse.includes('cost') || lowerResponse.includes('quote')) {
       buttons.push({ title: '💬 Chat for Pricing', payload: 'whatsapp_pricing' });
       buttons.push({ title: '📧 Email Quote Request', payload: 'email_quote' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     if (lowerResponse.includes('portfolio') || lowerResponse.includes('work') || lowerResponse.includes('project')) {
       buttons.push({ title: '🎨 View Portfolio', payload: 'portfolio' });
       buttons.push({ title: '💬 Discuss Project', payload: 'whatsapp_project' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     if (lowerResponse.includes('contact') || lowerResponse.includes('reach') || lowerResponse.includes('team')) {
       buttons.push({ title: '💬 WhatsApp Chat', payload: 'whatsapp_contact' });
-      buttons.push({ title: '📞 Call Now', payload: 'call_contact' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     if (lowerResponse.includes('automation') || lowerResponse.includes('rpa')) {
       buttons.push({ title: '🤖 Learn More About Automation', payload: 'automation_details' });
       buttons.push({ title: '📊 See Automation Examples', payload: 'automation_examples' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     if (lowerResponse.includes('web') || lowerResponse.includes('website') || lowerResponse.includes('development')) {
       buttons.push({ title: '🌐 Web Development Services', payload: 'web_services' });
       buttons.push({ title: '💻 See Website Examples', payload: 'website_examples' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     if (lowerResponse.includes('design') || lowerResponse.includes('graphic') || lowerResponse.includes('logo')) {
       buttons.push({ title: '🎨 Design Services', payload: 'design_services' });
       buttons.push({ title: '👀 View Design Portfolio', payload: 'design_portfolio' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     if (lowerResponse.includes('whatsapp') || lowerResponse.includes('chatbot') || lowerResponse.includes('messaging')) {
-      buttons.push({ title: '📱 WhatsApp Integration Demo', payload: 'whatsapp_demo' });
+      buttons.push({ title: '📱 WhatsApp Integration Demo', payload: 'contact_us' });
       buttons.push({ title: '🤖 Chatbot Examples', payload: 'chatbot_examples' });
+      buttons.push({ title: '📞 Contact Us', payload: 'contact_us' });
     }
 
     // Always add a general contact button if no specific buttons were added
     if (buttons.length === 0) {
-      buttons.push({ title: '💬 Continue on WhatsApp', payload: 'whatsapp_general' });
-      buttons.push({ title: '📞 Talk to Expert', payload: 'call_expert' });
+      buttons.push({ title: '� Contact Us', payload: 'contact_us' });
     }
 
     // Limit to maximum 3 buttons for better UX
@@ -322,7 +327,7 @@ Please provide a helpful, well-formatted, contextual response based on the compr
         text: "💰 **Flexible Pricing for Every Need**\n\n✨ We offer competitive pricing tailored to your requirements:\n\n📊 **Pricing Models:**\n• 💼 Project-based pricing\n• 🔄 Monthly retainer packages\n• ⏰ Hourly consulting rates\n• 📈 Custom enterprise solutions\n\n🎯 **What's Included:**\n• Free consultation & requirement analysis\n• Detailed project roadmap\n• Quality assurance & testing\n• Post-launch support & maintenance\n\n💡 **Get Your Custom Quote:**\nEvery project is unique! Let's discuss your specific needs for an accurate quote.",
         buttons: [
           { title: '💬 Get Quote on WhatsApp', payload: 'whatsapp_pricing' },
-          { title: '📞 Schedule Consultation', payload: 'call_pricing' },
+          { title: '📞 Contact Us', payload: 'contact_us' },
           { title: '📧 Email Quote Request', payload: 'email_pricing' }
         ]
       }];
@@ -331,10 +336,10 @@ Please provide a helpful, well-formatted, contextual response based on the compr
     if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('get in touch')) {
       return [{
         recipient_id: 'user',
-        text: "📞 **Let's Connect!**\n\nReady to transform your business? Here's how to reach us:\n\n� **WhatsApp:** +91 97412 66370\n�📧 **Email:** info@maninfini.com\n📞 **Phone:** +91 97412 66370\n🌐 **Website:** www.maninfini.com\n\n⚡ **Quick Response Promise:**\n• WhatsApp: Instant replies during business hours\n• Email: Response within 2-4 hours\n• Phone: Available 9 AM - 7 PM IST\n\nWhat's the best way for you to connect?",
+        text: "📞 **Let's Connect!**\n\nReady to transform your business? Here's how to reach us:\n\n💬 **WhatsApp:** +91 97412 66370\n📧 **Email:** mitesh@maninfini.com\n📞 **Phone:** +91 97412 66370\n🌐 **Website:** www.maninfini.com\n\n⚡ **Quick Response Promise:**\n• WhatsApp: Instant replies during business hours\n• Email: Response within 2-4 hours\n• Phone: Available 9 AM - 7 PM IST\n\nWhat's the best way for you to connect?",
         buttons: [
           { title: '💬 WhatsApp Now', payload: 'whatsapp_contact' },
-          { title: '📞 Call Us', payload: 'call_contact' },
+          { title: '📞 Contact Us', payload: 'contact_us' },
           { title: '📧 Send Email', payload: 'email_contact' }
         ]
       }];
@@ -347,7 +352,7 @@ Please provide a helpful, well-formatted, contextual response based on the compr
         buttons: [
           { title: '📊 See Automation Examples', payload: 'automation_examples' },
           { title: '💬 Discuss My Process', payload: 'whatsapp_automation' },
-          { title: '📞 Free Consultation', payload: 'call_automation' }
+          { title: '📞 Contact Us', payload: 'contact_us' }
         ]
       }];
     }
@@ -359,7 +364,7 @@ Please provide a helpful, well-formatted, contextual response based on the compr
         buttons: [
           { title: '💻 See Website Examples', payload: 'website_examples' },
           { title: '💬 Discuss My Project', payload: 'whatsapp_webdev' },
-          { title: '📞 Schedule Demo', payload: 'call_webdev' }
+          { title: '📞 Contact Us', payload: 'contact_us' }
         ]
       }];
     }
@@ -371,7 +376,7 @@ Please provide a helpful, well-formatted, contextual response based on the compr
         buttons: [
           { title: '🎨 View Design Portfolio', payload: 'design_portfolio' },
           { title: '💬 Discuss Design Needs', payload: 'whatsapp_design' },
-          { title: '📞 Creative Consultation', payload: 'call_design' }
+          { title: '📞 Contact Us', payload: 'contact_us' }
         ]
       }];
     }
@@ -394,7 +399,7 @@ Please provide a helpful, well-formatted, contextual response based on the compr
       text: "🤔 I understand you're asking about **" + message + "**\n\n✨ I'm here to help you with:\n• 🤖 Process automation solutions\n• 🌐 Web development projects\n• 🎨 Creative design services\n• 📱 WhatsApp business integration\n• 💼 Virtual office solutions\n\n💡 **Quick Actions:**\nChoose how you'd like to continue, and I'll provide detailed information tailored to your needs!",
       buttons: [
         { title: '💬 Chat on WhatsApp', payload: 'whatsapp_general' },
-        { title: '📞 Schedule Call', payload: 'call_general' },
+        { title: '📞 Contact Us', payload: 'contact_us' },
         { title: '🚀 Explore Services', payload: 'services' }
       ]
     }];
@@ -617,4 +622,4 @@ Please provide a helpful, well-formatted, contextual response based on the compr
 }
 
 export const geminiApi = new GeminiApiService();
-export default geminiApi; 
+export default geminiApi;

@@ -1091,7 +1091,7 @@ AI is fundamentally transforming healthcare, offering unprecedented opportunitie
 
 The future of healthcare is AI-powered, personalized, and patient-centered, with technology working alongside healthcare professionals to provide the best possible care for every individual.
     `,
-    author: "Dr. Vishakha Sisodhiya",
+    author: "Vishakha Sisodiya",
     publishedDate: "2024-01-05",
     category: "Healthcare AI",
     readTime: 15,
