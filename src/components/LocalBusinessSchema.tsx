@@ -89,7 +89,8 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
     "sameAs": [
       "https://twitter.com/maninfini",
       "https://www.linkedin.com/company/maninfini-automation?originalSubdomain=in",
-      "https://facebook.com/maninfini"
+      "https://www.facebook.com/maninfini",
+      "https://instagram.com/maninfini.automation"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

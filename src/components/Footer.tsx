@@ -5,6 +5,7 @@ import {
   Linkedin, 
   Twitter, 
   Facebook,
+  Instagram,
   ArrowRight,
   Code2,
   MessageSquare,
@@ -43,7 +44,8 @@ const Footer = () => {
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/company/maninfini-automation?originalSubdomain=in', label: 'LinkedIn' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Facebook, href: '#', label: 'Facebook' }
+    { icon: Facebook, href: 'https://www.facebook.com/maninfini', label: 'Facebook' },
+    { icon: Instagram, href: 'https://instagram.com/maninfini.automation', label: 'Instagram' }
   ];
 
   const handleSubscribe = () => {
