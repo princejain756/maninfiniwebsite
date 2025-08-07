@@ -158,7 +158,7 @@ RESPONSE FORMATTING GUIDELINES:
 4. Keep responses concise but informative
 5. Always end with a relevant question to continue the conversation
 6. When mentioning services, be specific about what we offer
-7. Include contact information when relevant: +91 97412 66370 or mitesh@maninfini.com
+7. Include contact information when relevant: +91 83105 16955 or mitesh@maninfini.com
 
 IMPORTANT INSTRUCTIONS:
 1. You have access to ALL the above website content and should use it to provide accurate, detailed responses
@@ -336,7 +336,7 @@ Please provide a helpful, well-formatted, contextual response based on the compr
     if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('get in touch')) {
       return [{
         recipient_id: 'user',
-        text: "📞 **Let's Connect!**\n\nReady to transform your business? Here's how to reach us:\n\n💬 **WhatsApp:** +91 97412 66370\n📧 **Email:** mitesh@maninfini.com\n📞 **Phone:** +91 97412 66370\n🌐 **Website:** www.maninfini.com\n\n⚡ **Quick Response Promise:**\n• WhatsApp: Instant replies during business hours\n• Email: Response within 2-4 hours\n• Phone: Available 9 AM - 7 PM IST\n\nWhat's the best way for you to connect?",
+        text: "📞 **Let's Connect!**\n\nReady to transform your business? Here's how to reach us:\n\n💬 **WhatsApp:** +91 83105 16955\n📧 **Email:** mitesh@maninfini.com\n📞 **Phone:** +91 83105 16955\n🌐 **Website:** www.maninfini.com\n\n⚡ **Quick Response Promise:**\n• WhatsApp: Instant replies during business hours\n• Email: Response within 2-4 hours\n• Phone: Available 9 AM - 7 PM IST\n\nWhat's the best way for you to connect?",
         buttons: [
           { title: '💬 WhatsApp Now', payload: 'whatsapp_contact' },
           { title: '📞 Contact Us', payload: 'contact_us' },

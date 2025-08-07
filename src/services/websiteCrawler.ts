@@ -112,7 +112,7 @@ Key Features:
 Company Information:
 - Founded: 2008
 - Headquarters: Bengaluru, Karnataka, India
-- Contact: +91 97412 66370
+- Contact: +91 83105 16955
 - Email: info@maninfini.com
 - Website: https://maninfini.com
 
@@ -831,7 +831,7 @@ Success Stories:
 - 85% customer satisfaction improvement
 - 200% increase in lead generation
 
-Get started with WhatsApp Business integration. Contact us at +91 97412 66370 or info@maninfini.com for a free consultation and custom quote.
+Get started with WhatsApp Business integration. Contact us at +91 83105 16955 or info@maninfini.com for a free consultation and custom quote.
     `;
   }
 
@@ -999,7 +999,7 @@ Why Choose Our Virtual Office Services:
 - Excellent customer support
 - Proven track record
 
-Get started with our virtual office solutions. Contact us at +91 97412 66370 or info@maninfini.com for a free consultation and service details.
+Get started with our virtual office solutions. Contact us at +91 83105 16955 or info@maninfini.com for a free consultation and service details.
     `;
   }
 
@@ -1209,7 +1209,7 @@ Success Stories:
 - 50+ dedicated teams currently active
 - Client satisfaction rating: 4.8/5
 
-Get started with offshore development. Contact us at +91 97412 66370 or info@maninfini.com for a free consultation and team assessment.
+Get started with offshore development. Contact us at +91 83105 16955 or info@maninfini.com for a free consultation and team assessment.
     `;
   }
 
@@ -1431,7 +1431,7 @@ Integration Capabilities:
 - Inventory management
 - Delivery tracking systems
 
-Get started with Quantiti for your school. Contact us at +91 97412 66370 or info@maninfini.com for a free demo and consultation.
+Get started with Quantiti for your school. Contact us at +91 83105 16955 or info@maninfini.com for a free demo and consultation.
     `;
   }
 
@@ -1650,7 +1650,7 @@ ROI and Benefits:
 - Manual work reduction: 60%
 - Accuracy improvement: 95%
 
-Get started with our e-commerce inventory management system. Contact us at +91 97412 66370 or info@maninfini.com for a free demo and consultation.
+Get started with our e-commerce inventory management system. Contact us at +91 83105 16955 or info@maninfini.com for a free demo and consultation.
     `;
   }
 
@@ -1668,7 +1668,7 @@ We are a leading automation and technology company providing:
 - Virtual Office Solutions
 - Offshore Development Teams
 
-Contact us at +91 97412 66370 or info@maninfini.com for all your automation needs.
+Contact us at +91 83105 16955 or info@maninfini.com for all your automation needs.
     `;
 
     this.crawledContent.set('/', {

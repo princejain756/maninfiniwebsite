@@ -200,7 +200,7 @@ const CookiePolicy = () => {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@maninfini.com</p>
-                                     <p className="text-gray-700 mb-2"><strong>Phone:</strong> +91 97412 66370</p>
+                                     <p className="text-gray-700 mb-2"><strong>Phone:</strong> +91 83105 16955</p>
                   <p className="text-gray-700 mb-2"><strong>Address:</strong> #20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002</p>
                 </div>
               </section>

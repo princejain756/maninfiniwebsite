@@ -195,7 +195,7 @@ const PrivacyPolicy = () => {
                   <p className="text-gray-700 mb-2">#20, Ground Floor, 12th Cross Cubbonpet</p>
                   <p className="text-gray-700 mb-2">Banappa Park Road, Bengaluru - 560002, India</p>
                   <p className="text-gray-700 mb-2">Email: privacy@maninfini.com</p>
-                                     <p className="text-gray-700">Phone: +91 97412 66370</p>
+                                     <p className="text-gray-700">Phone: +91 83105 16955</p>
                 </div>
               </section>
             </div>
