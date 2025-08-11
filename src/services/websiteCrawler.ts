@@ -149,12 +149,12 @@ Company Values:
 - Innovation First: Continuously exploring new technologies and methodologies to deliver cutting-edge solutions
 - Trust & Security: Building long-term partnerships through transparent communication and secure development practices
 
-Legal Information:
-- Incorporation Date: March 15, 2008
-- Authorised Capital: ₹10,00,000
-- CIN: U72200KA2008PTC045123
-- GST Number: 29AAQCM1170Q1ZO
-- Headquarters: #20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002
+ Legal Information:
+ - Incorporation Date: March 15, 2008
+ - Authorised Capital: ₹10,00,000
+ - CIN: U72900KA2022PTC165226
+ - GST Number: 29AAQCM1170Q1ZO
+ - Headquarters: #20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002
 
 Our team serves clients from SMBs to enterprises, delivering everything from simple automation scripts to complex AI-powered platforms. We believe in building solutions that scale with your business and provide measurable ROI.
     `;

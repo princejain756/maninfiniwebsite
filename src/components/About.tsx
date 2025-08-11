@@ -97,7 +97,7 @@ const About = () => {
   const companyInfo = [
     { label: 'Incorporation Date', value: 'March 15, 2008' },
     { label: 'Authorised Capital', value: '₹10,00,000' },
-    { label: 'CIN', value: 'U72200KA2008PTC045123' },
+    { label: 'CIN', value: 'U72900KA2022PTC165226' },
     { label: 'GST Number', value: '29AAQCM1170Q1ZO' },
     { label: 'Headquarters', value: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002' }
   ];
