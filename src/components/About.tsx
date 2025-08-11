@@ -14,7 +14,6 @@ import miteshImage from '@/assets/Mitesh CEO.jpg';
 import princeImage from '@/assets/Prince Jain AIO CTO.png';
 import neeravImage from '@/assets/Neerav Deepak Jain COO.jpg';
 import dipakImage from '@/assets/Deepak Jain Mentor.jpg';
-import JaswantCA from '@/assets/JaswantCA.jpg';
 import rambhupalImage from '@/assets/Rambhupal M CFO Qualified CA with 25 years of experience.jpg';
 import vishakhaImage from '@/assets/Vishakha Sisodhiya Cybersecurity.jpg';
 
@@ -57,14 +56,6 @@ const About = () => {
       experience: '20+ years',
       background: 'Strategic Business Guidance & Industry Expertise',
       image: dipakImage,
-      linkedin: '#'
-    },
-    {
-      name: 'Jaswanth Raj V Dhariwal',
-      role: 'Accounts & Finance',
-      experience: '20+ years',
-      background: 'F.C.A , DISA',
-      image: JaswantCA,
       linkedin: '#'
     },
     {

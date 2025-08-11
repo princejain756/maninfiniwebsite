@@ -121,7 +121,6 @@ Leadership Team:
 - Prince Jain (AIO and CTO) - 5+ years experience
 - Neerav Deepak Jain (COO) - 3+ years experience
 - Vishakha Sisodhiya (Cybersecurity & Cloud Expert) - 4+ years experience
-- Jaswanth Raj V Dhariwal (Accounts & Finance) - 20+ years experience
 - Rambhupal M (CFO) - 25+ years experience
 
 We help businesses automate processes, build modern web applications, integrate AI solutions, and achieve digital transformation goals.
