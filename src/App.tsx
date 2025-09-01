@@ -87,6 +87,12 @@ const App = () => {
     };
   }, [audioEnabled]);
 
+  // Ensure GA hook runs within Router context
+  const AnalyticsListener = () => {
+    useAnalytics();
+    return null;
+  };
+
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
@@ -94,9 +100,7 @@ const App = () => {
           <PerformanceOptimizer>
             <Toaster />
             <Sonner />
-            {/* GA4 route change tracking */}
-            { /* eslint-disable-next-line react-hooks/rules-of-hooks */ }
-            { useAnalytics() }
+            {/* GA4 route change tracking within Router context */}
             {/* Background intro audio */}
             <audio
               ref={audioRef}
@@ -112,6 +116,7 @@ const App = () => {
               Your browser does not support the audio element.
             </audio>
             <BrowserRouter>
+              <AnalyticsListener />
               <Routes>
                 <Route path="/" element={<Index />} />
                 
