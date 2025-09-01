@@ -163,21 +163,7 @@ const SEO: React.FC<SEOProps> = ({
       {/* Facebook App ID */}
       {facebookAppId && <meta property="fb:app_id" content={facebookAppId} />}
       
-      {/* Google Analytics */}
-      {googleAnalyticsId && (
-        <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
-          <script dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              // SPA: disable automatic page_view to avoid duplicates; we'll send on route change
-              gtag('config', '${googleAnalyticsId}', { send_page_view: false });
-            `
-          }} />
-        </>
-      )}
+      {/* Google Analytics is now injected globally in index.html to avoid duplicates */}
       
       {/* Google Tag Manager */}
       {googleTagManagerId && (
