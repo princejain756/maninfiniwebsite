@@ -18,6 +18,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { websiteActions, contactInfo as contactData, whatsappContacts } from '@/lib/utils';
 import { validateContactForm, SecurityValidator } from '@/lib/security';
+import { Progress } from '@/components/ui/progress';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -35,6 +37,7 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showWhatsAppPopup, setShowWhatsAppPopup] = useState(false);
   const [csrfToken] = useState(() => SecurityValidator.csrf.generateToken());
+  const [step, setStep] = useState<1 | 2 | 3>(1);
 
   const handleWhatsAppContact = (contact: typeof whatsappContacts[0]) => {
     const message = 'Hello, I would like to know more about your automation services.';
@@ -60,6 +63,57 @@ const Contact = () => {
       ...prev,
       [field]: value
     }));
+
+    // Live validation per field
+    if (field === 'firstName' || field === 'lastName') {
+      const r = SecurityValidator.validateName(String(value), field === 'firstName' ? 'First name' : 'Last name');
+      setFormErrors((e) => ({ ...e, [field]: r.isValid ? '' : (r.error || '') }));
+    }
+    if (field === 'email') {
+      const r = SecurityValidator.validateEmail(String(value));
+      setFormErrors((e) => ({ ...e, email: r.isValid ? '' : (r.error || '') }));
+    }
+    if (field === 'phone') {
+      const r = SecurityValidator.validatePhone(String(value));
+      setFormErrors((e) => ({ ...e, phone: r.isValid ? '' : (r.error || '') }));
+    }
+    if (field === 'service') {
+      const r = SecurityValidator.validateService(String(value));
+      setFormErrors((e) => ({ ...e, service: r.isValid ? '' : (r.error || '') }));
+    }
+    if (field === 'message') {
+      const r = SecurityValidator.validateMessage(String(value));
+      setFormErrors((e) => ({ ...e, message: r.isValid ? '' : (r.error || '') }));
+    }
+    if (field === 'consent') {
+      setFormErrors((e) => ({ ...e, consent: value ? '' : 'You must accept the terms and conditions' }));
+    }
+  };
+
+  const canProceedStep1 = () => {
+    const fn = SecurityValidator.validateName(formData.firstName, 'First name');
+    const ln = SecurityValidator.validateName(formData.lastName, 'Last name');
+    const em = SecurityValidator.validateEmail(formData.email);
+    const ph = formData.phone ? SecurityValidator.validatePhone(formData.phone) : { isValid: true };
+    setFormErrors((e) => ({
+      ...e,
+      firstName: fn.isValid ? '' : (fn.error || ''),
+      lastName: ln.isValid ? '' : (ln.error || ''),
+      email: em.isValid ? '' : (em.error || ''),
+      phone: ph.isValid ? '' : (ph.error || ''),
+    }));
+    return fn.isValid && ln.isValid && em.isValid && ph.isValid;
+  };
+
+  const canProceedStep2 = () => {
+    const sv = SecurityValidator.validateService(formData.service);
+    const ms = SecurityValidator.validateMessage(formData.message);
+    setFormErrors((e) => ({
+      ...e,
+      service: sv.isValid ? '' : (sv.error || ''),
+      message: ms.isValid ? '' : (ms.error || ''),
+    }));
+    return sv.isValid && ms.isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -73,6 +127,9 @@ const Contact = () => {
     if (!validation.isValid) {
       setFormErrors(validation.errors);
       SecurityValidator.logSecurityEvent('form_validation_failed', { errors: validation.errors });
+      if (validation.errors.firstName || validation.errors.lastName || validation.errors.email || validation.errors.phone) setStep(1);
+      else if (validation.errors.service || validation.errors.message) setStep(2);
+      else setStep(3);
       return;
     }
     
@@ -139,6 +196,7 @@ const Contact = () => {
         consent: false
       });
       setSubmitStatus('success');
+      setStep(1);
       
       // Hide success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -253,6 +311,8 @@ const Contact = () => {
                 <info.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               
+              
+
               <h3 className="text-base sm:text-lg font-poppins font-semibold text-foreground mb-3 sm:mb-4">
                 {info.title}
               </h3>
@@ -306,6 +366,8 @@ const Contact = () => {
               )}
               
               <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
+                {step === 1 && (
+                  <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
@@ -359,8 +421,17 @@ const Contact = () => {
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                   />
                 </div>
+                <div className="flex justify-end">
+                  <Button type="button" className="btn-gradient w-full sm:w-auto" onClick={() => canProceedStep1() && setStep(2)}>
+                    Continue
+                  </Button>
+                </div>
+                  </>
+                )}
                 
-                <div>
+                {step >= 2 && (
+                  <>
+                <div className={step === 2 ? '' : 'hidden'}>
                   <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Service Interest *
                   </label>
@@ -370,13 +441,12 @@ const Contact = () => {
                     </SelectTrigger>
                     <SelectContent>
                       {services.map((service, index) => (
-                        <SelectItem key={index} value={service.toLowerCase().replace(/\s+/g, '-')}>
+                        <SelectItem key={index} value={service}>
                           {service}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
-                </div>
                 
                 <div>
                   <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
@@ -390,8 +460,25 @@ const Contact = () => {
                     onChange={(e) => handleInputChange('message', e.target.value)}
                   />
                 </div>
+                <div className="flex justify-between mt-2">
+                  <Button type="button" variant="outline" className="btn-outline-elegant" onClick={() => setStep(1)}>
+                    Back
+                  </Button>
+                  <Button type="button" className="btn-gradient" onClick={() => canProceedStep2() && setStep(3)}>
+                    Continue
+                  </Button>
+                </div>
+                </div>
                 
-                <div className="flex items-start gap-3">
+                <div className={step === 3 ? '' : 'hidden'}>
+                  <div className="space-y-2 text-sm mb-2">
+                    <div className="flex items-center justify-between"><span className="text-muted-foreground">Name</span><span className="font-medium">{formData.firstName} {formData.lastName}</span></div>
+                    <div className="flex items-center justify-between"><span className="text-muted-foreground">Email</span><span className="font-medium">{formData.email}</span></div>
+                    {formData.phone && (<div className="flex items-center justify-between"><span className="text-muted-foreground">Phone</span><span className="font-medium">{formData.phone}</span></div>)}
+                    <div className="flex items-center justify-between"><span className="text-muted-foreground">Service</span><span className="font-medium">{formData.service}</span></div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
                   <input 
                     type="checkbox" 
                     id="consent" 
@@ -405,17 +492,27 @@ const Contact = () => {
                     that I can unsubscribe at any time. View our{' '}
                     <a href="#" className="text-primary hover:text-foreground">Privacy Policy</a>.
                   </label>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-3">
+                    <Button type="button" variant="outline" className="btn-outline-elegant" onClick={() => setStep(2)}>
+                      Back
+                    </Button>
+                    <Button 
+                      type="submit" 
+                      size="lg" 
+                      className="btn-gradient w-full text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send via WhatsApp'}
+                      <Send className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                    </Button>
+                  </div>
                 </div>
-                
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="btn-gradient w-full text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Sending to WhatsApp...' : 'Send to WhatsApp'}
-                  <Send className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                </Button>
+
+                {/* end steps wrapper */}
+                </>
+                )}
               </form>
             </div>
           </div>

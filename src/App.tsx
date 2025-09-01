@@ -26,6 +26,7 @@ import OffshoreTalent from "./pages/services/offshore-talent";
 import Quantiti from "./pages/services/quantiti";
 import PerformanceOptimizer from "./components/PerformanceOptimizer";
 import { IntelligentChatbot } from "./components/ui/intelligent-chatbot";
+import MobileBottomNav from "./components/MobileBottomNav";
 
 const queryClient = new QueryClient();
 
@@ -142,6 +143,8 @@ const App = () => {
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              {/* Mobile Bottom Navigation */}
+              <MobileBottomNav />
               
               {/* Intelligent Auto-Learning Chatbot */}
               <IntelligentChatbot

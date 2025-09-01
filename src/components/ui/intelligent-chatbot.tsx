@@ -640,7 +640,14 @@ export function IntelligentChatbot({
   };
 
   return (
-    <div className={cn("fixed bottom-6 right-6 z-50", className)}>
+    <div
+      className={cn(
+        // Keep above content, but clear mobile bottom nav
+        "fixed right-4 sm:right-6 bottom-24 lg:bottom-6 z-50",
+        className
+      )}
+      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+    >
       {/* Join Automation Pro Popup */}
       <JoinAutomationProPopup 
         isOpen={showJoinPopup} 
@@ -649,7 +656,7 @@ export function IntelligentChatbot({
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="mb-4 w-96 h-[600px] bg-white dark:bg-[#303030] rounded-2xl shadow-2xl border border-border/50 flex flex-col">
+        <div className="mb-4 w-[92vw] max-w-sm h-[70vh] sm:w-96 sm:h-[600px] bg-white dark:bg-[#303030] rounded-2xl shadow-2xl border border-border/50 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border/50">
             <div className="flex items-center gap-3">
@@ -855,6 +862,7 @@ export function IntelligentChatbot({
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-full shadow-lg transition-all duration-200 hover:scale-105"
+        aria-label="Open Manu Assistant"
       >
         <div className="relative">
           <MessageSquare className="w-6 h-6" />
@@ -863,8 +871,8 @@ export function IntelligentChatbot({
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
           )}
         </div>
-        <span className="font-medium">{title}</span>
+        <span className="font-medium hidden sm:inline">{title}</span>
       </button>
     </div>
   );
-} 
+}

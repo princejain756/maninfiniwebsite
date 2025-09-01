@@ -13,6 +13,7 @@ import {
   Brain,
   Cloud
 } from 'lucide-react';
+import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { websiteActions, contactInfo } from '@/lib/utils';
 
@@ -32,7 +33,8 @@ const Services = () => {
         'Cloud Security',
         'Network Security'
       ],
-      color: 'from-gray-800 to-blue-600'
+      color: 'from-gray-800 to-blue-600',
+      category: 'Security & Cloud'
     },
     {
       icon: Cloud,
@@ -48,21 +50,24 @@ const Services = () => {
         'Cloud Cost Optimization',
         'Collaboration Tools'
       ],
-      color: 'from-sky-500 to-indigo-500'
+      color: 'from-sky-500 to-indigo-500',
+      category: 'Security & Cloud'
     },
     {
       icon: Code2,
       title: 'Web & Custom Development',
       description: 'Full-stack development solutions tailored to your business needs',
       features: ['React & Node.js', 'Custom APIs', 'Mobile Apps', 'Cloud Integration'],
-      color: 'from-blue-500 to-primary'
+      color: 'from-blue-500 to-primary',
+      category: 'Development'
     },
     {
       icon: ShoppingCart,
       title: 'E-commerce & Inventory',
       description: 'Complete e-commerce solutions with real-time inventory management',
       features: ['Multi-channel Sync', 'Real-time Tracking', 'Analytics Dashboard', 'Payment Gateway'],
-      color: 'from-accent to-vibrant-orange-light'
+      color: 'from-accent to-vibrant-orange-light',
+      category: 'Commerce & Comms'
     },
     {
       icon: MessageSquare,
@@ -70,21 +75,24 @@ const Services = () => {
       description: 'Advanced messaging solutions and cloud communication platforms',
       features: ['WhatsApp Bots', 'Bulk Messaging', 'IVR Systems', 'CRM Integration'],
       color: 'from-green-500 to-emerald-600',
-      demo: '/WhatsappBotVideo.mp4'
+      demo: '/WhatsappBotVideo.mp4',
+      category: 'Commerce & Comms'
     },
     {
       icon: Users,
       title: 'Offshore Talent',
       description: 'Dedicated development teams to scale your technical capacity',
       features: ['Skilled Developers', 'Agile Process', 'Time Zone Coverage', 'Quality Assurance'],
-      color: 'from-purple-500 to-violet-600'
+      color: 'from-purple-500 to-violet-600',
+      category: 'Operations'
     },
     {
       icon: Building,
       title: 'Virtual Office Services',
       description: 'Complete virtual office setup with professional address and support',
       features: ['Business Address', 'Call Handling', 'Mail Management', 'Meeting Rooms'],
-      color: 'from-indigo-500 to-blue-600'
+      color: 'from-indigo-500 to-blue-600',
+      category: 'Operations'
     },
     {
       icon: Palette,
@@ -92,7 +100,8 @@ const Services = () => {
       description: 'Creative design solutions for branding, marketing, and product packaging',
       features: ['Brand Identity', 'Product Packaging', 'Marketing Materials', 'Digital Assets'],
       color: 'from-pink-500 to-rose-600',
-      portfolio: '/Graphic%20Design%20Portfolio.pdf'
+      portfolio: '/Graphic%20Design%20Portfolio.pdf',
+      category: 'Design & AI'
     },
     {
       icon: Brain,
@@ -109,7 +118,8 @@ const Services = () => {
         'Computer Vision & Image Recognition',
         'Scientific Computing & Simulation'
       ],
-      color: 'from-cyan-500 to-blue-600'
+      color: 'from-cyan-500 to-blue-600',
+      category: 'Design & AI'
     }
   ];
 
@@ -157,6 +167,13 @@ const Services = () => {
     );
   };
 
+  const categories = ['All', 'Development', 'Commerce & Comms', 'Operations', 'Security & Cloud', 'Design & AI'] as const;
+  const [selectedCategory, setSelectedCategory] = React.useState<(typeof categories)[number]>('All');
+
+  const visibleServices = selectedCategory === 'All'
+    ? services
+    : services.filter((s) => s.category === selectedCategory);
+
   return (
     <section id="services" className="py-12 sm:py-16 lg:py-20 bg-gradient-surface">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -175,12 +192,29 @@ const Services = () => {
           </p>
         </div>
 
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3 py-2 rounded-full text-xs sm:text-sm border transition-colors ${
+                selectedCategory === cat
+                  ? 'bg-primary text-primary-foreground border-primary'
+                  : 'bg-background hover:bg-primary/5 border-border'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
-          {services.map((service, index) => (
+          {visibleServices.map((service, index) => (
             <div 
               key={index} 
-              className="service-card group animate-fade-in-up p-6 sm:p-8"
+              className="service-card group animate-fade-in-up p-6 sm:p-8 will-change-transform"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4 sm:mb-6 service-icon transition-all duration-300`}>

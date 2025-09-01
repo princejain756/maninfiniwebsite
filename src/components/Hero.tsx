@@ -68,35 +68,35 @@ const Hero = () => {
               </p>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            {/* Primary CTA only */}
+            <div className="flex flex-col gap-2 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button 
+                  size="lg" 
+                  className="btn-gradient group text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6"
+                  onClick={handleBookConsultation}
+                >
+                  Book Free Consultation
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+              <button
+                onClick={handleWatchDemo}
+                className="text-white/80 hover:text-white text-sm sm:text-base inline-flex items-center gap-2"
+                aria-label="Watch a quick demo"
+              >
+                <Play className="w-4 h-4" /> Prefer a quick demo? Watch now
+              </button>
+            </div>
+
+            {/* Trust Indicators (moved below CTA) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
               {trustIndicators.map((indicator, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
                   <span className="text-white/90 text-xs sm:text-sm font-medium">{indicator}</span>
                 </div>
               ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <Button 
-                size="lg" 
-                className="btn-gradient group text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6"
-                onClick={handleBookConsultation}
-              >
-                Book Free Consultation
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg"
-                onClick={handleWatchDemo}
-              >
-                <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                Watch Demo
-              </Button>
             </div>
 
             {/* Achievement Stats */}

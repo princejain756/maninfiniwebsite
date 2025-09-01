@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, ExternalLink } from 'lucide-react';
+import { Menu, X, Phone, Mail, ExternalLink, MessageCircle, ChevronRight, Shield, Cloud, Code2, ShoppingCart, MessageSquare, Users, Building, Palette, Brain, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { websiteActions, contactInfo } from '@/lib/utils';
 import { useNavigate, useLocation } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from '@/components/ui/navigation-menu';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +26,21 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  // Mega menu data for desktop
+  const serviceLinks = [
+    { label: 'Cyber Security', href: '/services/cyber-cloud', Icon: Shield, desc: 'VAPT, audits, monitoring' },
+    { label: 'Cloud Solutions', href: '/services/cloud-solutions', Icon: Cloud, desc: 'Migration, DevOps, DR' },
+    { label: 'Web & Custom Dev', href: '/services/web-development', Icon: Code2, desc: 'Apps, APIs, mobile' },
+    { label: 'E-commerce & Inventory', href: '/services/ecommerce-inventory', Icon: ShoppingCart, desc: 'Inventory, sync, analytics' },
+    { label: 'WhatsApp & Comms', href: '/services/whatsapp-communications', Icon: MessageSquare, desc: 'Bots, IVR, CRM' },
+    { label: 'Offshore Talent', href: '/services/offshore-talent', Icon: Users, desc: 'Dedicated teams' },
+    { label: 'Virtual Office', href: '/services/virtual-office', Icon: Building, desc: 'Address, calls, mail' },
+    { label: 'Graphic Design', href: '/services/graphic-design', Icon: Palette, desc: 'Brand & packaging' },
+    { label: 'Quantiti (AI/Quant)', href: '/services/quantiti', Icon: Brain, desc: 'AI, HFT, risk' },
+  ];
+
+  const topLevelNav = [
     { label: 'Home', href: '/', section: 'home' },
-    { label: 'Services', href: '/', section: 'services' },
     { label: 'Products', href: '/', section: 'products' },
     { label: 'About', href: '/', section: 'about' },
     { label: 'Contact', href: '/', section: 'contact' },
@@ -73,18 +93,41 @@ const Header = () => {
         ? 'bg-background/95 backdrop-blur-md shadow-elegant border-b border-border/50' 
         : 'bg-transparent'
     }`}>
-      {/* Top Contact Bar */}
+      {/* Top Contact Bar - simplified & actionable */}
       <div className="bg-primary text-primary-foreground py-2 px-4">
-        <div className="container mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center gap-2 sm:gap-6">
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span className="hidden sm:inline">mitesh@maninfini.com &nbsp; | &nbsp; +91 83105 16955</span>
-              <span className="sm:hidden text-xs">mitesh@maninfini.com | +91 83105 16955</span>
-            </div>
+        <div className="container mx-auto flex justify-between items-center text-xs sm:text-sm">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={() => websiteActions.sendEmail(contactInfo.email, 'Inquiry - Maninfini Automation')}
+              className="inline-flex items-center gap-1 hover:opacity-90"
+              aria-label="Email us"
+            >
+              <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">{contactInfo.email}</span>
+              <span className="sm:hidden">Email</span>
+            </button>
+            <button
+              onClick={() => websiteActions.callPhone(contactInfo.salesPhone)}
+              className="inline-flex items-center gap-1 hover:opacity-90"
+              aria-label="Call us"
+            >
+              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">{contactInfo.salesPhone}</span>
+              <span className="sm:hidden">Call</span>
+            </button>
+            <button
+              onClick={() => websiteActions.openWhatsApp(contactInfo.salesPhone, 'Hello! I would like a free consultation.')}
+              className="inline-flex items-center gap-1 hover:opacity-90"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">WhatsApp</span>
+              <span className="sm:hidden">WA</span>
+            </button>
           </div>
-          <div className="hidden md:block">
-            <span>🚀 Start Automating Today - Free Consultation Available</span>
+          <div className="hidden md:flex items-center gap-2">
+            <span>🚀 Free Consultation</span>
+            <ChevronRight className="w-4 h-4" />
           </div>
           <div className="md:hidden">
             <span className="text-xs">🚀 Free Consultation</span>
@@ -125,18 +168,76 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleNavigation(item.href, item.section, item.external)}
-                className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-1"
-              >
-                {item.label}
-                {item.external && <ExternalLink className="w-3 h-3" />}
-              </button>
-            ))}
+          {/* Desktop Navigation with Mega Menu */}
+          <div className="hidden lg:flex items-center space-x-2">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {/* Solutions (Services) */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="font-medium">Solutions</NavigationMenuTrigger>
+                  <NavigationMenuContent className="p-4 md:w-[760px]">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {serviceLinks.map(({ label, href, Icon, desc }) => (
+                        <button
+                          key={label}
+                          onClick={() => handleNavigation(href)}
+                          className="text-left p-3 rounded-lg hover:bg-primary/5 transition-colors"
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center">
+                              <Icon className="w-4 h-4 text-primary" />
+                            </div>
+                            <div>
+                              <div className="text-sm font-semibold text-foreground">{label}</div>
+                              <div className="text-xs text-muted-foreground">{desc}</div>
+                            </div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* Products anchor */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <button
+                      onClick={() => handleNavigation('/', 'products')}
+                      className="group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                    >
+                      Products
+                    </button>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                {/* About & Contact anchors */}
+                {topLevelNav.filter(n => ['About','Contact'].includes(n.label)).map((item) => (
+                  <NavigationMenuItem key={item.label}>
+                    <NavigationMenuLink asChild>
+                      <button
+                        onClick={() => handleNavigation(item.href, item.section)}
+                        className="group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                      >
+                        {item.label}
+                      </button>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+
+                {/* External link */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <button
+                      onClick={() => handleNavigation('https://quantiti.in', undefined, true)}
+                      className="group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                    >
+                      Quant Algorithms
+                      <ExternalLink className="ml-1 w-3.5 h-3.5" />
+                    </button>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
 
           {/* CTA Button */}
@@ -167,7 +268,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 py-6 border-t border-border animate-fade-in-up bg-background/95 backdrop-blur-md rounded-lg">
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
+              {[{ label: 'Home', href: '/', section: 'home' }, { label: 'Services', href: '/', section: 'services' }, { label: 'Products', href: '/', section: 'products' }, { label: 'About', href: '/', section: 'about' }, { label: 'Contact', href: '/', section: 'contact' }, { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true }].map((item) => (
                 <button
                   key={item.label}
                   onClick={() => handleNavigation(item.href, item.section, item.external)}
@@ -187,6 +288,17 @@ const Header = () => {
                 >
                   Start Free Consultation
                 </Button>
+                <div className="grid grid-cols-3 gap-2 px-4">
+                  <Button variant="outline" className="w-full" onClick={() => handleNavigation('/', 'home')}>
+                    <Home className="w-4 h-4" />
+                  </Button>
+                  <Button variant="outline" className="w-full" onClick={() => websiteActions.callPhone(contactInfo.salesPhone)}>
+                    <Phone className="w-4 h-4" />
+                  </Button>
+                  <Button variant="outline" className="w-full" onClick={() => websiteActions.openWhatsApp(contactInfo.salesPhone)}>
+                    <MessageCircle className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

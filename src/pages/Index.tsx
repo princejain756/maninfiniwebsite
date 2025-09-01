@@ -17,6 +17,7 @@ import ReviewSchema from '@/components/ReviewSchema';
 import EventSchema from '@/components/EventSchema';
 import HowToSchema from '@/components/HowToSchema';
 import VideoSchema from '@/components/VideoSchema';
+import MobileGestures from '@/components/MobileGestures';
 
 const Index = () => {
   // FAQ data for schema
@@ -150,7 +151,8 @@ const Index = () => {
       <PerformanceOptimizer>
         <div className="min-h-screen">
           <Header />
-          <main>
+          <main className="pb-20 lg:pb-0">
+            <MobileGestures />
             <Hero />
             <Services />
             <Products />
