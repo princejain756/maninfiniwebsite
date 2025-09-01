@@ -1,5 +1,7 @@
 import React from "react";
 
+// IMPORTANT: In production builds, using "/src/..." image paths fails because Vite
+// fingerprints assets. Use import.meta.glob to resolve the final URLs at build time.
 const clientImages = [
   "ACPL.jpg",
   "Aurum Enterprise.jpg",
@@ -14,6 +16,18 @@ const clientImages = [
 ];
 
 export default function ClientsSection() {
+  // Map filenames to their built asset URLs
+  const modules = import.meta.glob(
+    "/src/assets/Clients/*.{jpg,jpeg,png,svg}",
+    { eager: true } as any
+  ) as Record<string, { default: string }>;
+
+  const imagesMap: Record<string, string> = {};
+  Object.entries(modules).forEach(([path, mod]) => {
+    const filename = path.split("/").pop() as string;
+    imagesMap[filename] = mod.default;
+  });
+
   return (
     <section className="py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4">
@@ -39,10 +53,14 @@ export default function ClientsSection() {
                 style={{ minWidth: '160px' }}
               >
                 <img
-                  src={`/src/assets/Clients/${img}`}
+                  src={imagesMap[img] || imagesMap[encodeURIComponent(img)] || ''}
                   alt={img.replace(/\.jpg$/, "")}
                   className="h-20 w-auto object-contain"
                   loading="lazy"
+                  onError={(e) => {
+                    // graceful fallback: hide broken image tile in prod
+                    (e.currentTarget.parentElement as HTMLElement).style.opacity = '0.4';
+                  }}
                 />
               </div>
             ))}
