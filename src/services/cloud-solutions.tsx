@@ -100,8 +100,8 @@ export default function CloudSolutions() {
         image="https://maninfini.com/manlogo.png"
         language="en"
         twitterHandle="@maninfini"
-        googleAnalyticsId="GA_MEASUREMENT_ID"
-        googleTagManagerId="GTM_CONTAINER_ID"
+        googleAnalyticsId="G-4N0C42TBRL"
+        googleTagManagerId=""
       />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />

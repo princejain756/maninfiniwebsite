@@ -27,6 +27,7 @@ import Quantiti from "./pages/services/quantiti";
 import PerformanceOptimizer from "./components/PerformanceOptimizer";
 import { IntelligentChatbot } from "./components/ui/intelligent-chatbot";
 import MobileBottomNav from "./components/MobileBottomNav";
+import { useAnalytics } from "./hooks/use-analytics";
 
 const queryClient = new QueryClient();
 
@@ -93,6 +94,9 @@ const App = () => {
           <PerformanceOptimizer>
             <Toaster />
             <Sonner />
+            {/* GA4 route change tracking */}
+            { /* eslint-disable-next-line react-hooks/rules-of-hooks */ }
+            { useAnalytics() }
             {/* Background intro audio */}
             <audio
               ref={audioRef}

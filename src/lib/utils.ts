@@ -10,12 +10,14 @@ export const websiteActions = {
   // Phone call functionality
   callPhone: (phoneNumber: string, label?: string) => {
     const cleanNumber = phoneNumber.replace(/\s+/g, '');
+    try { (window as any).gtag?.('event', 'call_click', { method: 'tel', value: cleanNumber, event_category: 'engagement' }); } catch {}
     window.open(`tel:${cleanNumber}`, '_self');
   },
 
   // Email functionality
   sendEmail: (email: string, subject?: string, body?: string) => {
     const mailtoUrl = `mailto:${email}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}${body ? `${subject ? '&' : '?'}body=${encodeURIComponent(body)}` : ''}`;
+    try { (window as any).gtag?.('event', 'email_click', { method: 'mailto', value: email, event_category: 'engagement' }); } catch {}
     window.open(mailtoUrl, '_self');
   },
 
@@ -24,6 +26,7 @@ export const websiteActions = {
     const cleanNumber = phoneNumber.replace(/\s+/g, '');
     const defaultMessage = message || 'Hello, I would like to know more about your automation services.';
     const whatsappUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(defaultMessage)}`;
+    try { (window as any).gtag?.('event', 'whatsapp_open', { value: cleanNumber, message_length: defaultMessage.length, event_category: 'engagement' }); } catch {}
     window.open(whatsappUrl, '_blank');
   },
 
@@ -55,10 +58,12 @@ export const websiteActions = {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    try { (window as any).gtag?.('event', 'file_download', { file_name: filename || url, event_category: 'engagement' }); } catch {}
   },
 
   // Open external link
   openExternalLink: (url: string, newTab: boolean = true) => {
+    try { (window as any).gtag?.('event', 'outbound_click', { destination: url, event_category: 'engagement' }); } catch {}
     if (newTab) {
       window.open(url, '_blank');
     } else {

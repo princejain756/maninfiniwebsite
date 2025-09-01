@@ -67,8 +67,8 @@ const SEO: React.FC<SEOProps> = ({
   structuredData,
   twitterHandle = "@maninfini",
   facebookAppId,
-  googleAnalyticsId = "G-XXXXXXXXXX", // Replace with actual GA4 ID
-  googleTagManagerId = "GTM-XXXXXXX", // Replace with actual GTM ID
+  googleAnalyticsId = (import.meta as any).env?.VITE_GA_ID || "G-4N0C42TBRL",
+  googleTagManagerId = (import.meta as any).env?.VITE_GTM_ID || "",
   bingWebmasterTools,
   yandexVerification,
   baiduVerification,
@@ -172,7 +172,8 @@ const SEO: React.FC<SEOProps> = ({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${googleAnalyticsId}');
+              // SPA: disable automatic page_view to avoid duplicates; we'll send on route change
+              gtag('config', '${googleAnalyticsId}', { send_page_view: false });
             `
           }} />
         </>
