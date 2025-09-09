@@ -13,27 +13,47 @@ export default function MobileGestures() {
     let startY = 0;
     let startX = 0;
     let touchTime = 0;
+    let startTarget: EventTarget | null = null;
+
+    const isInScrollableArea = (target: EventTarget | null) => {
+      let el = (target as HTMLElement) || null;
+      // Walk up the DOM to see if any ancestor can scroll vertically
+      while (el && el !== document.body) {
+        const style = window.getComputedStyle(el);
+        const overflowY = style.overflowY;
+        const canScroll = el.scrollHeight > el.clientHeight;
+        if (canScroll && (overflowY === 'auto' || overflowY === 'scroll')) {
+          return true;
+        }
+        el = el.parentElement as HTMLElement | null;
+      }
+      return false;
+    };
 
     const onTouchStart = (e: TouchEvent) => {
       const t = e.touches[0];
       startY = t.clientY;
       startX = t.clientX;
       touchTime = Date.now();
+      startTarget = e.target;
     };
 
     const onTouchEnd = (e: TouchEvent) => {
       const dt = Date.now() - touchTime;
-      if (dt > 500) return; // quick gestures only
+      if (dt > 300) return; // quicker gestures only
+
+      // Ignore if the interaction started inside a scrollable area
+      if (isInScrollableArea(startTarget)) return;
 
       const touch = e.changedTouches[0];
       const dy = touch.clientY - startY;
       const dx = touch.clientX - startX;
 
-      // Ignore mostly horizontal swipes
-      if (Math.abs(dx) > Math.abs(dy)) return;
+      // Stricter horizontal filter
+      if (Math.abs(dx) > 30) return;
 
-      // Threshold
-      if (Math.abs(dy) < 60) return;
+      // Threshold (increase to reduce accidental triggers)
+      if (Math.abs(dy) < 140) return;
 
       // Determine current section by nearest element in viewport
       const currentIndex = (() => {
