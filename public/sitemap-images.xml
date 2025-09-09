@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage Images -->
+  <url>
+    <loc>https://maninfini.com/</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/manlogo.png</image:loc>
+      <image:title>ManInfini Business Solutions Logo</image:title>
+      <image:caption>ManInfini - Your trusted partner for comprehensive business solutions</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Blog Post: Jamming Attacks -->
+  <url>
+    <loc>https://maninfini.com/blog/jamming-attacks-wireless-security-threat</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/jamming-attacks-cybersecurity.jpg</image:loc>
+      <image:title>Jamming Attacks in Cybersecurity</image:title>
+      <image:caption>Understanding the threat of jamming attacks to wireless security infrastructure</image:caption>
+      <image:license>https://maninfini.com/terms-of-service</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Blog Post: Future of LLMs -->
+  <url>
+    <loc>https://maninfini.com/blog/future-of-llms-gpt4-to-agi</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/The%20Future%20of%20LLMs%20From%20GPT-4%20to%20AGI%20-%20What's%20Next.jpg</image:loc>
+      <image:title>The Future of Large Language Models</image:title>
+      <image:caption>Exploring the evolution from GPT-4 to Artificial General Intelligence</image:caption>
+      <image:license>https://maninfini.com/terms-of-service</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Blog Post: Quantum Computing -->
+  <url>
+    <loc>https://maninfini.com/blog/quantum-computing-ai-cryptography</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/Quantum%20Computing%20Revolutionizing%20AI%20and%20Cryptography.jpg</image:loc>
+      <image:title>Quantum Computing in AI and Cryptography</image:title>
+      <image:caption>How quantum computing is revolutionizing artificial intelligence and cryptographic systems</image:caption>
+      <image:license>https://maninfini.com/terms-of-service</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Blog Post: Voice TTS Revolution -->
+  <url>
+    <loc>https://maninfini.com/blog/voice-tts-revolution-emotional-ai</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/Voice%20TTS%20Revolution%20From%20Text-to-Speech%20to%20Emotional%20AI%20Voices.jpg</image:loc>
+      <image:title>Voice TTS and Emotional AI Revolution</image:title>
+      <image:caption>The evolution of text-to-speech technology into emotionally intelligent AI voices</image:caption>
+      <image:license>https://maninfini.com/terms-of-service</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Blog Post: AI in Healthcare -->
+  <url>
+    <loc>https://maninfini.com/blog/ai-healthcare-diagnosis-treatment</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/ai%20in%20healthcare.jpg</image:loc>
+      <image:title>AI in Healthcare Diagnosis and Treatment</image:title>
+      <image:caption>Artificial Intelligence transforming medical diagnosis and treatment methodologies</image:caption>
+      <image:license>https://maninfini.com/terms-of-service</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Blog Post: Edge AI Computing -->
+  <url>
+    <loc>https://maninfini.com/blog/rise-edge-ai-computing-source</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/The%20Rise%20of%20Edge%20AI%20Computing%20at%20the%20Source.jpg</image:loc>
+      <image:title>Edge AI Computing at the Source</image:title>
+      <image:caption>The rise of edge AI bringing intelligence closer to data sources</image:caption>
+      <image:license>https://maninfini.com/terms-of-service</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Blog Post: Computer Vision -->
+  <url>
+    <loc>https://maninfini.com/blog/computer-vision-image-recognition-visual-intelligence</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/Computer%20Vision%20From%20Image%20Recognition%20to%20Visual%20Intelligence.jpg</image:loc>
+      <image:title>Computer Vision and Visual Intelligence</image:title>
+      <image:caption>From basic image recognition to advanced visual intelligence systems</image:caption>
+      <image:license>https://maninfini.com/terms-of-service</image:license>
+    </image:image>
+  </url>
+  
+  <!-- Team/Leadership Image -->
+  <url>
+    <loc>https://maninfini.com/about</loc>
+    <image:image>
+      <image:loc>https://maninfini.com/Prince%20Jain%20AIO%20CTO.png</image:loc>
+      <image:title>Prince Jain - CTO ManInfini</image:title>
+      <image:caption>Prince Jain, Chief Technology Officer at ManInfini Business Solutions</image:caption>
+      <image:geo_location>Bangalore, India</image:geo_location>
+    </image:image>
+  </url>
+  
+</urlset>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Web Development Service -->
+  <url>
+    <loc>https://maninfini.com/services/web-development</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Graphic Design Service -->
+  <url>
+    <loc>https://maninfini.com/services/graphic-design</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- E-commerce & Inventory Management Service -->
+  <url>
+    <loc>https://maninfini.com/services/ecommerce-inventory</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- WhatsApp Business Communications Service -->
+  <url>
+    <loc>https://maninfini.com/services/whatsapp-communications</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Virtual Office Solutions Service -->
+  <url>
+    <loc>https://maninfini.com/services/virtual-office</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Offshore Talent Solutions Service -->
+  <url>
+    <loc>https://maninfini.com/services/offshore-talent</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Quantiti Analytics Service -->
+  <url>
+    <loc>https://maninfini.com/services/quantiti</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Cyber Cloud Security Service -->
+  <url>
+    <loc>https://maninfini.com/services/cyber-cloud</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Cloud Solutions Service -->
+  <url>
+    <loc>https://maninfini.com/services/cloud-solutions</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+</urlset>

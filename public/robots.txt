@@ -4,8 +4,10 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemaps - Using sitemap index for better organization
+Sitemap: https://maninfini.com/sitemap-index.xml
 Sitemap: https://maninfini.com/sitemap.xml
+Sitemap: https://maninfini.com/feed.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
@@ -45,6 +47,8 @@ Disallow: /*.log$
 # Allow specific important files
 Allow: /robots.txt
 Allow: /sitemap.xml
+Allow: /sitemap-*.xml
+Allow: /feed.xml
 Allow: /favicon.ico
 Allow: /manifest.json
 
