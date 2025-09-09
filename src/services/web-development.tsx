@@ -101,6 +101,13 @@ const WebDevelopment = () => {
     );
   };
 
+  const handlePortfolio = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to see your web development portfolio and case studies. Please share examples of your recent web development projects and custom software solutions.'
+    );
+  };
+
   return (
     <>
       <SEO 
@@ -159,7 +166,7 @@ const WebDevelopment = () => {
                     Start Your Project
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={handlePortfolio}>
                     View Our Portfolio
                   </Button>
                 </div>

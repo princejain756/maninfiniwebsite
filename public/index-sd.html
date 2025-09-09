@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maninfini Automation - Digital Transformation Partner</title>
+    <meta name="description" content="Transform your business with cutting-edge automation, custom software development, and intelligent systems. Trusted automation partner since 2008.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://maninfini.com/?SD" />
+
+    <!-- Redirect to homepage with SD parameter -->
+    <script>
+        // Get the current URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const sdValue = urlParams.get('SD') || 'default';
+
+        // Redirect to homepage with SD parameter
+        window.location.href = '/?SD=' + encodeURIComponent(sdValue);
+    </script>
+</head>
+<body>
+    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>Redirecting...</h1>
+        <p>Redirecting to Maninfini Automation homepage...</p>
+        <p>If you are not redirected automatically, <a href="/?SD">click here</a>.</p>
+    </div>
+</body>
+</html>

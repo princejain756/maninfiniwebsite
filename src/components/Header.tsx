@@ -47,6 +47,12 @@ const Header = () => {
     { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true },
   ];
 
+  // Service pages with dark hero backgrounds where white nav text is needed
+  const darkHeroServicePrefixes = ['/services/cyber-cloud'];
+  const isDarkRoute = darkHeroServicePrefixes.some(prefix => location.pathname.startsWith(prefix));
+  const isHomeRoute = location.pathname === '/';
+  const isDarkBackgroundRoute = isDarkRoute || isHomeRoute;
+
   const handleNavigation = (href: string, section?: string, external?: boolean) => {
     // Close mobile menu
     setIsMenuOpen(false);
@@ -150,16 +156,16 @@ const Header = () => {
                 className="h-8 sm:h-10 lg:h-12 w-auto mr-2 sm:mr-3"
               />
               <div className="flex flex-col">
-                <div className="text-base sm:text-lg lg:text-xl font-poppins font-bold text-primary">Maninfini</div>
+                <div className={`text-base sm:text-lg lg:text-xl font-poppins font-bold transition-colors duration-300 ${isScrolled ? 'text-primary' : (isDarkBackgroundRoute ? 'text-white' : 'text-primary')}`}>Maninfini</div>
                 <div className="flex items-center">
                   <span className="text-xs text-orange-500 mr-1">⭐</span>
                   <p
-                    className={`text-xs hidden sm:block transition-colors duration-300 ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}
+                    className={`text-xs hidden sm:block transition-colors duration-300 font-medium ${isScrolled ? 'text-gray-700' : (isDarkBackgroundRoute ? 'text-gray-200' : 'text-gray-700')}`}
                   >
                     Trusted Automation Partner Since 2008
                   </p>
                   <p
-                    className={`text-xs sm:hidden transition-colors duration-300 ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}
+                    className={`text-xs sm:hidden transition-colors duration-300 font-medium ${isScrolled ? 'text-gray-700' : (isDarkBackgroundRoute ? 'text-gray-200' : 'text-gray-700')}`}
                   >
                     Since 2008
                   </p>
@@ -174,7 +180,11 @@ const Header = () => {
               <NavigationMenuList>
                 {/* Solutions (Services) */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="font-medium">Solutions</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={`font-medium transition-colors duration-300 ${isScrolled 
+                    ? 'text-foreground hover:bg-accent hover:text-accent-foreground' 
+                    : isDarkBackgroundRoute 
+                      ? 'text-white bg-transparent hover:text-gray-200 hover:bg-white/10 data-[state=open]:bg-white/10 data-[state=open]:text-white' 
+                      : 'text-foreground hover:text-foreground/80 hover:bg-white/10'}`}>Solutions</NavigationMenuTrigger>
                   <NavigationMenuContent className="p-4 md:w-[760px]">
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {serviceLinks.map(({ label, href, Icon, desc }) => (
@@ -203,7 +213,11 @@ const Header = () => {
                   <NavigationMenuLink asChild>
                     <button
                       onClick={() => handleNavigation('/', 'products')}
-                      className="group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                      className={`group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors duration-300 ${isScrolled 
+                        ? 'hover:bg-accent hover:text-accent-foreground' 
+                        : isDarkBackgroundRoute 
+                          ? 'text-white hover:text-gray-200 hover:bg-white/10' 
+                          : 'text-foreground hover:text-foreground/80 hover:bg-white/10'}`}
                     >
                       Products
                     </button>
@@ -216,7 +230,11 @@ const Header = () => {
                     <NavigationMenuLink asChild>
                       <button
                         onClick={() => handleNavigation(item.href, item.section)}
-                        className="group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                        className={`group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors duration-300 ${isScrolled 
+                          ? 'hover:bg-accent hover:text-accent-foreground' 
+                          : isDarkBackgroundRoute 
+                            ? 'text-white hover:text-gray-200 hover:bg-white/10' 
+                            : 'text-foreground hover:text-foreground/80 hover:bg-white/10'}`}
                       >
                         {item.label}
                       </button>
@@ -229,7 +247,11 @@ const Header = () => {
                   <NavigationMenuLink asChild>
                     <button
                       onClick={() => handleNavigation('https://quantiti.in', undefined, true)}
-                      className="group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                      className={`group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors duration-300 ${isScrolled 
+                        ? 'hover:bg-accent hover:text-accent-foreground' 
+                        : isDarkBackgroundRoute 
+                          ? 'text-white hover:text-gray-200 hover:bg-white/10' 
+                          : 'text-foreground hover:text-foreground/80 hover:bg-white/10'}`}
                     >
                       Quant Algorithms
                       <ExternalLink className="ml-1 w-3.5 h-3.5" />
@@ -252,14 +274,14 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className={`lg:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-foreground' : (isDarkBackgroundRoute ? 'text-white' : 'text-foreground')}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle mobile menu"
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-6 h-6" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6" />
             )}
           </button>
         </div>
@@ -278,9 +300,9 @@ const Header = () => {
                   {item.external && <ExternalLink className="w-3 h-3" />}
                 </button>
               ))}
-              <div className="flex flex-col space-y-3 pt-4 border-t border-border/50">
+              <div className="flex flex-col space-y-3 pt-4 border-t border-border/50 px-4">
                 <Button 
-                  className="btn-gradient w-full"
+                  className="btn-gradient w-full h-12 rounded-xl shadow-md"
                   onClick={() => {
                     handleFreeConsultation();
                     setIsMenuOpen(false);
@@ -288,7 +310,7 @@ const Header = () => {
                 >
                   Start Free Consultation
                 </Button>
-                <div className="grid grid-cols-3 gap-2 px-4">
+                <div className="grid grid-cols-3 gap-2">
                   <Button variant="outline" className="w-full" onClick={() => handleNavigation('/', 'home')}>
                     <Home className="w-4 h-4" />
                   </Button>

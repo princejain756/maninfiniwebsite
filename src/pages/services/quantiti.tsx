@@ -101,6 +101,13 @@ const Quantiti = () => {
     );
   };
 
+  const handleCaseStudies = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to see case studies of your Quantiti AI and algorithmic solutions. Please share examples of your algorithmic trading, fraud detection, and optimization projects.'
+    );
+  };
+
   return (
     <>
       <SEO 
@@ -159,7 +166,7 @@ const Quantiti = () => {
                     Explore AI Solutions
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={handleCaseStudies}>
                     View Case Studies
                   </Button>
                 </div>

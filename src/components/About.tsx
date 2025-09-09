@@ -306,7 +306,7 @@ const About = () => {
                 </div>
               </div>
               
-              <Button size="lg" className="btn-outline-elegant text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
+              <Button size="lg" className="btn-gradient text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
                 View Certificates
               </Button>
             </div>

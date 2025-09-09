@@ -14,6 +14,9 @@ import BlogCategory from "./pages/BlogCategory";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
+import OurTeam from "./pages/OurTeam";
+import Services from "./components/Services";
+import SearchPage from "./pages/Search";
 import NotFound from "./pages/NotFound";
 
 // Service pages
@@ -140,6 +143,16 @@ const App = () => {
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
+                
+                {/* Team Route */}
+                <Route path="/our-team" element={<OurTeam />} />
+
+                {/* Search Route */}
+                <Route path="/search" element={<SearchPage />} />
+
+                {/* Direct service routes */}
+                <Route path="/virtual-office" element={<VirtualOffice />} />
+                <Route path="/services" element={<Services />} />
                 
                 {/* Blog redirection routes */}
                 <Route path="/blogs" element={<Blog />} />

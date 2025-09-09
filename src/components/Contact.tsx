@@ -617,8 +617,7 @@ const Contact = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-primary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
+                className="bg-white text-primary hover:bg-gray-100 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
                 onClick={() => websiteActions.sendEmail(
                   contactData.email,
                   'Brochure Request',

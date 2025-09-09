@@ -18,8 +18,37 @@ import EventSchema from '@/components/EventSchema';
 import HowToSchema from '@/components/HowToSchema';
 import VideoSchema from '@/components/VideoSchema';
 import MobileGestures from '@/components/MobileGestures';
+import { useSearchParams, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Index = () => {
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
+
+  // Handle query parameters like ?SD
+  useEffect(() => {
+    const sdParam = searchParams.get('SD');
+    if (sdParam) {
+      // Handle SD parameter - could be for tracking, analytics, or special behavior
+      console.log('SD parameter detected:', sdParam);
+
+      // You can add custom logic here based on the SD parameter
+      // For example: tracking, conditional content, etc.
+
+      // Example: Store in localStorage for tracking
+      localStorage.setItem('sd_referral', sdParam);
+
+      // Example: Send to analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'sd_parameter_used', {
+          event_category: 'referral',
+          event_label: sdParam,
+          custom_parameter: 'SD'
+        });
+      }
+    }
+  }, [searchParams]);
+
   // FAQ data for schema
   const faqs = [
     {

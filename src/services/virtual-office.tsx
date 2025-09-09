@@ -101,6 +101,13 @@ const VirtualOffice = () => {
     );
   };
 
+  const handleLocations = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to see your virtual office locations and available addresses. Please share information about your office locations, amenities, and pricing options.'
+    );
+  };
+
   return (
     <>
       <SEO 
@@ -159,7 +166,7 @@ const VirtualOffice = () => {
                     Set Up Your Virtual Office
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={handleLocations}>
                     View Our Locations
                   </Button>
                 </div>

@@ -101,6 +101,13 @@ const WhatsAppCommunications = () => {
     );
   };
 
+  const handleDemo = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to see a demo of your WhatsApp & Communications solutions. Please arrange a demonstration of your chatbot and messaging capabilities.'
+    );
+  };
+
   return (
     <>
       <SEO 
@@ -159,7 +166,7 @@ const WhatsAppCommunications = () => {
                     Start Your WhatsApp Integration
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={handleDemo}>
                     Watch Demo
                   </Button>
                 </div>

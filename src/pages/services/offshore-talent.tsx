@@ -101,6 +101,13 @@ const OffshoreTalent = () => {
     );
   };
 
+  const handleTalent = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to see your offshore talent profiles and team composition. Please share information about your available developers, their skills, experience levels, and project capabilities.'
+    );
+  };
+
   return (
     <>
       <SEO 
@@ -159,7 +166,7 @@ const OffshoreTalent = () => {
                     Build Your Team
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={handleTalent}>
                     View Our Talent
                   </Button>
                 </div>

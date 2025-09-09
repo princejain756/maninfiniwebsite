@@ -101,6 +101,13 @@ const GraphicDesign = () => {
     );
   };
 
+  const handlePortfolio = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to see your graphic design portfolio. Please share examples of your logo designs, branding projects, packaging designs, and marketing materials.'
+    );
+  };
+
   return (
     <>
       <SEO 
@@ -159,7 +166,7 @@ const GraphicDesign = () => {
                     Start Your Design Project
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={handlePortfolio}>
                     View Portfolio
                   </Button>
                 </div>

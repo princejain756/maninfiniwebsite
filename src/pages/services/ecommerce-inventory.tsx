@@ -101,6 +101,13 @@ const EcommerceInventory = () => {
     );
   };
 
+  const handleDemo = () => {
+    websiteActions.openWhatsApp(
+      contactInfo.salesPhone,
+      'Hello! I would like to see a demo of your e-commerce and inventory management system. Please show me the dashboard, inventory tracking, and multi-channel sync features.'
+    );
+  };
+
   return (
     <>
       <SEO 
@@ -159,7 +166,7 @@ const EcommerceInventory = () => {
                     Start Your Online Store
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={handleDemo}>
                     View Demo
                   </Button>
                 </div>
