@@ -21,7 +21,6 @@
       <height>144</height>
     </image>
     
-    <!-- Blog Post: Jamming Attacks -->
     <item>
       <title>Jamming Attacks: The Silent Threat to Wireless Security</title>
       <link>https://maninfini.com/blog/jamming-attacks-wireless-security-threat</link>
@@ -42,7 +41,6 @@
       </media:content>
     </item>
     
-    <!-- Blog Post: Computer Vision -->
     <item>
       <title>Computer Vision: From Image Recognition to Visual Intelligence</title>
       <link>https://maninfini.com/blog/computer-vision-image-recognition-visual-intelligence</link>
@@ -59,7 +57,6 @@
       </media:content>
     </item>
     
-    <!-- Blog Post: Edge AI Computing -->
     <item>
       <title>The Rise of Edge AI: Computing at the Source</title>
       <link>https://maninfini.com/blog/rise-edge-ai-computing-source</link>
@@ -76,7 +73,6 @@
       </media:content>
     </item>
     
-    <!-- Blog Post: AI in Healthcare -->
     <item>
       <title>AI in Healthcare: Revolutionizing Diagnosis and Treatment</title>
       <link>https://maninfini.com/blog/ai-healthcare-diagnosis-treatment</link>
@@ -93,7 +89,6 @@
       </media:content>
     </item>
     
-    <!-- Blog Post: Voice TTS Revolution -->
     <item>
       <title>Voice TTS Revolution: From Text-to-Speech to Emotional AI Voices</title>
       <link>https://maninfini.com/blog/voice-tts-revolution-emotional-ai</link>
@@ -110,7 +105,6 @@
       </media:content>
     </item>
     
-    <!-- Blog Post: Quantum Computing -->
     <item>
       <title>Quantum Computing: Revolutionizing AI and Cryptography</title>
       <link>https://maninfini.com/blog/quantum-computing-ai-cryptography</link>
@@ -127,7 +121,6 @@
       </media:content>
     </item>
     
-    <!-- Blog Post: Future of LLMs -->
     <item>
       <title>The Future of LLMs: From GPT-4 to AGI - What's Next?</title>
       <link>https://maninfini.com/blog/future-of-llms-gpt4-to-agi</link>
