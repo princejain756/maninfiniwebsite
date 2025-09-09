@@ -1,13 +1,13 @@
 // Service Icons
-import cloudIcon from '@/assets/ICONS/CLOUDBG.png';
-import cyberIcon from '@/assets/ICONS/CYBERSEBG.png';
-import ecomIcon from '@/assets/ICONS/ECOM.png';
-import graphicDesignIcon from '@/assets/ICONS/GRAPHDESIGN.png';
-import offshoreIcon from '@/assets/ICONS/OFFSHORETALENT.png';
-import quantitiIcon from '@/assets/ICONS/QUANTITINEW.png';
-import virtualOfficeIcon from '@/assets/ICONS/VIRTUAL OFFICE.png';
-import webDevIcon from '@/assets/ICONS/WEB AND CUSTOM.png';
-import whatsappIcon from '@/assets/ICONS/WHATSAPPBG.png';
+import cloudIcon from '@/assets/ICONS/CLOUDBG.webp';
+import cyberIcon from '@/assets/ICONS/CYBERSEBG.webp';
+import ecomIcon from '@/assets/ICONS/ECOM.webp';
+import graphicDesignIcon from '@/assets/ICONS/GRAPHDESIGN.webp';
+import offshoreIcon from '@/assets/ICONS/OFFSHORETALENT.webp';
+import quantitiIcon from '@/assets/ICONS/QUANTITINEW.webp';
+import virtualOfficeIcon from '@/assets/ICONS/VIRTUAL OFFICE.webp';
+import webDevIcon from '@/assets/ICONS/WEB AND CUSTOM.webp';
+import whatsappIcon from '@/assets/ICONS/WHATSAPPBG.webp';
 
 // Process Icons
 import { ArrowRight, Zap, Shield, Clock } from 'lucide-react';
