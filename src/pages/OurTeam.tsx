@@ -28,13 +28,13 @@ const teamMembers = [
     email: "prince@maninfini.com"
   },
   {
-    name: "Mitesh",
+    name: "Deepak Jain",
     role: "CEO",
-    image: "/Mitesh CEO.jpg",
-    bio: "Strategic leader focused on business growth and operational excellence.",
-    expertise: ["Business Strategy", "Operations", "Growth"],
+    image: "/Deepak Jain Mentor.jpg",
+    bio: "Strategic Business Guidance & Industry Expertise.",
+    expertise: ["Strategic Guidance", "Industry Expertise", "Leadership"],
     linkedin: "#",
-    email: "mitesh@maninfini.com"
+    email: "deepak@maninfini.com"
   },
   {
     name: "Neerav Deepak Jain",
@@ -63,15 +63,7 @@ const teamMembers = [
     linkedin: "#",
     email: "vishakha@maninfini.com"
   },
-  {
-    name: "Deepak Jain",
-    role: "Mentor",
-    image: "/Deepak Jain Mentor.jpg",
-    bio: "Industry veteran providing strategic guidance and mentorship.",
-    expertise: ["Strategic Guidance", "Mentorship", "Industry Expertise"],
-    linkedin: "#",
-    email: "deepak@maninfini.com"
-  },
+  
   {
     name: "Jaswant",
     role: "CA",

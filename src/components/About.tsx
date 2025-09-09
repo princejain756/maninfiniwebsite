@@ -27,12 +27,12 @@ const About = () => {
 
   const leadership = [
     {
-      name: 'Mitesh Narendra Jain',
+      name: 'Deepak Jain',
       role: 'CEO',
-      experience: '16+ years',
-      background: 'Ex-Ola Cabs, Full-stack Architecture Expert',
-      image: miteshImage,
-      linkedin: 'https://www.linkedin.com/in/miteshj'
+      experience: '25+ years',
+      background: 'Strategic Business Guidance & Industry Expertise',
+      image: dipakImage,
+      linkedin: '#'
     },
     {
       name: 'Prince Jain',
@@ -50,14 +50,7 @@ const About = () => {
       image: neeravImage,
       linkedin: '#'
     },
-    {
-      name: 'Dipak Jain',
-      role: 'Mentor',
-      experience: '20+ years',
-      background: 'Strategic Business Guidance & Industry Expertise',
-      image: dipakImage,
-      linkedin: '#'
-    },
+    
     {
       name: 'Vishakha Sisodiya',
       role: 'Cybersecurity & Cloud Expert',
