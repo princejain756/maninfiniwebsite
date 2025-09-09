@@ -11,7 +11,7 @@
     <description>Latest insights on business automation, AI, cybersecurity, and technology trends from ManInfini experts</description>
     <language>en-us</language>
     <copyright>Copyright © 2025 ManInfini Business Solutions. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://maninfini.com/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://maninfini.com/manlogo.png</url>
@@ -55,6 +55,7 @@
       <category>Technology</category>
       <media:content url="https://maninfini.com/Computer%20Vision%20From%20Image%20Recognition%20to%20Visual%20Intelligence.jpg" type="image/jpeg" medium="image">
         <media:title>Computer Vision and Visual Intelligence</media:title>
+        <media:description>Computer Vision and Visual Intelligence Technology</media:description>
       </media:content>
     </item>
     
@@ -71,6 +72,7 @@
       <category>IoT</category>
       <media:content url="https://maninfini.com/The%20Rise%20of%20Edge%20AI%20Computing%20at%20the%20Source.jpg" type="image/jpeg" medium="image">
         <media:title>Edge AI Computing at the Source</media:title>
+        <media:description>Edge AI Computing Technology</media:description>
       </media:content>
     </item>
     
@@ -87,6 +89,7 @@
       <category>Medical Innovation</category>
       <media:content url="https://maninfini.com/ai%20in%20healthcare.jpg" type="image/jpeg" medium="image">
         <media:title>AI in Healthcare Diagnosis and Treatment</media:title>
+        <media:description>AI Healthcare Technology</media:description>
       </media:content>
     </item>
     
@@ -103,6 +106,7 @@
       <category>Human-Computer Interaction</category>
       <media:content url="https://maninfini.com/Voice%20TTS%20Revolution%20From%20Text-to-Speech%20to%20Emotional%20AI%20Voices.jpg" type="image/jpeg" medium="image">
         <media:title>Voice TTS and Emotional AI Revolution</media:title>
+        <media:description>Voice TTS and AI Technology</media:description>
       </media:content>
     </item>
     
@@ -119,6 +123,7 @@
       <category>Cryptography</category>
       <media:content url="https://maninfini.com/Quantum%20Computing%20Revolutionizing%20AI%20and%20Cryptography.jpg" type="image/jpeg" medium="image">
         <media:title>Quantum Computing in AI and Cryptography</media:title>
+        <media:description>Quantum Computing Technology</media:description>
       </media:content>
     </item>
     
@@ -135,6 +140,7 @@
       <category>AGI</category>
       <media:content url="https://maninfini.com/The%20Future%20of%20LLMs%20From%20GPT-4%20to%20AGI%20-%20What's%20Next.jpg" type="image/jpeg" medium="image">
         <media:title>The Future of Large Language Models</media:title>
+        <media:description>Large Language Models and AGI</media:description>
       </media:content>
     </item>
     
