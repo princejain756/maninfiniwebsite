@@ -1,26 +1,37 @@
-import { 
-  Code2, 
-  ShoppingCart, 
-  MessageSquare, 
-  Users, 
-  Building, 
-  ArrowRight,
-  Zap,
-  Shield,
-  Clock,
-  Palette,
-  TrendingUp,
-  Brain,
-  Cloud
-} from 'lucide-react';
+// Service Icons
+import cloudIcon from '@/assets/ICONS/CLOUDBG.png';
+import cyberIcon from '@/assets/ICONS/CYBERSEBG.png';
+import ecomIcon from '@/assets/ICONS/ECOM.png';
+import graphicDesignIcon from '@/assets/ICONS/GRAPHDESIGN.png';
+import offshoreIcon from '@/assets/ICONS/OFFSHORETALENT.png';
+import quantitiIcon from '@/assets/ICONS/QUANTITINEW.png';
+import virtualOfficeIcon from '@/assets/ICONS/VIRTUAL OFFICE.png';
+import webDevIcon from '@/assets/ICONS/WEB AND CUSTOM.png';
+import whatsappIcon from '@/assets/ICONS/WHATSAPPBG.png';
+
+// Process Icons
+import { ArrowRight, Zap, Shield, Clock } from 'lucide-react';
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Services = () => {
+  // Service icon mapping
+  const serviceIcons = {
+    'Cyber Security': cyberIcon,
+    'Cloud Solutions': cloudIcon,
+    'Web & Custom Development': webDevIcon,
+    'E-commerce & Inventory': ecomIcon,
+    'WhatsApp & Communications': whatsappIcon,
+    'Offshore Talent': offshoreIcon,
+    'Virtual Office Services': virtualOfficeIcon,
+    'Graphic Design & Packaging': graphicDesignIcon,
+    'Quantiti': quantitiIcon
+  };
+
   const services = [
     {
-      icon: Shield,
+      icon: serviceIcons['Cyber Security'],
       title: 'Cyber Security',
       description: 'Comprehensive cybersecurity solutions to protect your business from digital threats and ensure compliance.',
       features: [
@@ -33,11 +44,10 @@ const Services = () => {
         'Cloud Security',
         'Network Security'
       ],
-      color: 'from-gray-800 to-blue-600',
       category: 'Security & Cloud'
     },
     {
-      icon: Cloud,
+      icon: serviceIcons['Cloud Solutions'],
       title: 'Cloud Solutions',
       description: 'Scalable and secure cloud services for modern businesses, enabling agility, collaboration, and cost savings.',
       features: [
@@ -50,66 +60,59 @@ const Services = () => {
         'Cloud Cost Optimization',
         'Collaboration Tools'
       ],
-      color: 'from-sky-500 to-indigo-500',
       category: 'Security & Cloud'
     },
     {
-      icon: Code2,
+      icon: serviceIcons['Web & Custom Development'],
       title: 'Web & Custom Development',
       description: 'Full-stack development solutions tailored to your business needs',
       features: ['React & Node.js', 'Custom APIs', 'Mobile Apps', 'Cloud Integration'],
-      color: 'from-blue-500 to-primary',
       category: 'Development'
     },
     {
-      icon: ShoppingCart,
+      icon: serviceIcons['E-commerce & Inventory'],
       title: 'E-commerce & Inventory',
       description: 'Complete e-commerce solutions with real-time inventory management',
       features: ['Multi-channel Sync', 'Real-time Tracking', 'Analytics Dashboard', 'Payment Gateway'],
-      color: 'from-accent to-vibrant-orange-light',
       category: 'Commerce & Comms'
     },
     {
-      icon: MessageSquare,
+      icon: serviceIcons['WhatsApp & Communications'],
       title: 'WhatsApp & Communications',
       description: 'Advanced messaging solutions and cloud communication platforms',
       features: ['WhatsApp Bots', 'Bulk Messaging', 'IVR Systems', 'CRM Integration'],
-      color: 'from-green-500 to-emerald-600',
       demo: '/WhatsappBotVideo.mp4',
       category: 'Commerce & Comms'
     },
     {
-      icon: Users,
+      icon: serviceIcons['Offshore Talent'],
       title: 'Offshore Talent',
       description: 'Dedicated development teams to scale your technical capacity',
       features: ['Skilled Developers', 'Agile Process', 'Time Zone Coverage', 'Quality Assurance'],
-      color: 'from-purple-500 to-violet-600',
       category: 'Operations'
     },
     {
-      icon: Building,
+      icon: serviceIcons['Virtual Office Services'],
       title: 'Virtual Office Services',
       description: 'Complete virtual office setup with professional address and support',
       features: ['Business Address', 'Call Handling', 'Mail Management', 'Meeting Rooms'],
-      color: 'from-indigo-500 to-blue-600',
       category: 'Operations'
     },
     {
-      icon: Palette,
+      icon: serviceIcons['Graphic Design & Packaging'],
       title: 'Graphic Design & Packaging',
       description: 'Creative design solutions for branding, marketing, and product packaging',
       features: ['Brand Identity', 'Product Packaging', 'Marketing Materials', 'Digital Assets'],
-      color: 'from-pink-500 to-rose-600',
       portfolio: '/Graphic%20Design%20Portfolio.pdf',
       category: 'Design & AI'
     },
     {
-      icon: Brain,
+      icon: serviceIcons['Quantiti'],
       title: 'Quantiti',
       description: 'Advanced AI and algorithmic solutions for financial markets, risk management, and business optimization',
       features: [
         'Algorithmic Trading & HFT',
-        'Fraud Detection & Risk Management', 
+        'Fraud Detection & Risk Management',
         'Portfolio Optimization & Robo-Advisory',
         'Product & Content Personalization',
         'Price Optimization & Revenue Management',
@@ -118,7 +121,6 @@ const Services = () => {
         'Computer Vision & Image Recognition',
         'Scientific Computing & Simulation'
       ],
-      color: 'from-cyan-500 to-blue-600',
       category: 'Design & AI'
     }
   ];
@@ -217,12 +219,32 @@ const Services = () => {
               className="service-card group animate-fade-in-up p-6 sm:p-8 will-change-transform"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4 sm:mb-6 service-icon transition-all duration-300`}>
-                {Array.isArray(service.icon)
-                  ? service.icon.map((IconComp, i) => (
-                      <IconComp key={i} className="w-5 h-5 sm:w-7 sm:h-7 text-white mx-1" />
-                    ))
-                  : <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />}
+              <div className={`rounded-xl flex items-center justify-center service-icon transition-all duration-300 ${
+                service.title === 'Graphic Design & Packaging'
+                  ? 'w-32 h-32 sm:w-36 sm:h-36 mb-0 sm:mb-1'
+                  : 'w-28 h-28 sm:w-32 sm:h-32 mb-4 sm:mb-6'
+              }`}>
+                {service.icon ? (
+                  <img
+                    src={service.icon}
+                    alt={`${service.title} icon`}
+                    className={`object-contain drop-shadow-sm ${
+                      service.title === 'Graphic Design & Packaging'
+                        ? 'w-24 h-24 sm:w-28 sm:h-28'
+                        : 'w-20 h-20 sm:w-24 sm:h-24'
+                    }`}
+                  />
+                ) : (
+                  <div className={`bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg flex items-center justify-center ${
+                    service.title === 'Graphic Design & Packaging'
+                      ? 'w-24 h-24 sm:w-28 sm:h-28'
+                      : 'w-20 h-20 sm:w-24 sm:h-24'
+                  }`}>
+                    <span className="text-primary font-bold text-lg sm:text-xl">
+                      {service.title.charAt(0)}
+                    </span>
+                  </div>
+                )}
               </div>
               
               <h3 className="text-lg sm:text-xl md:text-2xl font-poppins font-semibold text-foreground mb-3 sm:mb-4">
@@ -267,8 +289,8 @@ const Services = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {processSteps.map((step, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-accent rounded-full flex items-center justify-center mb-4 sm:mb-6 shadow-glow">
-                  <step.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                <div className="w-24 h-24 sm:w-28 sm:h-28 bg-gradient-accent rounded-full flex items-center justify-center mb-4 sm:mb-6 shadow-glow">
+                  <step.icon className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
                 </div>
                 <h4 className="text-lg sm:text-xl font-poppins font-semibold text-foreground mb-2 sm:mb-3">
                   {step.title}
