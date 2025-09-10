@@ -9,6 +9,7 @@ import {
   Shield
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { websiteActions, contactInfo } from '@/lib/utils';
 import teamImage from '@/assets/team-collaboration.jpg';
 import princeImage from '@/assets/Prince Jain AIO CTO.png';
 import neeravImage from '@/assets/Neerav Deepak Jain COO.jpg';
@@ -155,7 +156,14 @@ const About = () => {
             </div>
             
             <div className="mt-6 sm:mt-8">
-              <Button size="lg" className="btn-gradient text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
+              <Button 
+                size="lg" 
+                className="btn-gradient text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
+                onClick={() => websiteActions.openWhatsApp(
+                  contactInfo.salesPhone,
+                  'Hello! I would like to join your journey and learn more about your automation services. Please provide information about:\n\n- Available opportunities\n- Partnership options\n- How I can get involved\n- Next steps\n\nThank you!'
+                )}
+              >
                 Join Our Journey
               </Button>
             </div>
