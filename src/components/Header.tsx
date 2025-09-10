@@ -109,7 +109,7 @@ const Header = () => {
               aria-label="Email us"
             >
               <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">{contactInfo.email}</span>
+              <span className="hidden sm:inline">{contactInfo.displayEmail}</span>
               <span className="sm:hidden">Email</span>
             </button>
             <button

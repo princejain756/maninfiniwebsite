@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import teamImage from '@/assets/team-collaboration.jpg';
-import miteshImage from '@/assets/Mitesh CEO.jpg';
 import princeImage from '@/assets/Prince Jain AIO CTO.png';
 import neeravImage from '@/assets/Neerav Deepak Jain COO.jpg';
 import dipakImage from '@/assets/Deepak Jain Mentor.jpg';
@@ -144,8 +143,8 @@ const About = () => {
                 comprehensive technology partner.
               </p>
               <p>
-                Our founder, Mitesh Jain, brings 16+ years of experience from leading 
-                companies like Ola Cabs, where he architected scalable solutions for 
+                Our CEO brings 16+ years of experience from leading
+                companies like Ola Cabs, where he architected scalable solutions for
                 millions of users. This expertise now powers our client solutions.
               </p>
               <p>

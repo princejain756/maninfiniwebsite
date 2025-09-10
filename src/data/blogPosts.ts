@@ -862,7 +862,7 @@ Quantum computing represents a paradigm shift in computational power, with profo
 
 The race for quantum advantage is accelerating, with major investments from governments and corporations worldwide. As we approach the quantum era, it's crucial to develop quantum-resistant cryptography, prepare for the transformation of industries, and ensure that quantum computing benefits all of humanity.
     `,
-    author: "Mitesh Narendra Jain",
+    author: "CEO",
     publishedDate: "2024-01-10",
     category: "Quantum Computing",
     readTime: 12,

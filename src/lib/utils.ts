@@ -124,6 +124,7 @@ export const contactInfo = {
   supportPhone: '+91 83105 16955',
   salesPhone: '+91 83105 16955',
   email: 'mitesh@maninfini.com',
+  displayEmail: 'info@maninfini.com',
   supportEmail: 'support@maninfini.com',
   address: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002',
   coordinates: { lat: 12.9686, lng: 77.5822 }
@@ -132,7 +133,7 @@ export const contactInfo = {
 // WhatsApp contacts
 export const whatsappContacts = [
   { 
-    name: 'Mitesh Narendra Jain', 
+    name: 'CEO', 
     number: '+91 83105 16955', 
     phone: '918310516955', 
     role: 'CEO' 

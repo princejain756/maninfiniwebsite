@@ -20,7 +20,7 @@ const SQRT_5000 = Math.sqrt(5000);
 const testimonials = [
   {
     tempId: 0,
-    testimonial: "Superb service and follow up by Mitesh Sir's Team. Indeed a one place solution for all automation needs. Would highly recommend.",
+    testimonial: "Superb service and follow up by CEO's Team. Indeed a one place solution for all automation needs. Would highly recommend.",
     by: "Kamna Jain, Local Guide",
     imgSrc: kamnajain,
     stars: 5
@@ -41,7 +41,7 @@ const testimonials = [
   },
   {
     tempId: 3,
-    testimonial: "Thank you Mitesh and his team for their amazing work done on our website Aaujo and always guiding us in right track from understanding my needs from translating my ideas into design. They were a pleasure to work with and brought vision to life!",
+    testimonial: "Thank you CEO and his team for their amazing work done on our website Aaujo and always guiding us in right track from understanding my needs from translating my ideas into design. They were a pleasure to work with and brought vision to life!",
     by: "Pavan Kumar",
     imgSrc: pawankumar,
     stars: 5
@@ -55,7 +55,7 @@ const testimonials = [
   },
   {
     tempId: 5,
-    testimonial: "Massive team. Glad to have our projects run through them. 👍 Cheers Mithesh 🎉",
+    testimonial: "Massive team. Glad to have our projects run through them. 👍 Cheers CEO 🎉",
     by: "NIKITH SURANA",
     imgSrc: nikithsurana,
     stars: 5

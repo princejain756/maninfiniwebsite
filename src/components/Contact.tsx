@@ -261,7 +261,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: [contactData.email, contactData.supportEmail],
+      details: [contactData.displayEmail, contactData.supportEmail],
       action: 'Send Email'
     },
     {
