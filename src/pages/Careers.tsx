@@ -29,6 +29,34 @@ const roles = [
     summary: 'Ship intelligent automations: LLMs, RAG, bots, analytics; measurable business impact.',
     highlights: ['Python/Node', 'LLMs/RAG', 'Data pipelines', 'Prompt & evals'],
   },
+  {
+    title: 'Software Architect',
+    location: 'Bengaluru • Hybrid/Remote',
+    type: 'Full-time',
+    summary: 'Design scalable, maintainable software solutions and lead technical architecture decisions for complex systems.',
+    highlights: ['System design', 'Microservices & APIs', 'Tech stack decisions', 'Performance & scalability'],
+  },
+  {
+    title: 'QA Engineer',
+    location: 'Bengaluru • Hybrid/Remote',
+    type: 'Full-time',
+    summary: 'Ensure product quality through comprehensive testing strategies, automation frameworks, and quality assurance processes.',
+    highlights: ['Test automation', 'Quality assurance', 'Bug tracking', 'Performance testing'],
+  },
+  {
+    title: 'Software Test Engineer',
+    location: 'Bengaluru • Hybrid/Remote',
+    type: 'Full-time',
+    summary: 'Develop and execute test plans, identify defects, and ensure software meets quality standards before deployment.',
+    highlights: ['Manual testing', 'Test planning', 'Defect management', 'Regression testing'],
+  },
+  {
+    title: 'Software Tester / QA Tester',
+    location: 'Bengaluru • Hybrid/Remote',
+    type: 'Full-time',
+    summary: 'Perform thorough software testing, identify bugs, and collaborate with development teams to deliver high-quality products.',
+    highlights: ['Functional testing', 'User acceptance testing', 'API testing', 'Quality validation'],
+  },
 ];
 
 const benefits = [
@@ -78,7 +106,7 @@ const Careers = () => {
       <SEO
         title="We’re Hiring – Careers at Maninfini"
         description="Join Maninfini’s elite team building automation, cloud, and AI products used by fast-growing businesses. High-ownership roles, rapid growth, and beautiful UX."
-        keywords="careers, hiring, jobs, React jobs, DevOps jobs, AI engineer, Bengaluru jobs, automation"
+        keywords="careers, hiring, jobs, React jobs, DevOps jobs, AI engineer, Software Architect, QA Engineer, Software Tester, QA Tester, Test Engineer, Bengaluru jobs, automation"
         url="https://maninfini.com/careers"
         image="https://maninfini.com/manlogo.png"
         structuredData={jobPostingStructuredData}
