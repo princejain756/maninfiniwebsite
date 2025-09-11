@@ -466,7 +466,7 @@ Remember: in cybersecurity, the attacks you can't see are often the most dangero
     publishedDate: "2024-02-05",
     category: "Cybersecurity",
     readTime: 18,
-    image: "/src/assets/BLOG IMAGES/jammingattack.webp",
+    image: "/blog-images/jammingattack.webp",
     tags: ["Cybersecurity", "Jamming Attacks", "RF Security", "Wireless Security", "Signal Intelligence", "Network Security"]
   },
   {
@@ -604,7 +604,7 @@ The future of LLMs is not just about bigger models or faster processing—it's a
     publishedDate: "2024-01-15",
     category: "AI & Machine Learning",
     readTime: 8,
-    image: "/src/assets/BLOG IMAGES/The Future of LLMs From GPT-4 to AGI - What's Next.webp",
+    image: "/blog-images/future-of-llms-gpt4-to-agi.webp",
     tags: ["LLM", "GPT-4", "AGI", "AI", "Machine Learning", "Future Technology"]
   },
   {
@@ -866,7 +866,7 @@ The race for quantum advantage is accelerating, with major investments from gove
     publishedDate: "2024-01-10",
     category: "Quantum Computing",
     readTime: 12,
-    image: "/src/assets/BLOG IMAGES/Quantum Computing Revolutionizing AI and Cryptography.webp",
+    image: "/blog-images/quantum-computing-ai-cryptography.webp",
     tags: ["Quantum Computing", "AI", "Cryptography", "Technology", "Security"]
   },
   {
@@ -1190,7 +1190,7 @@ The future of TTS lies in creating voices that don't just sound human but think 
     publishedDate: "2024-01-08",
     category: "Voice Technology",
     readTime: 10,
-    image: "/src/assets/BLOG IMAGES/Voice TTS Revolution From Text-to-Speech to Emotional AI Voices.webp",
+    image: "/blog-images/voice-tts-revolution-emotional-ai.webp",
     tags: ["TTS", "Voice AI", "Emotional AI", "Accessibility", "Technology"]
   },
   {
@@ -1545,7 +1545,7 @@ The future of healthcare is AI-powered, personalized, and patient-centered, with
     publishedDate: "2024-01-05",
     category: "Healthcare AI",
     readTime: 15,
-    image: "/src/assets/BLOG IMAGES/ai in healthcare.webp",
+    image: "/blog-images/ai-in-healthcare.webp",
     tags: ["Healthcare", "AI", "Medical Imaging", "Drug Discovery", "Personalized Medicine"]
   },
   {
@@ -1923,7 +1923,7 @@ The future of AI is distributed, intelligent, and ubiquitous—powered by Edge A
     publishedDate: "2024-01-03",
     category: "Edge Computing",
     readTime: 11,
-    image: "/src/assets/BLOG IMAGES/The Rise of Edge AI Computing at the Source.webp",
+    image: "/blog-images/rise-edge-ai-computing-source.webp",
     tags: ["Edge AI", "IoT", "Real-time Processing", "Privacy", "Technology"]
   },
   {
@@ -2328,7 +2328,7 @@ The future of Computer Vision lies in creating systems that don't just see but u
     publishedDate: "2024-01-01",
     category: "Computer Vision",
     readTime: 13,
-    image: "/src/assets/BLOG IMAGES/Computer Vision From Image Recognition to Visual Intelligence.webp",
+    image: "/blog-images/computer-vision-image-recognition-visual-intelligence.webp",
     tags: ["Computer Vision", "AI", "Deep Learning", "Image Recognition", "Technology"]
   },
   {
@@ -2802,7 +2802,7 @@ The future of business automation is here. The question is: are you ready to be 
     publishedDate: "2024-08-25",
     category: "AI & Automation",
     readTime: 15,
-    image: "/src/assets/BLOG IMAGES/futureofbusinessautomation.webp",
+    image: "/blog-images/futureofbusinessautomation.webp",
     tags: ["AI", "Automation", "Business Transformation", "Future Technology", "Digital Innovation"]
   }
 ];
