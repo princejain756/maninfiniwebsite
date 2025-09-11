@@ -51,7 +51,8 @@ const Header = () => {
   const darkHeroServicePrefixes = ['/services/cyber-cloud'];
   const isDarkRoute = darkHeroServicePrefixes.some(prefix => location.pathname.startsWith(prefix));
   const isHomeRoute = location.pathname === '/';
-  const isDarkBackgroundRoute = isDarkRoute || isHomeRoute;
+  const isCareersRoute = location.pathname === '/careers';
+  const isDarkBackgroundRoute = isDarkRoute || isHomeRoute || isCareersRoute;
 
   const handleNavigation = (href: string, section?: string, external?: boolean) => {
     // Close mobile menu

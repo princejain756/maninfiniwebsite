@@ -49,27 +49,29 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-start">
           {/* Left Content */}
           <div className="text-white space-y-6 sm:space-y-8">
-            {/* Hero Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
-              <span className="text-xs sm:text-sm font-medium">Trusted Automation Partner Since 2008</span>
-            </div>
+            {/* Top badges: stack on mobile, row on larger screens */}
+            <div className="flex flex-col sm:flex-row items-start gap-2">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
+                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                <span className="text-xs sm:text-sm font-medium">Trusted Automation Partner Since 2008</span>
+              </div>
 
-            {/* Subtle hiring CTA for extra impact */}
-            <button
-              onClick={() => {
-                try { (window as any).gtag?.('event', 'hiring_cta_click', { location: 'hero_badge', event_category: 'engagement' }); } catch {}
-                window.location.assign('/careers')
-              }}
-              className="group inline-flex items-center gap-2 text-white/90 hover:text-white bg-white/10 border border-white/20 rounded-full px-4 py-2 w-auto"
-              aria-label="We’re hiring — see open roles"
-            >
-              <span className="relative inline-flex items-center">
-                <span className="w-2 h-2 rounded-full bg-accent mr-2" />
-                We’re hiring — see open roles
-              </span>
-              <ArrowRight className="w-4 h-4 opacity-80 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+              {/* Subtle hiring CTA for extra impact */}
+              <button
+                onClick={() => {
+                  try { (window as any).gtag?.('event', 'hiring_cta_click', { location: 'hero_badge', event_category: 'engagement' }); } catch {}
+                  window.location.assign('/careers')
+                }}
+                className="group flex items-center gap-2 text-white/90 hover:text-white bg-white/10 border border-white/20 rounded-full px-3 sm:px-4 py-2 w-auto"
+                aria-label="We’re hiring — see open roles"
+              >
+                <span className="relative inline-flex items-center text-xs sm:text-sm font-medium">
+                  <span className="w-2 h-2 rounded-full bg-accent mr-2" />
+                  We’re hiring — see open roles
+                </span>
+                <ArrowRight className="w-4 h-4 opacity-80 group-hover:translate-x-0.5 transition-transform hidden sm:block" />
+              </button>
+            </div>
 
             {/* Main Headline */}
             <div className="space-y-4 animate-fade-in-up">
