@@ -50,9 +50,7 @@ class UnifiedApiService {
 
   private async checkGeminiAvailability(): Promise<void> {
     try {
-      console.log('[UnifiedApi] Checking Gemini availability...');
       this.geminiAvailable = await geminiApi.getModelStatus();
-      console.log('[UnifiedApi] Gemini available:', this.geminiAvailable);
     } catch (error) {
       console.error('[UnifiedApi] Failed to check Gemini availability:', error);
       this.geminiAvailable = false;
@@ -73,13 +71,10 @@ class UnifiedApiService {
 
     try {
       // Always check Gemini availability fresh for each message
-      console.log('[UnifiedApi] Checking Gemini availability for message...');
       const isGeminiAvailable = await geminiApi.getModelStatus();
-      console.log('[UnifiedApi] Gemini available for this message:', isGeminiAvailable);
       
       if (isGeminiAvailable) {
         // Try Gemini API
-        console.log('[UnifiedApi] Using Gemini API for response');
         const geminiResponses = await geminiApi.sendMessage(message, sender);
         return geminiResponses.map(response => ({
           recipient_id: response.recipient_id,
@@ -91,7 +86,6 @@ class UnifiedApiService {
         }));
       } else {
         // Use fallback responses
-        console.log('[UnifiedApi] Using fallback responses');
         return this.getFallbackResponse(message);
       }
     } catch (error) {
@@ -160,10 +154,8 @@ class UnifiedApiService {
 
   async getModelStatus(): Promise<boolean> {
     try {
-      console.log('[UnifiedApi] getModelStatus called');
       // Always check Gemini status directly, don't rely on cached availability
       const status = await geminiApi.getModelStatus();
-      console.log('[UnifiedApi] Gemini status check result:', status);
       this.geminiAvailable = status; // Update cached status
       return status;
     } catch (error) {

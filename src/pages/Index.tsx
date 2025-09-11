@@ -30,8 +30,6 @@ const Index = () => {
     const sdParam = searchParams.get('SD');
     if (sdParam) {
       // Handle SD parameter - could be for tracking, analytics, or special behavior
-      console.log('SD parameter detected:', sdParam);
-
       // You can add custom logic here based on the SD parameter
       // For example: tracking, conditional content, etc.
 

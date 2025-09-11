@@ -36,7 +36,6 @@ class WebsiteCrawlerService {
       await this.crawlReactComponents();
       
       this.isInitialized = true;
-      console.log('Website crawler initialized successfully');
     } catch (error) {
       console.error('Failed to initialize website crawler:', error);
       // Initialize with fallback content

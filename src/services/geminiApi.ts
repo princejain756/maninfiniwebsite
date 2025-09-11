@@ -69,8 +69,6 @@ class GeminiApiService {
     }
     
     this.apiKey = apiKey;
-    // DEBUG: Check if API key is loaded
-    console.log('[GeminiApi] API key loaded:', !!apiKey, 'Length:', apiKey?.length || 0);
     this.baseUrl = 'https://generativelanguage.googleapis.com/v1beta/models';
     this.sessionId = this.generateSessionId();
   }
@@ -407,16 +405,10 @@ Please provide a helpful, well-formatted, contextual response based on the compr
 
   async getModelStatus(): Promise<boolean> {
     try {
-      console.log('[GeminiApi] Testing API with simple request...');
-      console.log('[GeminiApi] API Key present:', !!this.apiKey);
-      console.log('[GeminiApi] API Key length:', this.apiKey?.length || 0);
-      
       // Test the API with a simple request
       const response = await this.makeGeminiRequest("Hello");
-      console.log('[GeminiApi] Test request response:', response);
       
       const isAvailable = response.candidates && response.candidates.length > 0;
-      console.log('[GeminiApi] Model status result:', isAvailable);
       return isAvailable;
     } catch (error) {
       console.error('[GeminiApi] Failed to check Gemini model status:', error);

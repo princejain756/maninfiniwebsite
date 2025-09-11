@@ -18,7 +18,7 @@ const PerformanceOptimizer: React.FC<PerformanceOptimizerProps> = ({ children })
       criticalResources.forEach(resource => {
         const link = document.createElement('link');
         link.rel = 'preload';
-        link.as = resource.endsWith('.png') ? 'image' : 'audio';
+        link.as = resource.endsWith('.png') || resource.endsWith('.jpg') || resource.endsWith('.jpeg') || resource.endsWith('.webp') ? 'image' : 'fetch';
         link.href = resource;
         document.head.appendChild(link);
       });

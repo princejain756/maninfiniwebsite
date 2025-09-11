@@ -213,13 +213,9 @@ export function IntelligentChatbot({
       
       const isConnected = await unifiedApi.getModelStatus();
       setApiConnected(isConnected);
-      if (!isConnected) {
-        console.log('Gemini API not connected, using fallback responses');
-      }
     } catch (error) {
       console.error('Failed to check API connection:', error);
       setApiConnected(false);
-      console.log('Using fallback mode - Gemini API is not available');
     }
   };
 
@@ -227,7 +223,6 @@ export function IntelligentChatbot({
     try {
       // Refresh website content for better context
       await websiteCrawler.refreshContent();
-      console.log('Website content refreshed successfully');
     } catch (error) {
       console.error('Error refreshing content:', error);
     }
