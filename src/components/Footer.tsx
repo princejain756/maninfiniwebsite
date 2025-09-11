@@ -22,7 +22,8 @@ const Footer = () => {
     { label: 'Products', href: '#products' },
     { label: 'About Us', href: '#about' },
     { label: 'Contact', href: '#contact' },
-    { label: 'Blog', href: '/blog' }
+    { label: 'Blog', href: '/blog' },
+    { label: 'Careers', href: '/careers' }
   ];
 
   const services = [

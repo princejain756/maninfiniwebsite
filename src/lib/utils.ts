@@ -123,9 +123,9 @@ export const contactInfo = {
   mainPhone: '+91 83105 16955',
   supportPhone: '+91 83105 16955',
   salesPhone: '+91 83105 16955',
-  email: 'mitesh@maninfini.com',
-  displayEmail: 'info@maninfini.com',
-  supportEmail: 'support@maninfini.com',
+  email: 'support@maninfini.com',
+  displayEmail: 'support@maninfini.com',
+  supportEmail: 'prince@maninfini.com',
   address: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002',
   coordinates: { lat: 12.9686, lng: 77.5822 }
 };

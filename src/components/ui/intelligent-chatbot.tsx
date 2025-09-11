@@ -495,7 +495,7 @@ export function IntelligentChatbot({
 
   const handleButtonClick = async (payload: string) => {
     const whatsappNumber = '918310516955'; // Remove spaces and + for WhatsApp URL
-    const email = 'mitesh@maninfini.com';
+    const email = 'support@maninfini.com';
     
     switch (payload) {
       case 'whatsapp_pricing':

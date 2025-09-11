@@ -185,6 +185,17 @@ const Contact = () => {
         hasPhone: !!formData.phone
       });
 
+      // Track conversion in GA4 if available
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        try {
+          window.gtag('event', 'generate_lead', {
+            event_category: 'engagement',
+            event_label: formData.service || 'contact_form',
+            value: 1,
+          });
+        } catch {}
+      }
+
       // Reset form and show success message
       setFormData({
         firstName: '',

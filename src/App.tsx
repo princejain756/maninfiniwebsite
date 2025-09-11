@@ -18,6 +18,7 @@ import OurTeam from "./pages/OurTeam";
 import Services from "./components/Services";
 import SearchPage from "./pages/Search";
 import NotFound from "./pages/NotFound";
+import Careers from "./pages/Careers";
 
 // Service pages
 import WebDevelopment from "./pages/services/web-development";
@@ -146,6 +147,9 @@ const App = () => {
                 
                 {/* Team Route */}
                 <Route path="/our-team" element={<OurTeam />} />
+                
+                {/* Careers */}
+                <Route path="/careers" element={<Careers />} />
 
                 {/* Search Route */}
                 <Route path="/search" element={<SearchPage />} />

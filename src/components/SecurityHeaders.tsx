@@ -39,8 +39,7 @@ const SecurityHeaders: React.FC = () => {
       <meta httpEquiv="Expires" content={securityHeaders['Expires']} />
       
       {/* Additional Security Meta Tags */}
-      <meta name="robots" content="noindex, nofollow" />
-      <meta name="googlebot" content="noindex, nofollow" />
+      {/* Do not set robots directives here; SEO component controls indexing */}
       <meta name="security" content="high" />
     </Helmet>
   );

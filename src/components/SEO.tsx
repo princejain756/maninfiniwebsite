@@ -90,6 +90,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
       <meta name="robots" content={robots} />
+      <meta name="googlebot" content={robots} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph / Facebook */}
@@ -106,6 +107,7 @@ const SEO: React.FC<SEOProps> = ({
       
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+      {modifiedTime && <meta property="og:updated_time" content={modifiedTime} />} 
       {section && <meta property="article:section" content={section} />}
       {tags.map((tag, index) => (
         <meta key={index} property="article:tag" content={tag} />
@@ -137,11 +139,6 @@ const SEO: React.FC<SEOProps> = ({
       {/* Additional SEO Meta Tags */}
       <meta name="author" content="Maninfini Automation" />
       <meta name="copyright" content="Maninfini Automation" />
-      <meta name="coverage" content="Worldwide" />
-      <meta name="distribution" content="Global" />
-      <meta name="rating" content="General" />
-      <meta name="revisit-after" content="7 days" />
-      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       
       {/* Preconnect to external domains for performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -211,8 +208,33 @@ const SEO: React.FC<SEOProps> = ({
         </script>
       )}
 
+      {/* Structured Data - Service (if type is service) */}
+      {type === 'service' && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": title,
+            "description": validatedDescription,
+            "provider": {
+              "@type": "Organization",
+              "name": "Maninfini Automation",
+              "url": "https://maninfini.com",
+              "logo": "https://maninfini.com/manlogo.png"
+            },
+            "areaServed": "Worldwide",
+            "serviceType": section || "Business Services",
+            "url": url,
+            ...(image ? { "image": image } : {}),
+            ...(tags && tags.length ? { "keywords": tags.join(', ') } : {}),
+            ...(publishedTime ? { "datePublished": publishedTime } : {}),
+            ...(modifiedTime ? { "dateModified": modifiedTime } : {})
+          })}
+        </script>
+      )}
+
       {/* Structured Data - WebPage (default) */}
-      {type !== 'article' && !structuredData && (
+      {type !== 'article' && type !== 'service' && !structuredData && (
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

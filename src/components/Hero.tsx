@@ -55,6 +55,22 @@ const Hero = () => {
               <span className="text-xs sm:text-sm font-medium">Trusted Automation Partner Since 2008</span>
             </div>
 
+            {/* Subtle hiring CTA for extra impact */}
+            <button
+              onClick={() => {
+                try { (window as any).gtag?.('event', 'hiring_cta_click', { location: 'hero_badge', event_category: 'engagement' }); } catch {}
+                window.location.assign('/careers')
+              }}
+              className="group inline-flex items-center gap-2 text-white/90 hover:text-white bg-white/10 border border-white/20 rounded-full px-4 py-2 w-auto"
+              aria-label="We’re hiring — see open roles"
+            >
+              <span className="relative inline-flex items-center">
+                <span className="w-2 h-2 rounded-full bg-accent mr-2" />
+                We’re hiring — see open roles
+              </span>
+              <ArrowRight className="w-4 h-4 opacity-80 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+
             {/* Main Headline */}
             <div className="space-y-4 animate-fade-in-up">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-poppins font-bold leading-tight">

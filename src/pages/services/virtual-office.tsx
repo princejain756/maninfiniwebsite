@@ -120,6 +120,7 @@ const VirtualOffice = () => {
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
         googleTagManagerId=""
+        type="service"
       />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />

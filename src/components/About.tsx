@@ -65,7 +65,7 @@ const About = () => {
       experience: '25+ years',
       background: 'Qualified CA with extensive Financial Management experience',
       image: rambhupalImage,
-      linkedin: '#'
+      linkedin: null
     }
   ];
 
@@ -220,15 +220,17 @@ const About = () => {
                 <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{leader.experience}</p>
                 <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">{leader.background}</p>
                 
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="text-primary hover:text-foreground text-xs sm:text-sm"
-                  onClick={() => window.open(leader.linkedin, '_blank', 'noopener,noreferrer')}
-                >
-                  <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-                  Connect
-                </Button>
+                {leader.linkedin && (
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-primary hover:text-foreground text-xs sm:text-sm"
+                    onClick={() => window.open(leader.linkedin, '_blank', 'noopener,noreferrer')}
+                  >
+                    <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                    Connect
+                  </Button>
+                )}
               </div>
             ))}
           </div>

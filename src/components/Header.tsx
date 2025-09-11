@@ -262,8 +262,19 @@ const Header = () => {
             </NavigationMenu>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
+            {/* Hiring CTA for maximum visibility */}
+            <Button 
+              className="btn-gradient relative overflow-hidden"
+              onClick={() => {
+                try { (window as any).gtag?.('event', 'hiring_cta_click', { location: 'header', event_category: 'engagement' }); } catch {}
+                handleNavigation('/careers')
+              }}
+            >
+              <span className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/90 animate-ping" />
+              We’re Hiring
+            </Button>
             <Button 
               className="btn-gradient"
               onClick={handleFreeConsultation}
@@ -290,10 +301,15 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 py-6 border-t border-border animate-fade-in-up bg-background/95 backdrop-blur-md rounded-lg">
             <div className="flex flex-col space-y-4">
-              {[{ label: 'Home', href: '/', section: 'home' }, { label: 'Services', href: '/', section: 'services' }, { label: 'Products', href: '/', section: 'products' }, { label: 'About', href: '/', section: 'about' }, { label: 'Contact', href: '/', section: 'contact' }, { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true }].map((item) => (
+              {[{ label: 'Home', href: '/', section: 'home' }, { label: 'Services', href: '/', section: 'services' }, { label: 'Products', href: '/', section: 'products' }, { label: 'About', href: '/', section: 'about' }, { label: 'Contact', href: '/', section: 'contact' }, { label: 'Careers', href: '/careers' }, { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true }].map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => handleNavigation(item.href, item.section, item.external)}
+                  onClick={() => {
+                    if (item.label === 'Careers') {
+                      try { (window as any).gtag?.('event', 'hiring_cta_click', { location: 'mobile_menu', event_category: 'engagement' }); } catch {}
+                    }
+                    handleNavigation(item.href, item.section, item.external)
+                  }}
                   className="text-foreground hover:text-primary transition-colors font-medium py-3 text-left flex items-center gap-2 hover:bg-primary/5 rounded-lg px-4"
                 >
                   {item.label}

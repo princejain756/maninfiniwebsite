@@ -115,7 +115,7 @@ if ! nslookup maninfini.com &> /dev/null; then
     print_status "Skipping SSL certificate generation..."
 else
     # Generate SSL certificate
-    sudo certbot --nginx -d maninfini.com -d www.maninfini.com --non-interactive --agree-tos --email mitesh@maninfini.com
+    sudo certbot --nginx -d maninfini.com -d www.maninfini.com --non-interactive --agree-tos --email support@maninfini.com
     
     # Set up auto-renewal
     sudo crontab -l 2>/dev/null | { cat; echo "0 12 * * * /usr/bin/certbot renew --quiet"; } | sudo crontab -
