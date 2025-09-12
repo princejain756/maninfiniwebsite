@@ -22,7 +22,7 @@ const About = () => {
     { number: '2008', label: 'Founded', description: 'Started our journey in automation' },
     { number: '500+', label: 'Projects', description: 'Successfully delivered worldwide' },
     { number: '50+', label: 'Team Size', description: 'Expert developers and consultants' },
-    { number: '16+', label: 'Years', description: 'Combined leadership experience' }
+    { number: '14+', label: 'Years', description: 'Combined leadership experience' }
   ];
 
   const leadership = [
@@ -105,7 +105,7 @@ const About = () => {
             <span className="font-medium text-sm sm:text-base">About Maninfini</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold text-foreground mb-4 sm:mb-6">
-            16 Years of Technical Excellence
+            14 Years of Technical Excellence
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
             From a small startup to a trusted automation partner, we've been transforming 
@@ -145,8 +145,8 @@ const About = () => {
               </p>
               <p>
                 Our CEO brings 16+ years of experience from leading
-                companies like Ola Cabs, where he architected scalable solutions for
-                millions of users. This expertise now powers our client solutions.
+                companies like Xnsio, where Deepak Jain served as director for 14 years
+                and architected scalable solutions for millions of users. This expertise now powers our client solutions.
               </p>
               <p>
                 Today, we serve clients from SMBs to enterprises, delivering everything 
