@@ -5,7 +5,7 @@ import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Hero = () => {
   const achievements = [
-    { number: '16+', label: 'Years Experience' },
+    { number: '14+', label: 'Years Experience' },
     { number: '500+', label: 'Projects Delivered' },
     { number: '99%', label: 'Client Satisfaction' },
     { number: '24/7', label: 'Support Available' },
@@ -14,7 +14,7 @@ const Hero = () => {
   const trustIndicators = [
     'Trusted by 200+ Businesses',
     'ISO/IEC 27001 Compliant',
-    'Ex-Ola Cabs Leadership',
+    'Ex-Xnsio Director',
     'Agile Development Process'
   ];
 
