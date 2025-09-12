@@ -144,7 +144,7 @@ const About = () => {
                 comprehensive technology partner.
               </p>
               <p>
-                Our CEO brings 16+ years of experience from leading
+                Our CEO brings 14+ years of experience from leading
                 companies like Xnsio, where Deepak Jain served as director for 14 years
                 and architected scalable solutions for millions of users. This expertise now powers our client solutions.
               </p>
