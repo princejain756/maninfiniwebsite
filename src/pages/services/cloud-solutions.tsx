@@ -11,6 +11,10 @@ import VideoSchema from '@/components/VideoSchema';
 import { Cloud, ArrowRight, CheckCircle, Server, Database, Shield, Zap, Globe, Settings, Users, Award, Star, BarChart3, Activity, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import awsLogo from '@/assets/cloudservices/aws.webp';
+import gcpLogo from '@/assets/cloudservices/gcp.png';
+import azureLogo from '@/assets/cloudservices/Microsoft_Azure.svg.png';
+import multiCloudLogo from '@/assets/cloudservices/multicloud.png';
 import { Badge } from '@/components/ui/badge';
 import { websiteActions, contactInfo } from '@/lib/utils';
 
@@ -58,25 +62,25 @@ const cloudServices = [
 const cloudPlatforms = [
   {
     name: "Amazon Web Services",
-    logo: "AWS",
+    logo: awsLogo,
     description: "Comprehensive AWS services including EC2, S3, RDS, Lambda, and more",
     features: ["EC2 Computing", "S3 Storage", "RDS Database", "Lambda Serverless"]
   },
   {
     name: "Microsoft Azure",
-    logo: "Azure",
+    logo: azureLogo,
     description: "Full Azure ecosystem with virtual machines, storage, and enterprise integrations",
     features: ["Virtual Machines", "Azure Storage", "SQL Database", "Active Directory"]
   },
   {
     name: "Google Cloud Platform",
-    logo: "GCP",
+    logo: gcpLogo,
     description: "GCP services with advanced AI/ML capabilities and BigQuery analytics",
     features: ["Compute Engine", "Cloud Storage", "BigQuery", "AI/ML Services"]
   },
   {
     name: "Multi-Cloud Solutions",
-    logo: "Multi",
+    logo: multiCloudLogo,
     description: "Hybrid and multi-cloud architectures for maximum flexibility and reliability",
     features: ["Hybrid Cloud", "Multi-Cloud Management", "Vendor Flexibility", "Risk Mitigation"]
   }
@@ -368,8 +372,8 @@ const CloudSolutionsPage: React.FC = () => {
                 {cloudPlatforms.map((platform, index) => (
                   <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
                     <CardContent className="p-0">
-                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-blue-600">{platform.logo}</span>
+                      <div className="w-20 h-20 rounded-xl flex items-center justify-center mx-auto mb-4 bg-white shadow-sm">
+                        <img src={platform.logo} alt={`${platform.name} logo`} className="max-w-[70%] max-h-[70%] object-contain" />
                       </div>
                       <h3 className="text-lg font-poppins font-semibold text-gray-900 mb-3">{platform.name}</h3>
                       <p className="text-gray-600 mb-4 text-sm">{platform.description}</p>
