@@ -1186,7 +1186,7 @@ The TTS revolution is creating unprecedented opportunities for human-computer in
 
 The future of TTS lies in creating voices that don't just sound human but think and feel human, opening new possibilities for how we interact with technology and each other.
     `,
-    author: "Neerav Deepak Jain",
+    author: "Neerav Dipak Jain",
     publishedDate: "2024-01-08",
     category: "Voice Technology",
     readTime: 10,

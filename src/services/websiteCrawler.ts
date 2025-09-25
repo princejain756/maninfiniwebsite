@@ -118,7 +118,7 @@ Company Information:
 Leadership Team:
 - CEO - 14+ years experience
 - Prince Jain (AIO and CTO) - 5+ years experience
-- Neerav Deepak Jain (COO) - 3+ years experience
+- Neerav Dipak Jain (COO) - 3+ years experience
 - Vishakha Sisodhiya (Cybersecurity & Cloud Expert) - 4+ years experience
 - Rambhupal M (CFO) - 25+ years experience
 
@@ -135,7 +135,7 @@ Maninfini Automation has been transforming businesses with innovative technology
 Our Story:
 Founded in 2008, Maninfini Automation started with a simple mission: to make enterprise-grade automation accessible to businesses of all sizes. What began as a small team of passionate developers has grown into a comprehensive technology partner.
 
-Our CEO brings 16+ years of experience from leading companies like Xnsio, where Deepak Jain served as director for 14 years and architected scalable solutions for millions of users. This expertise now powers our client solutions.
+Our CEO brings 16+ years of experience from leading companies like Xnsio, where Dipak Jain served as director for 14 years and architected scalable solutions for millions of users. This expertise now powers our client solutions.
 
 Company Statistics:
 - Founded: 2008 (16+ years of experience)

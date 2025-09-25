@@ -1,3 +1,4 @@
+ 
 import { 
   Award, 
   Users, 
@@ -12,12 +13,17 @@ import { Button } from '@/components/ui/button';
 import { websiteActions, contactInfo } from '@/lib/utils';
 import teamImage from '@/assets/team-collaboration.jpg';
 import princeImage from '@/assets/Prince Jain AIO CTO.png';
-import neeravImage from '@/assets/Neerav Deepak Jain COO.jpg';
-import dipakImage from '@/assets/Deepak Jain Mentor.jpg';
+import neeravImage from '@/assets/Neerav Dipak Jain COO.jpg';
+import dipakImage from '@/assets/Dipak Jain Mentor.jpg';
 import rambhupalImage from '@/assets/Rambhupal M CFO Qualified CA with 25 years of experience.jpg';
 import vishakhaImage from '@/assets/Vishakha Sisodhiya Cybersecurity.jpg';
+// New leadership images (use local when available)
+import rohanImage from '@/assets/TeamMembers/Rohan Iyer.png';
+import khushiImage from '@/assets/khushijainp.png';
+import aanyaImage from '@/assets/AanyaKhanna.png';
 
 const About = () => {
+ 
   const companyStats = [
     { number: '2008', label: 'Founded', description: 'Started our journey in automation' },
     { number: '500+', label: 'Projects', description: 'Successfully delivered worldwide' },
@@ -27,7 +33,7 @@ const About = () => {
 
   const leadership = [
     {
-      name: 'Deepak Jain',
+      name: 'Dipak Jain',
       role: 'CEO',
       experience: '25+ years',
       background: 'Strategic Business Guidance & Industry Expertise',
@@ -43,7 +49,7 @@ const About = () => {
       linkedin: 'https://www.linkedin.com/in/prince-jain-267519194/'
     },
     {
-      name: 'Neerav Deepak Jain',
+      name: 'Neerav Dipak Jain',
       role: 'COO',
       experience: '3+ years',
       background: 'Business Operations & Strategy',
@@ -65,6 +71,30 @@ const About = () => {
       experience: '25+ years',
       background: 'Qualified CA with extensive Financial Management experience',
       image: rambhupalImage,
+      linkedin: null
+    },
+    {
+      name: 'Aanya Khanna',
+      role: 'Experience Design Lead',
+      experience: '12+ years',
+      background: 'Human-centered journeys blending service design with AI',
+      image: aanyaImage,
+      linkedin: null
+    },
+    {
+      name: 'Rohan Iyer',
+      role: 'Digital Transformation Lead',
+      experience: '10+ years',
+      background: 'Enterprise digital transformation initiatives and intelligent automation at scale',
+      image: rohanImage,
+      linkedin: null
+    },
+    {
+      name: 'Khushi Jain P',
+      role: 'Software Tester',
+      experience: '2+ years',
+      background: 'QA specialist ensuring reliable, high-quality releases',
+      image: khushiImage,
       linkedin: null
     }
   ];
@@ -145,7 +175,7 @@ const About = () => {
               </p>
               <p>
                 Our CEO brings 14+ years of experience from leading
-                companies like Xnsio, where Deepak Jain served as director for 14 years
+                companies like Xnsio, where Dipak Jain served as director for 14 years
                 and architected scalable solutions for millions of users. This expertise now powers our client solutions.
               </p>
               <p>
@@ -235,6 +265,8 @@ const About = () => {
             ))}
           </div>
         </div>
+
+        {/* Technical Team section removed as requested */}
 
         {/* Values */}
         <div className="mb-16 sm:mb-20">
