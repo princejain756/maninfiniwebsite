@@ -146,7 +146,7 @@ export const whatsappContacts = [
     linkedin: 'https://www.linkedin.com/in/prince-jain-267519194/'
   },
   { 
-    name: 'Neerav Deepak Jain', 
+    name: 'Neerav Dipak Jain', 
     number: '+91 6360 753 004', 
     phone: '919845074004', 
     role: 'COO' 

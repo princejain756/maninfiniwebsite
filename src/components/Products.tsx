@@ -11,9 +11,10 @@ import {
   Users,
   Database
 } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import inventoryImage from '@/assets/inventory-software.jpg';
-import schoolUniformImage from '@/assets/SchoolUniformMeasurementSoftware.jpg';
+import erpCrmHrmImage from '@/assets/crmhrmerp.png';
 import { websiteActions, contactInfo } from '@/lib/utils';
 
 const Products = () => {
@@ -31,11 +32,26 @@ const Products = () => {
     { icon: BarChart3, title: 'Campaign Analytics', description: 'Track engagement and conversion metrics' }
   ];
 
-  const schoolUniformFeatures = [
-    { icon: Ruler, title: 'Digital Measurement', description: 'Accurate body measurements using advanced algorithms' },
-    { icon: Users, title: 'Student Database', description: 'Comprehensive student profiles with measurement history' },
-    { icon: Database, title: 'Size Recommendations', description: 'AI-powered size suggestions based on measurements' },
-    { icon: Smartphone, title: 'Mobile App', description: 'Cross-platform mobile application for easy access' }
+  // ERP / CRM / HRM feature sets
+  const erpFeatures = [
+    { icon: Database, title: 'Unified Ledger', description: 'Finance, procurement, and inventory on a single source of truth' },
+    { icon: RefreshCw, title: 'Workflow Automation', description: 'Automate approvals, GRN, and reconciliation flows' },
+    { icon: BarChart3, title: 'Real-time Analytics', description: 'P&L, cashflow and operations KPIs with drill-downs' },
+    { icon: Package, title: 'Operations Hub', description: 'MRP, BOM, production planning and dispatch orchestration' }
+  ];
+
+  const crmFeatures = [
+    { icon: Users, title: '360° Customer View', description: 'Leads, accounts, activities and notes in one profile' },
+    { icon: MessageCircle, title: 'Omnichannel CRM', description: 'WhatsApp, email, and calls unified into deal timelines' },
+    { icon: BarChart3, title: 'Pipeline Insights', description: 'Forecasting, velocity, and win/loss analytics' },
+    { icon: Smartphone, title: 'Mobile CRM', description: 'On-the-go lead capture, tasks and reminders' }
+  ];
+
+  const hrmFeatures = [
+    { icon: Users, title: 'Workforce Directory', description: 'Org chart, roles, skills, and access control' },
+    { icon: RefreshCw, title: 'Attendance & Leave', description: 'Geo-tagged attendance, shifts, and policy engines' },
+    { icon: Database, title: 'Payroll Engine', description: 'Allowances, deductions, compliance-ready pay runs' },
+    { icon: BarChart3, title: 'People Analytics', description: 'Attrition risk, engagement signals, and performance trends' }
   ];
 
 
@@ -66,19 +82,21 @@ const Products = () => {
     websiteActions.openExternalLink('/WhatsappBotVideo.mp4', true);
   };
 
-  const handleSchoolUniformDemo = () => {
-    websiteActions.openWhatsApp(
-      contactInfo.salesPhone,
-      'Hello! I would like to request a demo of your School Uniform Measurement Software. Please provide scheduling options and demo details.'
-    );
-  };
-
-  const handleSchoolUniformFeatures = () => {
-    websiteActions.sendEmail(
-      contactInfo.email,
-      'School Uniform Measurement Software Features Request',
-      `Hello,\n\nI would like to know more about the features of your School Uniform Measurement Software.\n\nPlease provide:\n- Detailed feature list\n- Technical specifications\n- Integration capabilities\n- Pricing information\n- Implementation timeline\n\nThank you!`
-    );
+  // ERP/CRM/HRM section state
+  const [activeSuite, setActiveSuite] = useState<'ERP' | 'CRM' | 'HRM'>('ERP');
+  const suiteMeta: Record<'ERP' | 'CRM' | 'HRM', { subtitle: string; features: { icon: any; title: string; description: string }[] }> = {
+    ERP: {
+      subtitle: 'Plan, run and scale operations with a unified enterprise backbone',
+      features: erpFeatures
+    },
+    CRM: {
+      subtitle: 'Acquire, engage and grow customers across every channel',
+      features: crmFeatures
+    },
+    HRM: {
+      subtitle: 'Manage people operations from onboarding to payroll to insights',
+      features: hrmFeatures
+    }
   };
 
 
@@ -249,32 +267,45 @@ const Products = () => {
           </div>
         </div>
 
-        {/* School Uniform Measurement Software Product */}
+        {/* ERP / CRM / HRM Suite */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-16 sm:mb-20">
           <div className="animate-fade-in-up">
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
-                <Ruler className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 rounded-xl flex items-center justify-center">
+                <Database className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-poppins font-semibold text-foreground">
-                  School Uniform Measurement Software
+                  ERP • CRM • HRM Suite
                 </h3>
-                <p className="text-accent font-medium text-sm sm:text-base">Digital measurement & size management system</p>
+                <p className="text-accent font-medium text-sm sm:text-base">Modern enterprise stack for operations, customers, and people</p>
               </div>
             </div>
-            
+
+            {/* Suite Switcher */}
+            <div className="flex flex-wrap gap-2 sm:gap-3 mb-5">
+              {(['ERP','CRM','HRM'] as const).map(tab => (
+                <Button
+                  key={tab}
+                  variant={activeSuite === tab ? 'default' : 'outline'}
+                  className={`rounded-full px-4 sm:px-5 ${activeSuite === tab ? 'btn-gradient' : ''}`}
+                  onClick={() => setActiveSuite(tab)}
+                  size="sm"
+                >
+                  {tab}
+                </Button>
+              ))}
+            </div>
+
             <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-              Streamline uniform sizing with our intelligent measurement software. 
-              Capture accurate body measurements, manage student databases, and provide 
-              precise size recommendations for perfect uniform fitting.
+              {suiteMeta[activeSuite].subtitle}
             </p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-              {schoolUniformFeatures.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3 sm:gap-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+              {suiteMeta[activeSuite].features.map((feature, index) => (
+                <div key={index} className="group flex items-start gap-3 sm:gap-4 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-primary/5 transition-colors">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15">
+                    <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{feature.title}</h4>
@@ -283,12 +314,12 @@ const Products = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button 
                 size="lg" 
                 className="btn-gradient text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
-                onClick={handleSchoolUniformDemo}
+                onClick={() => handleRequestDemo(`${activeSuite} Suite`)}
               >
                 Request Demo
                 <Play className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
@@ -297,17 +328,17 @@ const Products = () => {
                 size="lg" 
                 variant="outline" 
                 className="btn-outline-elegant text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
-                onClick={handleSchoolUniformFeatures}
+                onClick={() => handleViewFeatures(`${activeSuite} Suite`)}
               >
                 View Features
               </Button>
             </div>
           </div>
-          
+
           <div className="animate-slide-in-right">
             <img 
-              src={schoolUniformImage} 
-              alt="School Uniform Measurement Software Interface" 
+              src={erpCrmHrmImage} 
+              alt={`${activeSuite} Suite`} 
               className="w-full h-auto rounded-xl sm:rounded-2xl shadow-elegant hover:shadow-glow transition-all duration-500"
             />
           </div>
