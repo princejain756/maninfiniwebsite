@@ -84,7 +84,7 @@ const videoData = {
 
 const handleContact = () => {
   websiteActions.openWhatsApp(
-    "+91 83105 16955",
+    "+91 96320 61045",
     "Hello! I'm interested in your Cyber Security services. Please provide information about pricing, features, and compliance support."
   );
 };

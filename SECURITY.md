@@ -192,7 +192,7 @@ upgrade-insecure-requests;
 
 For security issues or questions:
 - Email: security@maninfini.com
-- WhatsApp: +91 83105 16955
+- WhatsApp: +91 96320 61045
 - Report vulnerabilities immediately
 
 ## 📚 Additional Resources

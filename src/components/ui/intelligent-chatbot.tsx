@@ -128,7 +128,7 @@ const JoinAutomationProPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose:
               className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white"
               onClick={() => {
                 // Here you would integrate with your payment/registration system
-                window.open('https://wa.me/918310516955?text=Hi! I want to join Automation Pro for advanced AI features. Please provide details about the 50% off offer.', '_blank');
+                window.open('https://wa.me/919632061045?text=Hi! I want to join Automation Pro for advanced AI features. Please provide details about the 50% off offer.', '_blank');
                 onClose();
               }}
             >
@@ -489,7 +489,7 @@ export function IntelligentChatbot({
   };
 
   const handleButtonClick = async (payload: string) => {
-    const whatsappNumber = '918310516955'; // Remove spaces and + for WhatsApp URL
+    const whatsappNumber = '919632061045'; // Remove spaces and + for WhatsApp URL
     const email = 'support@maninfini.com';
     
     switch (payload) {

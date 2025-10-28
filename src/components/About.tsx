@@ -59,9 +59,9 @@ const About = () => {
     
     {
       name: 'Vishakha Sisodiya',
-      role: 'Cybersecurity & Cloud Expert',
+      role: 'Cybersecurity & Digital Operations',
       experience: '4+ years',
-      background: 'Cybersecurity and Cloud Infrastructure Specialist',
+      background: 'Cybersecurity and Digital Operations Specialist',
       image: vishakhaImage,
       linkedin: 'https://www.linkedin.com/in/vishakhasisodiya96/'
     },

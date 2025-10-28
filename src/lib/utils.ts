@@ -120,9 +120,9 @@ export const websiteActions = {
 
 // Contact information
 export const contactInfo = {
-  mainPhone: '+91 83105 16955',
-  supportPhone: '+91 83105 16955',
-  salesPhone: '+91 83105 16955',
+  mainPhone: '+91 96320 61045',
+  supportPhone: '+91 96320 61045',
+  salesPhone: '+91 96320 61045',
   email: 'support@maninfini.com',
   displayEmail: 'support@maninfini.com',
   supportEmail: 'prince@maninfini.com',
@@ -134,8 +134,8 @@ export const contactInfo = {
 export const whatsappContacts = [
   { 
     name: 'CEO', 
-    number: '+91 83105 16955', 
-    phone: '918310516955', 
+    number: '+91 96320 61045', 
+    phone: '919632061045', 
     role: 'CEO' 
   },
   { 

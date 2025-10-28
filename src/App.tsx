@@ -19,6 +19,7 @@ import Services from "./components/Services";
 import SearchPage from "./pages/Search";
 import NotFound from "./pages/NotFound";
 import Careers from "./pages/Careers";
+import ContactPage from "./pages/Contact";
 
 // Service pages
 import WebDevelopment from "./pages/services/web-development";
@@ -123,6 +124,9 @@ const App = () => {
               <AnalyticsListener />
               <Routes>
                 <Route path="/" element={<Index />} />
+                
+                {/* Contact Route */}
+                <Route path="/contact" element={<ContactPage />} />
                 
                 {/* Service Routes */}
                 <Route path="/services/web-development" element={<WebDevelopment />} />
