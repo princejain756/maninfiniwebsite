@@ -91,7 +91,7 @@ const Careers = () => {
           '@type': 'Organization',
           name: 'Maninfini Automation',
           sameAs: 'https://maninfini.com',
-          logo: 'https://maninfini.com/manlogo.png',
+          logo: 'https://maninfini.com/manilogos.webp',
         },
         employmentType: 'FULL_TIME',
         jobLocationType: 'TELECOMMUTE',
@@ -108,7 +108,7 @@ const Careers = () => {
         description="Join Maninfini’s elite team building automation, cloud, and AI products used by fast-growing businesses. High-ownership roles, rapid growth, and beautiful UX."
         keywords="careers, hiring, jobs, React jobs, DevOps jobs, AI engineer, Software Architect, QA Engineer, Software Tester, QA Tester, Test Engineer, Bengaluru jobs, automation"
         url="https://maninfini.com/careers"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         structuredData={jobPostingStructuredData}
       />
       <div className="min-h-screen flex flex-col">

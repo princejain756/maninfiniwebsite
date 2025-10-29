@@ -100,7 +100,7 @@ const Index = () => {
       url: "https://maninfini.com"
     },
     eventType: "Webinar" as const,
-    image: "https://maninfini.com/manlogo.png",
+    image: "https://maninfini.com/manilogos.webp",
     url: "https://maninfini.com/webinar-2024"
   };
 
@@ -124,13 +124,13 @@ const Index = () => {
   const videoData = {
     name: "Introduction to Business Automation",
     description: "Learn the basics of business automation and how it can transform your organization.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT5M30S",
     contentUrl: "https://maninfini.com/videos/intro-automation.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -147,7 +147,7 @@ const Index = () => {
         description="Transform your business with cutting-edge automation and custom software development. Trusted automation partner since 2008. Expert in AI, RPA, and digital transformation."
         keywords="business automation, digital transformation, custom software development, process automation, AI solutions, machine learning, workflow automation, enterprise software, business intelligence, data analytics, cloud solutions, API development, web applications, mobile apps, system integration, legacy modernization, digital consulting, IT services, technology solutions, automation consulting"
         url="https://maninfini.com"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -168,7 +168,7 @@ const Index = () => {
       <HowToSchema
         name="How to Implement Business Automation"
         description="A step-by-step guide to implementing business automation in your organization"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/automation-guide"
         totalTime="PT30M"
         steps={howToSteps}

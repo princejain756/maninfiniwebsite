@@ -78,13 +78,13 @@ const OffshoreTalent = () => {
   const videoData = {
     name: "Offshore Development Team Success Stories",
     description: "Learn how our offshore development teams have helped businesses scale their technical capacity and deliver exceptional results.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT9M20S",
     contentUrl: "https://maninfini.com/videos/offshore-team-success.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -115,7 +115,7 @@ const OffshoreTalent = () => {
         description="Dedicated offshore development teams to scale your technical capacity. Skilled developers, agile process, time zone coverage, and quality assurance for successful project delivery."
         keywords="offshore development, dedicated team, remote developers, offshore talent, development team, skilled developers, agile process, time zone coverage, quality assurance, offshore development India, remote development team, dedicated developers, offshore software development, development outsourcing, technical capacity, project scaling, development team India, offshore development services, remote team management, development team scaling"
         url="https://maninfini.com/services/offshore-talent"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -135,7 +135,7 @@ const OffshoreTalent = () => {
       <HowToSchema
         name="How to Successfully Work with Offshore Development Teams"
         description="A comprehensive guide to building and managing effective offshore development teams"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/offshore-talent"
         totalTime="PT18M"
         steps={howToSteps}

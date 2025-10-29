@@ -78,13 +78,13 @@ const WhatsAppCommunications = () => {
   const videoData = {
     name: "WhatsApp Business Solutions Demo",
     description: "See how our WhatsApp Business API integration and chatbot solutions can transform your customer communication.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT7M15S",
     contentUrl: "https://maninfini.com/videos/whatsapp-solutions-demo.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -115,7 +115,7 @@ const WhatsAppCommunications = () => {
         description="Advanced WhatsApp Business API integration, chatbots, bulk messaging, and IVR systems. Transform customer communication with automated messaging solutions."
         keywords="WhatsApp Business API, WhatsApp integration, chatbot development, bulk messaging, IVR systems, customer communication, WhatsApp bot, automated messaging, CRM integration, WhatsApp Business, communication automation, WhatsApp API, customer service automation, messaging solutions, WhatsApp development, business communication, automated responses, WhatsApp marketing, customer engagement, WhatsApp India"
         url="https://maninfini.com/services/whatsapp-communications"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -135,7 +135,7 @@ const WhatsAppCommunications = () => {
       <HowToSchema
         name="How to Implement WhatsApp Business API"
         description="A comprehensive guide to implementing WhatsApp Business API for your business communication needs"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/whatsapp-communications"
         totalTime="PT10M"
         steps={howToSteps}

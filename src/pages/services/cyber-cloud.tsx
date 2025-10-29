@@ -216,13 +216,13 @@ const CyberCloudPage: React.FC = () => {
   const videoData = {
     name: "Advanced Cybersecurity Services Overview",
     description: "Learn about Maninfini's comprehensive cybersecurity solutions including vulnerability assessment, penetration testing, 24/7 threat monitoring, compliance assistance, and incident response services.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-14",
     duration: "PT8M45S",
     contentUrl: "https://maninfini.com/videos/cybersecurity-services-demo.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Security Team",
@@ -251,7 +251,7 @@ const CyberCloudPage: React.FC = () => {
         description="Comprehensive cybersecurity solutions including vulnerability assessment, penetration testing, security audits, 24/7 threat monitoring, and incident response. Protect your business from digital threats."
         keywords="cybersecurity, vulnerability assessment, penetration testing, security audits, threat monitoring, incident response, data protection, compliance, GDPR, HIPAA, PCI-DSS, ISO 27001, network security, cloud security, Maninfini"
         url="https://maninfini.com/services/cyber-cloud"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -271,7 +271,7 @@ const CyberCloudPage: React.FC = () => {
       <HowToSchema
         name="How to Implement Cybersecurity Solutions"
         description="A comprehensive guide to implementing cybersecurity measures for your business"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/cyber-cloud"
         totalTime="PT10M"
         steps={howToSteps}

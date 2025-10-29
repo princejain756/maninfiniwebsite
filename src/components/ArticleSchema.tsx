@@ -29,7 +29,7 @@ const ArticleSchema: React.FC<ArticleSchemaProps> = ({
   tags,
   readTime,
   publisherName = "Maninfini Automation",
-  publisherLogo = "https://maninfini.com/manlogo.png"
+  publisherLogo = "https://maninfini.com/manilogos.webp"
 }) => {
   const articleSchema = {
     "@context": "https://schema.org",

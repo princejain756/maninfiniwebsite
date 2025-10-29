@@ -11,7 +11,7 @@ const PerformanceOptimizer: React.FC<PerformanceOptimizerProps> = ({ children })
     // Preload critical resources
     const preloadCriticalResources = () => {
       const criticalResources = [
-        '/manlogo.png',
+        '/manilogos.webp',
         '/intro.mp3'
       ];
 

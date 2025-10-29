@@ -66,13 +66,13 @@ const howToSteps = [
 const videoData = {
   name: "Cybersecurity Solutions Overview",
   description: "See how our cybersecurity solutions protect businesses from evolving threats and ensure compliance.",
-  thumbnailUrl: "https://maninfini.com/manlogo.png",
+  thumbnailUrl: "https://maninfini.com/manilogos.webp",
   uploadDate: "2025-07-01",
   duration: "PT7M30S",
   contentUrl: "https://maninfini.com/videos/cybersecurity-solutions.mp4",
   publisher: {
     name: "Maninfini Automation",
-    logo: "https://maninfini.com/manlogo.png"
+    logo: "https://maninfini.com/manilogos.webp"
   },
   author: {
     name: "Maninfini Team",
@@ -97,7 +97,7 @@ export default function CyberCloud() {
         description="Comprehensive cybersecurity solutions: vulnerability assessment, penetration testing, security audits, compliance, and 24/7 monitoring."
         keywords="cybersecurity, vulnerability assessment, penetration testing, security audits, compliance, SOC, incident response, ISO 27001, GDPR, NIST, SOC 2, PCI DSS, HIPAA, security dashboard, threat detection, risk management"
         url="https://maninfini.com/services/cyber-cloud"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -116,7 +116,7 @@ export default function CyberCloud() {
       <HowToSchema
         name="How to Secure Your Business Against Cyber Threats"
         description="A comprehensive guide to implementing cybersecurity best practices for business protection."
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/cyber-cloud"
         totalTime="PT15M"
         steps={howToSteps}
@@ -263,12 +263,12 @@ export default function CyberCloud() {
           <section className="py-10">
             <div className="container mx-auto px-4 text-center">
               <div className="flex flex-wrap gap-6 justify-center items-center">
-                <img src="/manlogo.png" alt="ISO 27001" className="h-10" />
-                <img src="/manlogo.png" alt="GDPR" className="h-10" />
-                <img src="/manlogo.png" alt="NIST" className="h-10" />
-                <img src="/manlogo.png" alt="SOC 2" className="h-10" />
-                <img src="/manlogo.png" alt="PCI DSS" className="h-10" />
-                <img src="/manlogo.png" alt="HIPAA" className="h-10" />
+                <img src="/manilogos.webp" alt="ISO 27001" className="h-10" />
+                <img src="/manilogos.webp" alt="GDPR" className="h-10" />
+                <img src="/manilogos.webp" alt="NIST" className="h-10" />
+                <img src="/manilogos.webp" alt="SOC 2" className="h-10" />
+                <img src="/manilogos.webp" alt="PCI DSS" className="h-10" />
+                <img src="/manilogos.webp" alt="HIPAA" className="h-10" />
               </div>
             </div>
           </section>

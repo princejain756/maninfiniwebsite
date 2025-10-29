@@ -105,7 +105,7 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center mb-4 sm:mb-6">
               <img 
-                src="/manlogo.png" 
+                src="/manilogos.webp" 
                 alt="Maninfini Logo" 
                 className="h-16 sm:h-20 w-auto mr-3"
               />

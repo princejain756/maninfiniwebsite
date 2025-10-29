@@ -66,13 +66,13 @@ const howToSteps = [
 const videoData = {
   name: "Cloud Solutions Overview",
   description: "See how our cloud solutions accelerate digital transformation, improve security, and optimize costs.",
-  thumbnailUrl: "https://maninfini.com/manlogo.png",
+  thumbnailUrl: "https://maninfini.com/manilogos.webp",
   uploadDate: "2025-07-01",
   duration: "PT6M45S",
   contentUrl: "https://maninfini.com/videos/cloud-solutions-overview.mp4",
   publisher: {
     name: "Maninfini Automation",
-    logo: "https://maninfini.com/manlogo.png"
+    logo: "https://maninfini.com/manilogos.webp"
   },
   author: {
     name: "Maninfini Team",
@@ -97,7 +97,7 @@ export default function CloudSolutions() {
         description="Scalable and secure cloud services: migration, hosting, DevOps, security, cost optimization, and compliance. AWS, Azure, GCP supported."
         keywords="cloud solutions, cloud migration, managed hosting, DevOps, cloud automation, cloud security, cost optimization, AWS, Azure, Google Cloud, compliance, ISO, GDPR, SOC 2, PCI DSS, HIPAA, cloud dashboard, cloud analytics"
         url="https://maninfini.com/services/cloud-solutions"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -116,7 +116,7 @@ export default function CloudSolutions() {
       <HowToSchema
         name="How to Migrate and Optimize Your Business in the Cloud"
         description="A comprehensive guide to cloud migration, optimization, and security for modern businesses."
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/cloud-solutions"
         totalTime="PT12M"
         steps={howToSteps}
@@ -270,12 +270,12 @@ export default function CloudSolutions() {
           <section className="py-10">
             <div className="container mx-auto px-4 text-center">
               <div className="flex flex-wrap gap-6 justify-center items-center">
-                <img src="/manlogo.png" alt="AWS" className="h-10" />
-                <img src="/manlogo.png" alt="Azure" className="h-10" />
-                <img src="/manlogo.png" alt="Google Cloud" className="h-10" />
-                <img src="/manlogo.png" alt="ISO" className="h-10" />
-                <img src="/manlogo.png" alt="GDPR" className="h-10" />
-                <img src="/manlogo.png" alt="SOC 2" className="h-10" />
+                <img src="/manilogos.webp" alt="AWS" className="h-10" />
+                <img src="/manilogos.webp" alt="Azure" className="h-10" />
+                <img src="/manilogos.webp" alt="Google Cloud" className="h-10" />
+                <img src="/manilogos.webp" alt="ISO" className="h-10" />
+                <img src="/manilogos.webp" alt="GDPR" className="h-10" />
+                <img src="/manilogos.webp" alt="SOC 2" className="h-10" />
               </div>
             </div>
           </section>

@@ -78,13 +78,13 @@ const Quantiti = () => {
   const videoData = {
     name: "Quantiti AI Solutions Overview",
     description: "Learn how our advanced AI and algorithmic solutions can transform your business operations and drive competitive advantage.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT8M15S",
     contentUrl: "https://maninfini.com/videos/quantiti-overview.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -115,7 +115,7 @@ const Quantiti = () => {
         description="Advanced AI and algorithmic solutions for financial markets, risk management, and business optimization. Algorithmic trading, fraud detection, portfolio optimization, and more."
         keywords="algorithmic trading, AI solutions, fraud detection, portfolio optimization, robo-advisory, high-frequency trading, price optimization, supply chain optimization, insurance underwriting, computer vision, scientific computing, machine learning, artificial intelligence, financial technology, fintech, trading algorithms, risk management, data analytics, predictive modeling, AI consulting, algorithmic solutions India"
         url="https://maninfini.com/services/quantiti"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -134,7 +134,7 @@ const Quantiti = () => {
       <HowToSchema
         name="How to Implement AI Solutions for Business Optimization"
         description="A comprehensive guide to implementing AI and algorithmic solutions for business transformation"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/quantiti"
         totalTime="PT20M"
         steps={howToSteps}

@@ -2,7 +2,7 @@ const CACHE_NAME = 'maninfini-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/manlogo.png',
+  '/manilogos.webp',
   '/intro.mp3',
   '/site.webmanifest',
   '/robots.txt',
@@ -63,8 +63,8 @@ function doBackgroundSync() {
 self.addEventListener('push', (event) => {
   const options = {
     body: event.data ? event.data.text() : 'New notification from Maninfini Automation',
-    icon: '/manlogo.png',
-    badge: '/manlogo.png',
+    icon: '/manilogos.webp',
+    badge: '/manilogos.webp',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
@@ -74,12 +74,12 @@ self.addEventListener('push', (event) => {
       {
         action: 'explore',
         title: 'View Details',
-        icon: '/manlogo.png'
+        icon: '/manilogos.webp'
       },
       {
         action: 'close',
         title: 'Close',
-        icon: '/manlogo.png'
+        icon: '/manilogos.webp'
       }
     ]
   };

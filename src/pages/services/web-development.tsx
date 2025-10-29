@@ -78,13 +78,13 @@ const WebDevelopment = () => {
   const videoData = {
     name: "Web Development Process at Maninfini",
     description: "Learn about our comprehensive web development process from concept to deployment.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT8M45S",
     contentUrl: "https://maninfini.com/videos/web-development-process.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -115,7 +115,7 @@ const WebDevelopment = () => {
         description="Expert web development and custom software solutions. Full-stack development with React, Node.js, and cloud integration. Transform your business with scalable web applications."
         keywords="web development, custom software development, React development, Node.js development, full-stack development, web applications, custom APIs, mobile apps, cloud integration, software development company, web development services, custom web applications, enterprise software, e-commerce development, CRM development, API development, cloud solutions, responsive web design, progressive web apps, web development India"
         url="https://maninfini.com/services/web-development"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -135,7 +135,7 @@ const WebDevelopment = () => {
       <HowToSchema
         name="How to Choose the Right Web Development Partner"
         description="A comprehensive guide to selecting the perfect web development company for your project"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/web-development"
         totalTime="PT15M"
         steps={howToSteps}

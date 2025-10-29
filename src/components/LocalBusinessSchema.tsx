@@ -42,8 +42,8 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
   },
   openingHours = ["Mo-Fr 09:00-18:00", "Sa 09:00-14:00"],
   priceRange = "$$",
-  image = "https://maninfini.com/manlogo.png",
-  logo = "https://maninfini.com/manlogo.png"
+  image = "https://maninfini.com/manilogos.webp",
+  logo = "https://maninfini.com/manilogos.webp"
 }) => {
   const localBusinessSchema = {
     "@context": "https://schema.org",

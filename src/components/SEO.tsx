@@ -51,7 +51,7 @@ const SEO: React.FC<SEOProps> = ({
   title = "Maninfini Automation - Leading Digital Transformation & Business Automation Services",
   description = "Transform your business with cutting-edge automation and custom software development. Trusted automation partner since 2008. Expert in AI, RPA, and digital transformation.",
   keywords = "business automation, digital transformation, custom software development, process automation, AI solutions, machine learning, workflow automation, enterprise software, business intelligence, data analytics, cloud solutions, API development, web applications, mobile apps, system integration, legacy modernization, digital consulting, IT services, technology solutions, automation consulting, RPA, artificial intelligence, machine learning, cloud computing, digital transformation services",
-  image = "https://maninfini.com/manlogo.png",
+  image = "https://maninfini.com/manilogos.webp",
   url = "https://maninfini.com",
   type = "website",
   author = "Maninfini Automation",
@@ -195,7 +195,7 @@ const SEO: React.FC<SEOProps> = ({
               "name": "Maninfini Automation",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://maninfini.com/manlogo.png"
+                "url": "https://maninfini.com/manilogos.webp"
               }
             },
             "datePublished": publishedTime,
@@ -220,7 +220,7 @@ const SEO: React.FC<SEOProps> = ({
               "@type": "Organization",
               "name": "Maninfini Automation",
               "url": "https://maninfini.com",
-              "logo": "https://maninfini.com/manlogo.png"
+              "logo": "https://maninfini.com/manilogos.webp"
             },
             "areaServed": "Worldwide",
             "serviceType": section || "Business Services",
@@ -246,7 +246,7 @@ const SEO: React.FC<SEOProps> = ({
               "@type": "Organization",
               "name": "Maninfini Automation",
               "url": "https://maninfini.com",
-              "logo": "https://maninfini.com/manlogo.png",
+              "logo": "https://maninfini.com/manilogos.webp",
               "description": "Leading provider of digital transformation and business automation services since 2008",
               "foundingDate": "2008",
               "address": {

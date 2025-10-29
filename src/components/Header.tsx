@@ -149,10 +149,10 @@ const Header = () => {
           <div className="flex items-center">
             <button 
               onClick={() => navigate('/')}
-              className="flex items-center hover:opacity-80 transition-opacity"
+              className="flex items-center hover:opacity-80 transition-opacity pl-2 sm:pl-4"
             >
               <img 
-                src="/manlogo.png" 
+                src="/manilogos.webp" 
                 alt="Maninfini Logo" 
                 className="h-8 sm:h-10 lg:h-12 w-auto mr-2 sm:mr-3"
               />

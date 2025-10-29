@@ -262,13 +262,13 @@ const CloudSolutionsPage: React.FC = () => {
   const videoData = {
     name: "Comprehensive Cloud Solutions Services Overview",
     description: "Learn about Maninfini's comprehensive cloud solutions including migration, managed hosting, DevOps automation, cost optimization, and multi-cloud strategies for modern businesses.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-16",
     duration: "PT9M20S",
     contentUrl: "https://maninfini.com/videos/cloud-solutions-demo.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Cloud Team",
@@ -297,7 +297,7 @@ const CloudSolutionsPage: React.FC = () => {
         description="Scalable cloud services including migration, managed hosting, DevOps automation, and cost optimization. AWS, Azure, GCP cloud solutions for modern businesses."
         keywords="cloud solutions, cloud migration, AWS, Azure, GCP, DevOps, cloud hosting, cost optimization, hybrid cloud, serverless, disaster recovery, cloud security, Maninfini"
         url="https://maninfini.com/services/cloud-solutions"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -317,7 +317,7 @@ const CloudSolutionsPage: React.FC = () => {
       <HowToSchema
         name="How to Migrate to Cloud"
         description="A comprehensive guide to migrating your business infrastructure to the cloud"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/cloud-solutions"
         totalTime="PT12M"
         steps={howToSteps}

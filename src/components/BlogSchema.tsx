@@ -25,7 +25,7 @@ const BlogSchema: React.FC<BlogSchemaProps> = ({ posts }) => {
       "name": "Maninfini Automation",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://maninfini.com/manlogo.png"
+        "url": "https://maninfini.com/manilogos.webp"
       }
     },
     "blogPost": posts.map(post => ({

@@ -78,13 +78,13 @@ const EcommerceInventory = () => {
   const videoData = {
     name: "E-commerce & Inventory Management Solutions",
     description: "Learn how our e-commerce and inventory management solutions can transform your retail business.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT6M30S",
     contentUrl: "https://maninfini.com/videos/ecommerce-solutions.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -115,7 +115,7 @@ const EcommerceInventory = () => {
         description="Complete e-commerce solutions with real-time inventory management. Multi-channel sync, payment gateways, analytics dashboard, and automated inventory tracking."
         keywords="e-commerce development, inventory management, online store, multi-channel selling, payment gateway integration, e-commerce platform, inventory tracking, retail automation, e-commerce solutions, online retail, inventory software, e-commerce India, Shopify development, WooCommerce, Magento, custom e-commerce, inventory management system, retail software, e-commerce analytics, order management, stock management"
         url="https://maninfini.com/services/ecommerce-inventory"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -134,7 +134,7 @@ const EcommerceInventory = () => {
       <HowToSchema
         name="How to Choose the Right E-commerce Platform"
         description="A comprehensive guide to selecting the perfect e-commerce solution for your business"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/ecommerce-inventory"
         totalTime="PT12M"
         steps={howToSteps}

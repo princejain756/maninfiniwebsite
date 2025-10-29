@@ -78,13 +78,13 @@ const VirtualOffice = () => {
   const videoData = {
     name: "Virtual Office Services Overview",
     description: "Learn how our virtual office services can help your business establish a professional presence without the overhead of a physical office.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT5M45S",
     contentUrl: "https://maninfini.com/videos/virtual-office-overview.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -115,7 +115,7 @@ const VirtualOffice = () => {
         description="Complete virtual office setup with professional address, call handling, mail management, and meeting rooms. Establish a professional business presence without physical office overhead."
         keywords="virtual office, business address, call handling, mail management, meeting rooms, professional address, virtual office services, business registration address, call answering service, mail forwarding, virtual office India, professional business address, virtual office setup, business support services, administrative services, virtual office solutions, professional image, business presence, virtual office packages, business address services"
         url="https://maninfini.com/services/virtual-office"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -135,7 +135,7 @@ const VirtualOffice = () => {
       <HowToSchema
         name="How to Set Up a Virtual Office for Your Business"
         description="A comprehensive guide to establishing a professional virtual office presence for your business"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/virtual-office"
         totalTime="PT12M"
         steps={howToSteps}

@@ -43,7 +43,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Prince Jain",
     role: "AI Officer & CTO",
-    image: "/Prince Jain AIO CTO.png",
+    image: "/PrinceJainNew.webp",
     bio: "Visionary leader driving AI innovation and technical excellence across all projects.",
     expertise: ["AI Strategy", "Technical Leadership", "Innovation"],
     linkedin: "#",
@@ -51,13 +51,13 @@ const teamMembers: TeamMember[] = [
     segment: "leadership"
   },
   {
-    name: "Dipak Jain",
-    role: "CEO",
-    image: "/Dipak Jain Mentor.jpg",
+    name: "Prateek Sharma",
+    role: "Mentor",
+    image: "/PrateekSharma.png",
     bio: "Strategic Business Guidance & Industry Expertise.",
     expertise: ["Strategic Guidance", "Industry Expertise", "Leadership"],
     linkedin: "#",
-    email: "dipak@maninfini.com",
+    email: "prateek@maninfini.com",
     segment: "leadership"
   },
   {

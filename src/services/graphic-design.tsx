@@ -78,13 +78,13 @@ const GraphicDesign = () => {
   const videoData = {
     name: "Graphic Design Portfolio Showcase",
     description: "Explore our creative graphic design portfolio featuring brand identities, packaging designs, and marketing materials.",
-    thumbnailUrl: "https://maninfini.com/manlogo.png",
+    thumbnailUrl: "https://maninfini.com/manilogos.webp",
     uploadDate: "2024-01-15",
     duration: "PT6M30S",
     contentUrl: "https://maninfini.com/videos/graphic-design-portfolio.mp4",
     publisher: {
       name: "Maninfini Automation",
-      logo: "https://maninfini.com/manlogo.png"
+      logo: "https://maninfini.com/manilogos.webp"
     },
     author: {
       name: "Maninfini Team",
@@ -115,7 +115,7 @@ const GraphicDesign = () => {
         description="Creative design solutions for branding, marketing, and product packaging. Brand identity, logo design, marketing materials, and packaging design services."
         keywords="graphic design, packaging design, brand identity, logo design, marketing materials, creative design, visual identity, product packaging, brand design, graphic design services, packaging design India, logo design services, brand identity design, marketing collateral, digital assets, social media graphics, print design, creative agency, visual design, brand guidelines, design portfolio"
         url="https://maninfini.com/services/graphic-design"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         language="en"
         twitterHandle="@maninfini"
         googleAnalyticsId="G-4N0C42TBRL"
@@ -134,7 +134,7 @@ const GraphicDesign = () => {
       <HowToSchema
         name="How to Create an Effective Brand Identity"
         description="A comprehensive guide to developing a strong brand identity that resonates with your target audience"
-        image="https://maninfini.com/manlogo.png"
+        image="https://maninfini.com/manilogos.webp"
         url="https://maninfini.com/services/graphic-design"
         totalTime="PT14M"
         steps={howToSteps}
