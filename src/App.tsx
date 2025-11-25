@@ -20,6 +20,8 @@ import SearchPage from "./pages/Search";
 import NotFound from "./pages/NotFound";
 import Careers from "./pages/Careers";
 import ContactPage from "./pages/Contact";
+import Shop from "./pages/Shop";
+import ProductDetails from "./pages/ProductDetails";
 
 // Service pages
 import WebDevelopment from "./pages/services/web-development";
@@ -46,10 +48,10 @@ const App = () => {
         try {
           // Set volume to a reasonable level (30% for better UX)
           audioRef.current.volume = 0.3;
-          
+
           // Try to play audio
           const playPromise = audioRef.current.play();
-          
+
           if (playPromise !== undefined) {
             await playPromise;
             setAudioEnabled(true);
@@ -57,7 +59,7 @@ const App = () => {
           }
         } catch (error) {
           // Audio autoplay was prevented by the browser
-          
+
           // Set up user interaction listener to play audio on first click
           const handleFirstUserInteraction = async () => {
             try {
@@ -69,13 +71,13 @@ const App = () => {
             } catch (err) {
               // Could not play audio even after user interaction
             }
-            
+
             // Remove listeners after first interaction
             document.removeEventListener('click', handleFirstUserInteraction);
             document.removeEventListener('touchstart', handleFirstUserInteraction);
             document.removeEventListener('keydown', handleFirstUserInteraction);
           };
-          
+
           // Add event listeners for user interaction
           document.addEventListener('click', handleFirstUserInteraction, { once: true });
           document.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
@@ -86,7 +88,7 @@ const App = () => {
 
     // Small delay to ensure DOM is fully loaded
     const timer = setTimeout(playIntroAudio, 500);
-    
+
     return () => {
       clearTimeout(timer);
     };
@@ -112,9 +114,9 @@ const App = () => {
               preload="auto"
               crossOrigin="anonymous"
               style={{ display: 'none' }}
-              onCanPlayThrough={() => {/* Audio can play through */}}
-              onError={(e) => {/* Audio error handled */}}
-              onLoadStart={() => {/* Audio loading started */}}
+              onCanPlayThrough={() => {/* Audio can play through */ }}
+              onError={(e) => {/* Audio error handled */ }}
+              onLoadStart={() => {/* Audio loading started */ }}
             >
               <source src="/intro.mp3" type="audio/mpeg" />
               <source src="/intro.mp3" type="audio/mp3" />
@@ -124,10 +126,10 @@ const App = () => {
               <AnalyticsListener />
               <Routes>
                 <Route path="/" element={<Index />} />
-                
+
                 {/* Contact Route */}
                 <Route path="/contact" element={<ContactPage />} />
-                
+
                 {/* Service Routes */}
                 <Route path="/services/web-development" element={<WebDevelopment />} />
                 <Route path="/services/graphic-design" element={<GraphicDesign />} />
@@ -138,20 +140,20 @@ const App = () => {
                 <Route path="/services/quantiti" element={<Quantiti />} />
                 <Route path="/services/cyber-cloud" element={<CyberCloudPage />} />
                 <Route path="/services/cloud-solutions" element={<CloudSolutionsPage />} />
-                
+
                 {/* Blog Routes */}
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/blog/category/:category" element={<BlogCategory />} />
-                
+
                 {/* Policy Routes */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
-                
+
                 {/* Team Route */}
                 <Route path="/our-team" element={<OurTeam />} />
-                
+
                 {/* Careers */}
                 <Route path="/careers" element={<Careers />} />
 
@@ -161,21 +163,25 @@ const App = () => {
                 {/* Direct service routes */}
                 <Route path="/virtual-office" element={<VirtualOffice />} />
                 <Route path="/services" element={<Services />} />
-                
+
+                {/* Shop Routes */}
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/shop/:productId" element={<ProductDetails />} />
+
                 {/* Blog redirection routes */}
                 <Route path="/blogs" element={<Blog />} />
                 <Route path="/articles" element={<Blog />} />
                 <Route path="/news" element={<Blog />} />
-                
+
                 {/* Error pages */}
                 <Route path="/404" element={<NotFound />} />
-                
+
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
               {/* Mobile Bottom Navigation */}
               <MobileBottomNav />
-              
+
               {/* Intelligent Auto-Learning Chatbot */}
               <IntelligentChatbot
                 autoLearningApiUrl="http://localhost:3001"
