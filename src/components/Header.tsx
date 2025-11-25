@@ -225,6 +225,22 @@ const Header = () => {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
+                {/* Shop */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <button
+                      onClick={() => handleNavigation('/shop')}
+                      className={`group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors duration-300 ${isScrolled 
+                        ? 'hover:bg-accent hover:text-accent-foreground' 
+                        : isDarkBackgroundRoute 
+                          ? 'text-white hover:text-gray-200 hover:bg-white/10' 
+                          : 'text-foreground hover:text-foreground/80 hover:bg-white/10'}`}
+                    >
+                      Shop
+                    </button>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
                 {/* About & Contact anchors */}
                 {topLevelNav.filter(n => ['About','Contact'].includes(n.label)).map((item) => (
                   <NavigationMenuItem key={item.label}>
@@ -302,7 +318,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 py-6 border-t border-border animate-fade-in-up bg-background/95 backdrop-blur-md rounded-lg">
             <div className="flex flex-col space-y-4">
-              {[{ label: 'Home', href: '/', section: 'home' }, { label: 'Services', href: '/', section: 'services' }, { label: 'Products', href: '/', section: 'products' }, { label: 'About', href: '/', section: 'about' }, { label: 'Contact', href: '/', section: 'contact' }, { label: 'Careers', href: '/careers' }, { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true }].map((item) => (
+              {[{ label: 'Home', href: '/', section: 'home' }, { label: 'Services', href: '/', section: 'services' }, { label: 'Products', href: '/', section: 'products' }, { label: 'Shop', href: '/shop' }, { label: 'About', href: '/', section: 'about' }, { label: 'Contact', href: '/', section: 'contact' }, { label: 'Careers', href: '/careers' }, { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true }].map((item) => (
                 <button
                   key={item.label}
                   onClick={() => {
