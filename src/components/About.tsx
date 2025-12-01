@@ -19,8 +19,8 @@ import rambhupalImage from '@/assets/Rambhupal M CFO Qualified CA with 25 years 
 import vishakhaImage from '@/assets/Vishakha Sisodhiya Cybersecurity.jpg';
 // New leadership images (use local when available)
 import rohanImage from '@/assets/TeamMembers/Rohan Iyer.png';
-import khushiImage from '@/assets/khushijainp.png';
 import aanyaImage from '@/assets/AanyaKhanna.png';
+import anshumaliImage from '@/assets/AnshumaliJain.webp';
 
 const About = () => {
  
@@ -90,12 +90,12 @@ const About = () => {
       linkedin: null
     },
     {
-      name: 'Khushi Jain P',
-      role: 'Software Tester',
-      experience: '2+ years',
-      background: 'QA specialist ensuring reliable, high-quality releases',
-      image: khushiImage,
-      linkedin: null
+      name: 'Anshumali Jain',
+      role: 'Deep Tech Expert',
+      experience: '10+ years',
+      background: 'Enterprise AI research and systems thinking for complex automation challenges',
+      image: anshumaliImage,
+      linkedin: 'https://www.linkedin.com/in/anshumalijain?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
     }
   ];
 

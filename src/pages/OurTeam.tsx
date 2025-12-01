@@ -25,8 +25,8 @@ import NikithMittalImage from "@/assets/TeamMembers/NikithMittal.png";
 import PrateekSharmaImage from "@/assets/TeamMembers/Prateeksharma.png";
 import PraveenGannaImage from "@/assets/TeamMembers/praveenganna.png";
 import RohanIyerImage from "@/assets/TeamMembers/Rohan Iyer.png";
-import KhushiJainPImage from "@/assets/khushijainp.png";
 import AanyaKhannaImage from "@/assets/AanyaKhanna.png";
+import AnshumaliJainImage from "@/assets/AnshumaliJain.webp";
 
 type TeamMember = {
   name: string;
@@ -111,16 +111,6 @@ const teamMembers: TeamMember[] = [
     segment: "leadership"
   },
   {
-    name: "Khushi Jain P",
-    role: "Software Tester",
-    image: KhushiJainPImage,
-    bio: "QA specialist with 2+ years ensuring high-quality releases and reliable user experiences.",
-    expertise: ["Manual Testing", "Test Planning", "Bug Tracking"],
-    linkedin: null,
-    email: "khushi@maninfini.com",
-    segment: "leadership"
-  },
-  {
     name: "Praveen Ganna",
     role: "DevOps Engineering Lead",
     image: PraveenGannaImage,
@@ -128,6 +118,16 @@ const teamMembers: TeamMember[] = [
     expertise: ["DevOps", "Cloud Infrastructure", "CI/CD"],
     linkedin: "#",
     email: "praveen@maninfini.com",
+    segment: "technical"
+  },
+  {
+    name: "Anshumali Jain",
+    role: "Deep Tech Expert",
+    image: AnshumaliJainImage,
+    bio: "Brings advanced AI research and systems thinking to solve complex automation challenges.",
+    expertise: ["Enterprise AI Research", "Technical Strategy", "System Architecture"],
+    linkedin: "https://www.linkedin.com/in/anshumalijain?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    email: "anshumali@maninfini.com",
     segment: "technical"
   },
   {
@@ -399,15 +399,15 @@ const aiDescriptions = [
 const humanEmployees: RosterMember[] = [
   {
     id: 'human-1',
-    name: 'Khushi Jain P',
-    role: 'Software Tester',
-    department: 'Engineering Guild',
-    focus: 'Quality Assurance',
+    name: 'Anshumali Jain',
+    role: 'Deep Tech Expert',
+    department: 'Automation Studio',
+    focus: 'Enterprise AI Research',
     location: 'Bengaluru, India',
     workModel: 'Hybrid',
-    description: 'Ensures our releases stay fast, secure, and reliable.',
+    description: 'Leads advanced AI experiments and systems thinking that accelerate automation programs.',
     type: 'Human',
-    avatarGradient: 'from-sky-500 via-cyan-400 to-blue-600'
+    avatarGradient: 'from-slate-500 via-indigo-500 to-blue-500'
   },
   ...Array.from({ length: 100 }, (_, index) => {
     const first = employeeFirstNames[index % employeeFirstNames.length];
@@ -601,12 +601,12 @@ const OurTeam = () => {
               {teamMembers
                 .filter((member) => member.segment === "leadership")
                 .map((member) => (
-                  <Card key={member.email} className="overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="aspect-square relative">
+                <Card key={member.email} className="overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="aspect-square relative bg-white/0">
                     <img 
                       src={member.image} 
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <CardContent className="p-6">
@@ -867,12 +867,12 @@ const OurTeam = () => {
               {teamMembers
                 .filter((member) => member.segment === "technical")
                 .map((member) => (
-                  <Card key={member.email} className="overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="aspect-square relative">
+                <Card key={member.email} className="overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="aspect-square relative bg-white/0">
                     <img 
                       src={member.image} 
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <CardContent className="p-6">
