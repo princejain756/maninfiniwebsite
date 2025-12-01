@@ -14,7 +14,7 @@ import { websiteActions, contactInfo } from '@/lib/utils';
 import teamImage from '@/assets/team-collaboration.jpg';
 import princeImage from '@/assets/PrinceJainNew.webp';
 import neeravImage from '@/assets/Neerav Dipak Jain COO.jpg';
-import prateekImage from '@/assets/PrateekSharma.png';
+import prateekImage from '@/assets/Dipak Jain Mentor.jpg';
 import rambhupalImage from '@/assets/Rambhupal M CFO Qualified CA with 25 years of experience.jpg';
 import vishakhaImage from '@/assets/Vishakha Sisodhiya Cybersecurity.jpg';
 // New leadership images (use local when available)
@@ -33,7 +33,7 @@ const About = () => {
 
   const leadership = [
     {
-      name: 'Prateek Sharma',
+      name: 'Dipak Jain',
       role: 'CEO',
       experience: '25+ years',
       background: 'Strategic Business Guidance & Industry Expertise',
@@ -175,7 +175,7 @@ const About = () => {
               </p>
               <p>
                 Our CEO brings 14+ years of experience from leading
-                companies like Likay, where Prateek Sharma served as director for 14 years
+                companies like Xnsio, where Dipak Jain served as director for 14 years
                 and architected scalable solutions for millions of users. This expertise now powers our client solutions.
               </p>
               <p>

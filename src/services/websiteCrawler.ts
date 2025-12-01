@@ -135,7 +135,7 @@ Maninfini Automation has been transforming businesses with innovative technology
 Our Story:
 Founded in 2008, Maninfini Automation started with a simple mission: to make enterprise-grade automation accessible to businesses of all sizes. What began as a small team of passionate developers has grown into a comprehensive technology partner.
 
-Our CEO brings 16+ years of experience from leading companies like Likay, where Prateek Sharma served as director for 14 years and architected scalable solutions for millions of users. This expertise now powers our client solutions.
+Our CEO brings 16+ years of experience from leading companies like Xnsio, where Dipak Jain served as director for 14 years and architected scalable solutions for millions of users. This expertise now powers our client solutions.
 
 Company Statistics:
 - Founded: 2008 (16+ years of experience)

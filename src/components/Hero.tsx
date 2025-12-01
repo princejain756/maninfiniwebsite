@@ -14,7 +14,7 @@ const Hero = () => {
   const trustIndicators = [
     'Trusted by 200+ Businesses',
     'ISO/IEC 27001 Compliant',
-    'Ex-Likay Director',
+    'Ex-Xnsio Director',
     'Agile Development Process'
   ];
 

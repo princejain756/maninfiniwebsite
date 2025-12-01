@@ -51,7 +51,7 @@ const teamMembers: TeamMember[] = [
     segment: "leadership"
   },
   {
-    name: "Prateek Sharma",
+    name: "Dipak Jain",
     role: "Mentor",
     image: "/PrateekSharma.png",
     bio: "Strategic Business Guidance & Industry Expertise.",
@@ -141,7 +141,7 @@ const teamMembers: TeamMember[] = [
     segment: "technical"
   },
   {
-    name: "Prateek Sharma",
+    name: "Dipak Jain",
     role: "Product Experience Lead",
     image: PrateekSharmaImage,
     bio: "Crafts immersive product experiences blending UX craft with intelligent insights.",
