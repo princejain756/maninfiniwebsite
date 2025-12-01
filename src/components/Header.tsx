@@ -39,6 +39,8 @@ const Header = () => {
     { label: 'Quantiti (AI/Quant)', href: '/services/quantiti', Icon: Brain, desc: 'AI, HFT, risk' },
   ];
 
+  const shopUrl = "https://shop.maninfini.com";
+
   const topLevelNav = [
     { label: 'Home', href: '/', section: 'home' },
     { label: 'Products', href: '/', section: 'products' },
@@ -53,6 +55,10 @@ const Header = () => {
   const isHomeRoute = location.pathname === '/';
   const isCareersRoute = location.pathname === '/careers';
   const isDarkBackgroundRoute = isDarkRoute || isHomeRoute || isCareersRoute;
+
+  const redirectToShop = () => {
+    window.location.href = shopUrl;
+  };
 
   const handleNavigation = (href: string, section?: string, external?: boolean) => {
     // Close mobile menu
@@ -228,16 +234,16 @@ const Header = () => {
                 {/* Shop */}
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
-                    <button
-                      onClick={() => handleNavigation('/shop')}
-                      className={`group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors duration-300 ${isScrolled 
-                        ? 'hover:bg-accent hover:text-accent-foreground' 
-                        : isDarkBackgroundRoute 
-                          ? 'text-white hover:text-gray-200 hover:bg-white/10' 
-                          : 'text-foreground hover:text-foreground/80 hover:bg-white/10'}`}
-                    >
-                      Shop
-                    </button>
+                <button
+                  onClick={redirectToShop}
+                  className={`group inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors duration-300 ${isScrolled 
+                    ? 'hover:bg-accent hover:text-accent-foreground' 
+                    : isDarkBackgroundRoute 
+                      ? 'text-white hover:text-gray-200 hover:bg-white/10' 
+                      : 'text-foreground hover:text-foreground/80 hover:bg-white/10'}`}
+                >
+                  Shop
+                </button>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
@@ -318,12 +324,17 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 py-6 border-t border-border animate-fade-in-up bg-background/95 backdrop-blur-md rounded-lg">
             <div className="flex flex-col space-y-4">
-              {[{ label: 'Home', href: '/', section: 'home' }, { label: 'Services', href: '/', section: 'services' }, { label: 'Products', href: '/', section: 'products' }, { label: 'Shop', href: '/shop' }, { label: 'About', href: '/', section: 'about' }, { label: 'Contact', href: '/', section: 'contact' }, { label: 'Careers', href: '/careers' }, { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true }].map((item) => (
+              {[{ label: 'Home', href: '/', section: 'home' }, { label: 'Services', href: '/', section: 'services' }, { label: 'Products', href: '/', section: 'products' }, { label: 'Shop', href: shopUrl, shopRedirect: true }, { label: 'About', href: '/', section: 'about' }, { label: 'Contact', href: '/', section: 'contact' }, { label: 'Careers', href: '/careers' }, { label: 'Quant Algorithms', href: 'https://quantiti.in', external: true }].map((item) => (
                 <button
                   key={item.label}
                   onClick={() => {
                     if (item.label === 'Careers') {
                       try { (window as any).gtag?.('event', 'hiring_cta_click', { location: 'mobile_menu', event_category: 'engagement' }); } catch {}
+                    }
+                    if (item.shopRedirect) {
+                      setIsMenuOpen(false);
+                      redirectToShop();
+                      return;
                     }
                     handleNavigation(item.href, item.section, item.external)
                   }}
