@@ -49,6 +49,14 @@ const About = () => {
       linkedin: 'https://www.linkedin.com/in/prince-jain-267519194/'
     },
     {
+      name: 'Anshumali Jain',
+      role: 'Deep Tech Expert',
+      experience: '10+ years',
+      background: 'Enterprise AI research and systems thinking for complex automation challenges',
+      image: anshumaliImage,
+      linkedin: 'https://www.linkedin.com/in/anshumalijain?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
+    },
+    {
       name: 'Neerav Dipak Jain',
       role: 'COO',
       experience: '3+ years',
@@ -88,14 +96,6 @@ const About = () => {
       background: 'Enterprise digital transformation initiatives and intelligent automation at scale',
       image: rohanImage,
       linkedin: null
-    },
-    {
-      name: 'Anshumali Jain',
-      role: 'Deep Tech Expert',
-      experience: '10+ years',
-      background: 'Enterprise AI research and systems thinking for complex automation challenges',
-      image: anshumaliImage,
-      linkedin: 'https://www.linkedin.com/in/anshumalijain?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
     }
   ];
 

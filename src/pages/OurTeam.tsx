@@ -61,6 +61,16 @@ const teamMembers: TeamMember[] = [
     segment: "leadership"
   },
   {
+    name: "Anshumali Jain",
+    role: "Deep Tech Expert",
+    image: AnshumaliJainImage,
+    bio: "Brings advanced AI research and systems thinking to solve complex automation challenges.",
+    expertise: ["Enterprise AI Research", "Technical Strategy", "System Architecture"],
+    linkedin: "https://www.linkedin.com/in/anshumalijain?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    email: "anshumali@maninfini.com",
+    segment: "leadership"
+  },
+  {
     name: "Neerav Dipak Jain",
     role: "COO",
     image: "/Neerav Dipak Jain COO.jpg",
@@ -118,16 +128,6 @@ const teamMembers: TeamMember[] = [
     expertise: ["DevOps", "Cloud Infrastructure", "CI/CD"],
     linkedin: "#",
     email: "praveen@maninfini.com",
-    segment: "technical"
-  },
-  {
-    name: "Anshumali Jain",
-    role: "Deep Tech Expert",
-    image: AnshumaliJainImage,
-    bio: "Brings advanced AI research and systems thinking to solve complex automation challenges.",
-    expertise: ["Enterprise AI Research", "Technical Strategy", "System Architecture"],
-    linkedin: "https://www.linkedin.com/in/anshumalijain?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-    email: "anshumali@maninfini.com",
     segment: "technical"
   },
   {
