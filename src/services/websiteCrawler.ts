@@ -112,11 +112,11 @@ Company Information:
 - Founded: 2008
 - Headquarters: Bengaluru, Karnataka, India
 - Contact: +91 96320 61045
-- Email: info@maninfini.com
+- Email: support@maninfini.com
 - Website: https://maninfini.com
 
 Leadership Team:
-- CEO - 14+ years experience
+- Mentor - 14+ years experience
 - Prince Jain (AIO and CTO) - 5+ years experience
 - Neerav Dipak Jain (COO) - 3+ years experience
 - Vishakha Sisodhiya (Cybersecurity & Cloud Expert) - 4+ years experience
@@ -135,7 +135,7 @@ Maninfini Automation has been transforming businesses with innovative technology
 Our Story:
 Founded in 2008, Maninfini Automation started with a simple mission: to make enterprise-grade automation accessible to businesses of all sizes. What began as a small team of passionate developers has grown into a comprehensive technology partner.
 
-Our CEO brings 16+ years of experience from leading companies like Xnsio, where Dipak Jain served as director for 14 years and architected scalable solutions for millions of users. This expertise now powers our client solutions.
+Our Mentor brings 16+ years of experience from leading companies like Xnsio, where Dipak Jain served as director for 14 years and architected scalable solutions for millions of users. This expertise now powers our client solutions.
 
 Company Statistics:
 - Founded: 2008 (16+ years of experience)
@@ -330,7 +330,7 @@ Get in touch with our team for all your digital transformation needs. We're here
 
 Contact Information:
 - Phone: +91 96320 61045
-- Email: info@maninfini.com
+- Email: support@maninfini.com
 - Website: https://maninfini.com
 
 Business Address:
@@ -347,7 +347,7 @@ Sunday: Closed (Emergency support available)
 How to Reach Us:
 1. WhatsApp: +91 96320 61045 (Fastest response)
 2. Phone Call: +91 96320 61045
-3. Email: info@maninfini.com
+3. Email: support@maninfini.com
 4. Website Contact Form: https://maninfini.com/contact
 
 What to Expect:
@@ -470,7 +470,7 @@ Pricing:
 - Custom Web Application: Starting from ₹1,00,000
 - Enterprise Solutions: Custom pricing based on requirements
 
-Get a free consultation and project quote by contacting us at +91 96320 61045 or info@maninfini.com
+Get a free consultation and project quote by contacting us at +91 96320 61045 or support@maninfini.com
     `;
   }
 
@@ -576,7 +576,7 @@ Pricing Models:
 - Managed Services: Ongoing automation management
 - Licensing: For automation tools and platforms
 
-Get started with a free automation assessment. Contact us at +91 96320 61045 or info@maninfini.com to discuss your automation needs.
+Get started with a free automation assessment. Contact us at +91 96320 61045 or support@maninfini.com to discuss your automation needs.
     `;
   }
 
@@ -692,7 +692,7 @@ Why Choose Our Design Services:
 
 Portfolio includes work for various clients across different industries. View our design portfolio at https://maninfini.com/portfolio
 
-Get a free design consultation and quote by contacting us at +91 96320 61045 or info@maninfini.com
+Get a free design consultation and quote by contacting us at +91 96320 61045 or support@maninfini.com
     `;
   }
 
@@ -829,7 +829,7 @@ Success Stories:
 - 85% customer satisfaction improvement
 - 200% increase in lead generation
 
-Get started with WhatsApp Business integration. Contact us at +91 96320 61045 or info@maninfini.com for a free consultation and custom quote.
+Get started with WhatsApp Business integration. Contact us at +91 96320 61045 or support@maninfini.com for a free consultation and custom quote.
     `;
   }
 
@@ -997,7 +997,7 @@ Why Choose Our Virtual Office Services:
 - Excellent customer support
 - Proven track record
 
-Get started with our virtual office solutions. Contact us at +91 96320 61045 or info@maninfini.com for a free consultation and service details.
+Get started with our virtual office solutions. Contact us at +91 96320 61045 or support@maninfini.com for a free consultation and service details.
     `;
   }
 
@@ -1207,7 +1207,7 @@ Success Stories:
 - 50+ dedicated teams currently active
 - Client satisfaction rating: 4.8/5
 
-Get started with offshore development. Contact us at +91 96320 61045 or info@maninfini.com for a free consultation and team assessment.
+Get started with offshore development. Contact us at +91 96320 61045 or support@maninfini.com for a free consultation and team assessment.
     `;
   }
 
@@ -1429,7 +1429,7 @@ Integration Capabilities:
 - Inventory management
 - Delivery tracking systems
 
-Get started with Quantiti for your school. Contact us at +91 96320 61045 or info@maninfini.com for a free demo and consultation.
+Get started with Quantiti for your school. Contact us at +91 96320 61045 or support@maninfini.com for a free demo and consultation.
     `;
   }
 
@@ -1648,7 +1648,7 @@ ROI and Benefits:
 - Manual work reduction: 60%
 - Accuracy improvement: 95%
 
-Get started with our e-commerce inventory management system. Contact us at +91 96320 61045 or info@maninfini.com for a free demo and consultation.
+Get started with our e-commerce inventory management system. Contact us at +91 96320 61045 or support@maninfini.com for a free demo and consultation.
     `;
   }
 
@@ -1666,7 +1666,7 @@ We are a leading automation and technology company providing:
 - Virtual Office Solutions
 - Offshore Development Teams
 
-Contact us at +91 96320 61045 or info@maninfini.com for all your automation needs.
+Contact us at +91 96320 61045 or support@maninfini.com for all your automation needs.
     `;
 
     this.crawledContent.set('/', {

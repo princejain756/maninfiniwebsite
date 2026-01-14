@@ -214,7 +214,7 @@ const TermsOfService = () => {
                   <p className="text-gray-700 mb-2"><strong>Maninfini</strong></p>
                   <p className="text-gray-700 mb-2">#20, Ground Floor, 12th Cross Cubbonpet</p>
                   <p className="text-gray-700 mb-2">Banappa Park Road, Bengaluru - 560002, India</p>
-                  <p className="text-gray-700 mb-2">Email: legal@maninfini.com</p>
+                  <p className="text-gray-700 mb-2">Email: dipak@maninfini.com</p>
                                      <p className="text-gray-700">Phone: +91 96320 61045</p>
                 </div>
               </section>

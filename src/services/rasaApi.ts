@@ -136,7 +136,7 @@ class RasaApiService {
     if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('get in touch')) {
       return [{
         recipient_id: 'user',
-        text: "You can reach us through multiple channels:\n\n📧 Email: info@maninfini.com\n📞 Phone: +91-XXXXXXXXXX\n💬 WhatsApp: +91-XXXXXXXXXX\n🌐 Website: www.maninfini.com\n\nWe typically respond within 2-4 hours during business days.",
+        text: "You can reach us through multiple channels:\n\n📧 Email: support@maninfini.com\n📞 Phone: +91-XXXXXXXXXX\n💬 WhatsApp: +91-XXXXXXXXXX\n🌐 Website: www.maninfini.com\n\nWe typically respond within 2-4 hours during business days.",
       }];
     }
     

@@ -28,7 +28,7 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
   description = "Leading provider of digital transformation and business automation services since 2008",
   url = "https://maninfini.com",
   telephone = "+91-XXXXXXXXXX",
-  email = "info@maninfini.com",
+  email = "support@maninfini.com",
   address = {
     streetAddress: "Your Street Address",
     addressLocality: "Your City",

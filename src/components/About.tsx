@@ -34,7 +34,7 @@ const About = () => {
   const leadership = [
     {
       name: 'Dipak Jain',
-      role: 'CEO',
+      role: 'Mentor',
       experience: '25+ years',
       background: 'Strategic Business Guidance & Industry Expertise',
       image: prateekImage,
@@ -174,7 +174,7 @@ const About = () => {
                 comprehensive technology partner.
               </p>
               <p>
-                Our CEO brings 14+ years of experience from leading
+                Our Mentor brings 14+ years of experience from leading
                 companies like Xnsio, where Dipak Jain served as director for 14 years
                 and architected scalable solutions for millions of users. This expertise now powers our client solutions.
               </p>

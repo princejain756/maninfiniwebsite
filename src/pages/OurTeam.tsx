@@ -57,7 +57,7 @@ const teamMembers: TeamMember[] = [
     bio: "Strategic Business Guidance & Industry Expertise.",
     expertise: ["Strategic Guidance", "Industry Expertise", "Leadership"],
     linkedin: "#",
-    email: "prateek@maninfini.com",
+    email: "dipak@maninfini.com",
     segment: "leadership"
   },
   {
@@ -67,7 +67,7 @@ const teamMembers: TeamMember[] = [
     bio: "Brings advanced AI research and systems thinking to solve complex automation challenges.",
     expertise: ["Enterprise AI Research", "Technical Strategy", "System Architecture"],
     linkedin: "https://www.linkedin.com/in/anshumalijain?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-    email: "anshumali@maninfini.com",
+    email: "support@maninfini.com",
     segment: "leadership"
   },
   {
@@ -77,7 +77,7 @@ const teamMembers: TeamMember[] = [
     bio: "Operations expert ensuring smooth execution and client satisfaction.",
     expertise: ["Operations", "Client Relations", "Process Optimization"],
     linkedin: "#",
-    email: "neerav@maninfini.com",
+    email: "support@maninfini.com",
     segment: "leadership"
   },
   {
@@ -87,7 +87,7 @@ const teamMembers: TeamMember[] = [
     bio: "Financial strategist with 25+ years of experience in financial management.",
     expertise: ["Financial Strategy", "Risk Management", "Compliance"],
     linkedin: "#",
-    email: "rambhupal@maninfini.com",
+    email: "support@maninfini.com",
     segment: "leadership"
   },
   {
@@ -97,7 +97,7 @@ const teamMembers: TeamMember[] = [
     bio: "Security leader orchestrating cyber resilience across global programs.",
     expertise: ["Cybersecurity", "Cloud Security", "Risk"],
     linkedin: "#",
-    email: "vishakha@maninfini.com",
+    email: "support@maninfini.com",
     segment: "leadership"
   },
   {
@@ -107,7 +107,7 @@ const teamMembers: TeamMember[] = [
     bio: "Designs human-led journeys that merge service design with intelligent automation.",
     expertise: ["Experience Design", "Service Design", "Customer Insight"],
     linkedin: null,
-    email: "aanya@maninfini.com",
+    email: "support@maninfini.com",
     segment: "leadership"
   },
   {
@@ -117,7 +117,7 @@ const teamMembers: TeamMember[] = [
     bio: "Leads enterprise digital transformation initiatives and activates intelligent automation across industries.",
     expertise: ["Digital Strategy", "Transformation", "Innovation"],
     linkedin: null,
-    email: "rohan@maninfini.com",
+    email: "support@maninfini.com",
     segment: "leadership"
   },
   {
@@ -127,7 +127,7 @@ const teamMembers: TeamMember[] = [
     bio: "DevOps strategist building resilient cloud pipelines and observability frameworks.",
     expertise: ["DevOps", "Cloud Infrastructure", "CI/CD"],
     linkedin: "#",
-    email: "praveen@maninfini.com",
+    email: "support@maninfini.com",
     segment: "technical"
   },
   {
@@ -137,7 +137,7 @@ const teamMembers: TeamMember[] = [
     bio: "Activates data-led GTM motions that amplify customer acquisition and retention.",
     expertise: ["Growth Marketing", "Revenue Ops", "Brand Strategy"],
     linkedin: "#",
-    email: "nikith@maninfini.com",
+    email: "support@maninfini.com",
     segment: "technical"
   },
   {
@@ -147,7 +147,7 @@ const teamMembers: TeamMember[] = [
     bio: "Crafts immersive product experiences blending UX craft with intelligent insights.",
     expertise: ["Product Design", "Design Systems", "Prototyping"],
     linkedin: "#",
-    email: "prateek@maninfini.com",
+    email: "support@maninfini.com",
     segment: "technical"
   }
 ];

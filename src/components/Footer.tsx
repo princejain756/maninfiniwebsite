@@ -130,8 +130,8 @@ const Footer = () => {
               <div className="flex items-center gap-2 sm:gap-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 <div className="text-gray-700 text-sm sm:text-base">
-                  <div className="text-gray-700">info@maninfini.com</div>
                   <div className="text-gray-700">support@maninfini.com</div>
+                  
                 </div>
               </div>
               <div className="flex items-start gap-2 sm:gap-3">

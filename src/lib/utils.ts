@@ -125,7 +125,7 @@ export const contactInfo = {
   salesPhone: '+91 96320 61045',
   email: 'support@maninfini.com',
   displayEmail: 'support@maninfini.com',
-  supportEmail: 'prince@maninfini.com',
+  supportEmail: 'support@maninfini.com',
   address: '#20, Ground Floor, 12th Cross, Cubbonpet, Banappa Park Road, Bengaluru - 560002',
   coordinates: { lat: 12.9686, lng: 77.5822 }
 };
